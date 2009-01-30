@@ -1,0 +1,535 @@
+Zilina
+Bratislava
+Banovce nad Bebravou
+Dezerice
+Dolne Drzkovce
+Horne Motesice
+Radisa
+Rybany
+Slatina nad Bebravou
+Svinna
+Sisov
+Uhrovec
+Velke Chlievany
+Banska Bystrica
+Horna Micina
+Lubietova
+Selce
+Slovenska Lupca
+Radvan nad Hronom
+Stare Hory
+Svaty Ondrej nad Hronom
+Banska Stiavnica
+Batovce
+Dolne Zemberovce
+Dolny Almas
+Piarg
+Prensov
+Pukanec
+Svaty Antol
+Bardiov
+Zborov
+Bardiovska Nova Ves
+Gaboltov
+Hertnik
+Lukov nad Teplou
+Malcov
+Slovenska Reslavica
+Uherska Reslavica
+Smilno
+Svercov
+Ceklis
+Most nad Grutiou
+Devinska Nova Ves
+Racistorf
+Stupava
+Hochetetno
+Svaty Jur
+Ivanka pri Dunaji
+Biskupice pri Dunaji
+Prievoz
+Brezno nad Hronom
+Sumiac
+Pohorela
+Helpa
+Valaska
+Hronec
+Nemecka
+Polhore
+Cierny Balog
+Lom nad Hronom
+Myto pod Dumbierom
+Telgart
+Lopej
+Nemcar
+Cadca
+Makov
+Oscadnica
+Rakova
+Skalite
+Staskov
+Turzovka
+Visoka nad Kisucou
+Zakopcie
+Dobsina
+Slavosovce
+Gocovo
+Stitnik
+Rostar
+Rejdova
+Dolny Kubin
+Parnica
+Visny Kubin
+Velicna
+Oravsky Podzamok
+Medzibrodie nad Oravou
+Zazriva
+Dlha nad Oravou
+Gelnica
+Smolnik
+Kosicka Bela
+Jaklovce
+Kluknava
+Nizny Medzev
+Svedlar
+Mnisek nad Hnilcom
+Giraltovce
+Marhan
+Okruhle
+Hanusovce nad Toplou
+Kurima
+Chmelov
+Hlohovec
+Dvorniky
+Mestecko
+Versvar
+Trakovice
+Risnovce
+Hornie Otrokovce
+Maly Bab
+Humenne
+Zavadka
+Papin
+Koskovce
+Ohradzany
+Snina
+Kamenica nad Cirom
+Udavske
+Pcoline
+Kysucke Nove Mesto
+Ochodnica
+Meslusa
+Krasno nad Kys.
+Stara Bystrica
+Nova Bystrica
+Lovinobana
+Poltar
+Kalimovo
+Uhorske
+Cinobana
+Malinec
+Podkrivan
+Tomasovce
+Divin
+Stara Halic
+Kremnica
+Svaty Kriz nad Hronom
+Trnava Hora
+Ladomer
+Jastraba
+Kezmarok
+Velka Lomnica
+Lubica
+Vrbov
+Spisska Bela
+Slovenska Ves
+Busevce
+Holumnica
+Zdiar
+Jurgov
+Ilava
+Koseca
+Belusa
+Dubnica nad Vahom
+Zliechov
+Dolny Lieskov
+Pruzina
+Krupina
+Domadice
+Hontianske Tesary
+Kostolne Moravce
+Bzovik
+Senohrad
+Litava
+Celovce
+Nemce
+Horne Byhymcine
+Levoca
+Spissky Strvtok
+Harhov
+Spisske Pohradie
+Bijacovce
+Torysky
+Liptovsky Svaty Mikulas
+Paludzka
+Lipt. Hradok
+Liptovsky Hradok
+Dovalovo
+Sielnica
+Bobrovec
+Nemecka Lupca
+Okolicne
+Huty
+Hybe
+Lubela
+Pribylina
+Sokolce
+Strba
+Vazec
+Vychodna
+Svaty Peter
+Liptovske Trnovce
+Maluzina
+Malacky
+Borsky Svaty Jur
+Gajary
+Hasprunka
+Kuchyna
+Kiripolec
+Laksarska Nova Ves
+Lozorno
+Moravsky Svaty Jan
+Plavetsky Svaty Mikulas
+Plavecky Stvrtok
+Solosnica
+Uhorska Ves
+Velke Levare
+Zavod
+Medzilaborce
+Habure
+Havaj
+Vyrava
+Visnia Radvan
+Niznia Olka
+Krasny Brod
+Michalovce
+Malcice
+Budkovce
+Palin
+Vysnie Revistia
+Pavlovce nad Uhom
+Rakovec nad Ondavou
+Stare
+/T
+Krivostany
+Zbudza
+Vinna
+Strazske
+Pozdisovce
+Vrbovec
+Ubrez
+Male Zaluzice
+Lucky
+Velke Zaluzice
+Hazin
+Banovce nad Ondavou
+Jovsa
+Modra
+Casta
+Pudmerice
+Bahoni
+Pezinok
+Velke Senkvice
+Nemecky Grob
+Modry Kamen
+Dolne Strhary
+Senne
+Sklabina
+Dolna Strehova
+Dolne Plachtince
+Turie Pole
+Myjava
+Brezova nad Bradlom
+Tura Luka
+Kostolne
+Krajne
+Namestovo
+Zakamene
+Vesele
+Rabca
+Lokca
+Erdulka
+Krusetnica
+Hrustin
+Slanica
+Nova Bana
+Zarnovica
+Rybnik
+Cajkov
+Svaty Benedik
+Velke Pole
+Hrabico
+Hlinik nad Hr.
+Hvozdnica
+Stary Tekov
+Vyhne
+Nove Mesto nad Vahom
+Beckov
+Cachtice
+Hradok
+Lubina
+Moravske Lieskove
+Pobedim
+Podolie
+Stara Tura
+Svaty Kriz nad Vahom
+Piestany
+Chtelnica
+Drahovce
+Banka
+Krakovany
+Velke Kostolany
+/Vrbove
+Poprad
+Spisska Sobota
+Batizovce
+Velka
+Kubachy
+Lucivna
+Hranovnica
+Straza
+Povazska Bystrica
+Domaniza
+Marikova
+Velka Udica
+Presov
+Bogdanovce
+Klembarok
+Kysak
+Kapusany
+Meretica
+Kostolany nad Hor.
+Lemesany
+Velky Saris
+Sarisske Luky
+Svinia
+Siroke
+Rozhanovce
+Tubrina
+Solivar
+Tulcik
+Kec. Peklany
+Prievidza
+Bojnice
+Novaky
+Nedozery
+Nitrianske Rudno
+Oslany
+Racice
+Diviaky nad Nitricou
+Bystricany
+Velka Causa
+Handlova
+Puchov
+Bolesov
+Luky
+Cerveny Kamen
+Lednicke Rovne
+Lednica
+Dohnany
+Zariecie
+Pruske
+Lazy pod Makytou
+Revuca
+Muran
+Lubenik
+Kamenany
+Sirk
+Ratkova
+Ruzomberok
+Liptovske Revuce
+Liptovska Luzna
+Likavka
+Liptovska Tepla
+Liptovska Stiavnica
+Liptovska Osada
+Liskova
+Gombas
+Sabinov
+Sarisske Dravce
+Circ
+Plavec nad Popradom
+Bertotovce
+Michalany nad Torysou
+Terna
+Pecovska Nova Ves
+Lipiany
+Brezovica nad Tor.
+Senica nad Myjavou
+Dojc
+Jablonica
+Cerova - Lieskove
+Cacov
+Straze nad Myjavou
+Sastin
+Sabotiste
+Vrbovce
+Borsky Svaty Mikulas
+Sotina
+Hlboke
+Skalica
+Kopcany
+Kuty
+Petrova Ves
+Radosovce
+Brodske
+Gbely
+Unin
+Holic
+Vradiste
+Spisska Nova Ves
+Markusovce
+Koterbachy
+Spisske Vlachy
+Hrabusice
+Letanovce
+Spissky Hrusov
+Krompachy
+Spissky Vlachoch
+Stara Lubovna
+Podolinec
+Mnisek nad Popradom
+Maly Lipnik
+Gnazda
+Plavnica
+Stropkov
+Krajna Polana
+Breznicka
+Nizna Olsava
+Visny Svidnik
+Kapisov
+Iadomirova
+Hrabovcik
+Vysny Orlik
+Kosarovce
+Krajna Porubka
+Trebisov
+Secovce
+Herlany
+Parchoviany
+Kuzmice
+Bidovce
+Slanec
+Vojcice
+Velaty
+Trencin
+Trencianske Teplice
+Nemsova
+Istebnik
+Drietoma
+Melcice
+Bosaca
+Sedlicna
+Trencanska Tepla
+Topolcany
+Tovarniky
+Velke Bielice
+Simonovany
+Bojna
+Klatova Nova Ves
+Bosany
+Horne Obdiekovce
+Chynorany
+Velke Uherce
+Prasice
+Preselany
+Zabokreky nad Nitrou
+Kovarce
+Ludanice
+Krusovce
+Trnava
+Sered
+Sintava
+Smolenice
+Spacince
+Velke Surovce
+Voderady
+Zavar
+Abraham
+Bohunice
+Boleraz
+Cifer
+Dehtice
+Dolna Krupa
+Dolna Streda nad Vahom
+Horne Oresany
+Majcichov
+Krestar
+Modranka
+Nadas
+Pusty Fedymes
+Rozindol
+Trstena
+Vysna Zubrica
+Jablonka
+Niznia nad Oravou
+ /T
+Podbiel
+Ustie nad Oravou
+Pobelnik
+Podvlk
+Nizna Lipnica
+Tvrdosin
+Liesek
+Turciansky Svaty Martin
+Turany
+Sucany
+Vrutky
+Priekopa
+Horne Jaseno
+Kostany nad Turcom
+Necpaly
+Maly Cepcin
+Mosovce
+Slovenske Pravno
+Stubove Teplice
+Pribovce
+Klastor pod Znievom
+Velka Bytca
+Stavnik
+Dolny Hricov
+Velke Rovne
+Zemanska Kotesova
+Kolarovice
+Predmier
+Zlate Moravce
+Kozarovce
+Gymes
+Hostovce
+Cierne Klucany
+Nova Ves nad Zitavou
+Male Vozokany
+Tesary nad Zitavou
+Topolcianky
+Dolnie Slazany
+Obyce
+Neverice
+Zvolen
+Detva
+Dobra Niva
+Hajniky
+Ocova
+Pliesovce
+Sasa
+Zvolenska Slatina
+Budce
+Rajec
+Budatin
+Lietavska Lutca
+Varin
+Rosina
+Terchova
+Rajecke Teplice
+Cicmany
+Vyhne Labor Camp
+Ustredna Zidov
