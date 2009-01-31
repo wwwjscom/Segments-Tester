@@ -97,6 +97,22 @@ class String
 		self[i_b] = swap_a
 		return self
 	end
+
+	def swapAdjChar
+		len = self.length
+		
+		i_a = rand(len - 1)
+		while i_a >= len or i_a < 0 do i_a = rand(len - 1) end
+
+		i_b = i_a + 1
+
+		swap_a = self[i_a].chr
+		swap_b = self[i_b].chr
+
+		self[i_a] = swap_b
+		self[i_b] = swap_a
+		return self
+	end
 end
 
 
@@ -118,7 +134,8 @@ end
 queries.uniq!
 queries.shuffle!
 
-MULTIPLIER = 8
+#MULTIPLIER = 8.92 # runs for 1000 results
+#MULTIPLIER = 0.1 # runs for 1000 results
 TOTAL = queries.length
 TEN_PERCENT = (TOTAL * 0.1).to_i
 j = 0
@@ -126,7 +143,7 @@ j = 0
 ngram_results = Array.new
 our_results = Array.new
 
-for i in (0..(TEN_PERCENT*MULTIPLIER))
+for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
 
 	orig_query = queries[i].to_s
 	query = String.new(orig_query)
@@ -134,10 +151,11 @@ for i in (0..(TEN_PERCENT*MULTIPLIER))
 	#query = query.dropChar
 	#query = query.dropChars
 	#query = query.addChar
-	query = query.addChars
+	#query = query.addChars
 	#query = query.replaceChar
 	#query = query.replaceChars
 	#query = query.swapChar
+	query = query.swapAdjChar
 
 	if query.length <= 3
 		puts "Skipping...Query too short: #{query}"
@@ -163,6 +181,10 @@ for i in (0..(TEN_PERCENT*MULTIPLIER))
 	#######################################
 	
 	# reset vars
+	our_result_hash = Hash.new
+	result_hash = Hash.new
+	use_ngrams = false
+	our_probability = 0
 	total_votes = 0
 	rank = 1
 	found = 0
@@ -194,8 +216,26 @@ for i in (0..(TEN_PERCENT*MULTIPLIER))
 	ranking =  "#{match_rank}/#{rank}"
 	probability = (match_votes.to_f/total_votes.to_f)*100
 
-	result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
-	our_results.push(result_hash)
+	#puts "Probability: #{probability} Query: #{query}" # DEBUG
+
+	#if probability.to_s == "NaN" then puts "-"*200 end # DEBUG
+	
+	# Disreguard any finds whos rank is > 40
+	if match_rank > 40 then found = 0 end
+
+	# Make the match_rank - if it wasnt found or was too high
+	if match_rank > 40 or found == 0 then match_rank = '-' end
+
+	if probability.to_f <= 20 or probability.to_s == "NaN" then
+		#puts "Very low probability: #{probability}" # DEBUG
+		use_ngrams = true
+		our_probability = probability.to_f
+		our_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+	else
+		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+		our_results.push(result_hash)
+	end
+
 
 
 
@@ -238,10 +278,28 @@ for i in (0..(TEN_PERCENT*MULTIPLIER))
 	ranking =  "#{match_rank}/#{rank}"
 	probability = (match_votes.to_f/total_votes.to_f)*100
 
+
+	# Disreguard any finds whos rank is > 40
+	if match_rank > 40 then found = 0 end
+
+	# Make the match_rank - if it wasnt found or was too high
+	if match_rank > 40 or found == 0 then match_rank = '-' end
+
 	result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 	ngram_results.push(result_hash)
 
-	puts "#{(TEN_PERCENT*MULTIPLIER) - i} runs left"
+
+	if (use_ngrams == true and probability.to_f > our_probability.to_f) or our_probability.to_s == "NaN" then
+		#puts "Our new probability is #{probability}" # DEBUG
+		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+		our_results.push(result_hash)
+	#elsif use_ngrams == true and probability.to_f <= our_probability.to_f then
+	elsif use_ngrams == true then
+		#puts "ngram probability is #{probability}, sticking with ours of #{our_probability}" # DEBUG
+		our_results.push(our_result_hash)
+	end
+
+	puts "#{(TEN_PERCENT*MULTIPLIER).to_i - i} runs left"
 
 	#if i >= 2
 	#	break
@@ -250,7 +308,7 @@ for i in (0..(TEN_PERCENT*MULTIPLIER))
 	
 end
 
-puts "Ran #{j + 1} times.\n\n"
+puts "Ran #{j} times.\n\n"
 
 combined = Array.new
 
@@ -329,6 +387,39 @@ ngram_results.each do |run|
 
 end
 
+i += 1
+
+combined_csv.puts ",,=SUM(C2:C#{i}),=SUM(D2:D#{i}),=AVERAGE(E2:E#{i}),=AVERAGE(F2:F#{i}),=AVERAGE(G2:G#{i}),=AVERAGE(H2:H#{i}),=AVERAGE(I2:I#{i}),=AVERAGE(J2:J#{i})"
+
 combined_csv.close
 
 
+
+
+combined_csv = File.open("#{PATH}/dropped_ngrams_notfound_results.csv", "w")
+
+combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,NGrams Match Rank,Ours Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
+
+
+j=0
+i=0
+ngram_results.each do |run|
+
+	if (run.fetch('Found') == 0) then
+		i += 1
+		next
+	else
+		combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{our_results[i].fetch('Probability')}"
+		i += 1
+		j += 1
+	end
+
+
+end
+
+i += 1
+j += 1
+
+combined_csv.puts ",,=SUM(C2:C#{j}),=SUM(D2:D#{j}),=AVERAGE(E2:E#{j}),=AVERAGE(F2:F#{j}),=AVERAGE(G2:G#{j}),=AVERAGE(H2:H#{j}),=AVERAGE(I2:I#{j}),=AVERAGE(J2:J#{j})"
+
+combined_csv.close
