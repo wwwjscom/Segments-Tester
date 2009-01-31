@@ -1,13 +1,992 @@
 Orig Query,New Query,Found,Match Rank,Rank,Probability
-zemianske lieskove,zemiansek lieskove,1,1,194,6.1617458279846
-slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 6,slovak archives jewish census 1942 townships and communities slovaka rchives reel 3  box 187 file 6,1,1,249,1.59781761496493
-maly slavkov,malys lavkov,1,1,109,5.08474576271187
-dolne zemberovce,dolne zemberovec,1,8,110,2.1978021978022
-uhorske,uohrske,1,2,41,6.5359477124183
-parnica,parniac,1,24,33,2.30769230769231
-ceklis,celkis,0,-,38,0.0
-dolne bzince,odlne bzince,1,1,43,13.4453781512605
-danova,daonva,0,-,1,NaN
-ivanka pri dunaji,ivakna pri dunaji,1,1,111,14.9051490514905
-semetkovce,semetokvce,1,1,139,3.2520325203252
-sucany,suacny,0,-,1,NaN
+staskov,sskov,1,1,83,2.8328611898017
+farkasovce,frkasvce,1,1,123,2.75229357798165
+nova ves,ovaves,1,7,126,2.0253164556962
+medzibrodie nad oravou,medzibodie na oravou,1,9,135,1.95530726256983
+budkovce,udkove,1,1,88,4.36046511627907
+bohunice,bhnice,1,3,89,2.9940119760479
+hricovske pohradie,hricovsk pohadie,1,1,87,10.2564102564103
+lietnice,letnie,1,1,27,8.88888888888889
+male ostratice,male statice,1,1,173,4.14507772020725
+lednica,ldnca,0,-,4,0.0
+slovak archives jewish census 1942 townships and communities slovak archives reel 2  box 184 file 2,slovak archives jewish census 1942 townships and communities slovak archvesreel 2  box 184 file 2,1,1,213,1.65631469979296
+sucha hora,ucha ora,1,1,39,10.5263157894737
+slavosovce,slvsovce,0,-,144,0.308641975308642
+vradiste,vadite,1,16,18,1.61290322580645
+dolna krupa,dlnakrupa,1,1,13,37.037037037037
+sintava,ntava,1,24,35,2.56410256410256
+kiripolec,kripole,1,1,30,16.6666666666667
+markusovce,markuove,1,1,42,9.20245398773006
+maly slavkov,ml slavkov,1,1,122,5.19480519480519
+kolenany,koenay,1,4,7,17.3913043478261
+petrovce,etrovc,1,1,141,2.86225402504472
+tvrdosin,vrdosn,1,1,6,40.5405405405405
+strocin,stocn,0,-,23,0.0
+ustredna zidov,ustrenazidov,1,2,64,3.96039603960396
+krasok,krsk,0,-,10,0.0
+brakov,bkov,1,35,67,1.63934426229508
+turany,turn,1,2,12,15.625
+rapiste,rapis,1,1,15,18.75
+vapenik,vapek,1,1,3,88.8888888888889
+hamborek,hmbork,1,1,18,11.9402985074627
+tubrina,tubia,1,2,12,15.625
+baranc,ranc,1,1,15,15.0943396226415
+gribov,ribv,1,3,5,28.5714285714286
+olesna,oesa,0,-,6,0.0
+gajdos,gajo,1,1,3,80.0
+hotkovce,hotove,1,14,65,1.86046511627907
+stredne plachtince,strede plachtnce,1,1,87,8.83002207505519
+kostolne moravce,kostone morvce,1,15,177,1.06100795755968
+neverice,eerice,1,1,64,6.69642857142857
+zamarovce,zamrvce,1,1,123,1.88235294117647
+niklasov,nklaso,1,2,29,10.0840336134454
+nestich,nstih,1,4,13,10.0
+dolny kamenec,dolny kmnec,1,1,71,6.70391061452514
+velke zaluzice,elke zaluice,1,10,111,1.67014613778706
+velky kolacin,elkykolacin,1,1,77,8.94568690095847
+slovak archives jewish census 1942 townships and communities slovak archives reel 2  box 184 file 1,slovak archives jwish census 942 townships and communities slovak archives reel 2  box 184 file 1,1,1,217,1.65253315938247
+dubovica,duovic,1,4,18,10.126582278481
+pukanec,uknec,1,10,14,2.56410256410256
+uhorna,uona,0,-,1,NaN
+chtelnica,htlnica,0,-,72,0.925925925925926
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 186 file 1,slovak archies  jewish census 1942 townships and communities	sloak archives reel 2  box 186 file 1,1,1,212,1.69525731584258
+dolne srnie,oln srnie,1,1,53,8.62068965517241
+biksard,bksrd,0,-,1,NaN
+velky saris,lky saris,1,1,53,10.8695652173913
+bucany,buca,1,1,6,33.3333333333333
+revucka,reuck,1,1,4,57.1428571428571
+hostovce,hstovc,0,-,151,0.538599640933573
+slovenska lupca,slovnsa lupca,1,11,123,1.71149144254279
+nitrianske rudno,nitriaskerudno,1,1,109,13.1147540983607
+liestany,listay,1,25,41,2.89855072463768
+lubenik,ubeni,1,8,14,7.31707317073171
+zemanska ludrova,zemanska ludrv,1,1,90,7.69230769230769
+dovalovo,dvaovo,1,12,14,2.12765957446809
+domadice,domace,1,17,24,2.40963855421687
+kostolany nad hor.,kostlany nad ho.,1,1,174,4.79511769834351
+castkovce,castkoc,1,1,22,15.6862745098039
+hrabovcik,haovcik,1,1,118,3.48027842227378
+namestovo,nastovo,1,6,61,2.65486725663717
+nizny komarnik,iny komarnik,1,1,97,7.87746170678337
+laskovce,lakvce,1,37,123,0.941176470588235
+lubela,lela,1,9,11,3.33333333333333
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 189 file 3,slovak archives jewish census 142 townshipsand communities slovak archives reel 3  box 189 file 3,1,1,224,1.63511187607573
+mnisek nad hnilcom,mnisek nad nlcom,1,34,121,1.68970814132104
+petrova ves,etrovaves,1,19,160,0.915750915750916
+ruzomberok,rzombrok,1,1,19,10.5263157894737
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 188 file 3,sloak archives jewish census 1942 townships and communities slovak archies reel 3  box 188 file 3,1,1,217,1.65255945183394
+dolnie mladonice,dolnie ladonic,1,1,117,6.73400673400673
+velke ostratice,lke ostratice,1,1,146,6.24113475177305
+krajna polana,krajna pola,1,1,79,10.6888361045131
+starzky nad popradom,starzky d popradom,1,1,107,10.3321033210332
+ratkovo,ratko,1,1,15,18.4615384615385
+smolinske,smolise,1,1,20,16.0
+dubora,duor,0,-,1,NaN
+cierna lehota,iern lehota,1,1,26,14.7368421052632
+tolcemes,olemes,1,3,31,7.01754385964912
+strecna,strcn,1,26,37,3.03030303030303
+tura luka,tur uka,1,12,18,3.7037037037037
+kalnica,klnia,1,12,25,4.59770114942529
+svaty benedik,svty beneik,1,6,34,4.85436893203883
+pusta kert,pustakrt,1,1,35,9.30232558139535
+spisska sobota,isska sobota,1,1,79,10.2880658436214
+tokajik,tojik,1,1,2,100.0
+bosany,bosy,1,1,3,50.0
+jastraba,astrab,1,23,54,1.65289256198347
+cabalovce,abalovc,1,1,203,2.98953662182362
+vydran,vyan,0,-,1,NaN
+machalovce,macalove,1,2,122,3.31491712707182
+nacina ves,nacinave,1,1,50,9.58083832335329
+marsany,arsny,1,4,12,9.75609756097561
+diviaky,iviky,1,5,9,13.3333333333333
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 190 file 1,slovak arhives jwish census 1942 townships and communities slovak archives reel 3  box 190 file 1,1,1,220,1.64452877925364
+mokra luka,okra uka,1,1,30,14.5454545454545
+hoske  ?,hose ?,1,2,5,28.5714285714286
+predmier,predmi,1,7,13,8.33333333333333
+lubina,luba,1,10,14,2.77777777777778
+vojcice,vocie,0,-,11,0.0
+malacky,aacky,1,3,6,21.0526315789474
+jurgov,jurv,1,3,4,14.2857142857143
+velky slivnik,velky slivn,1,1,98,6.71641791044776
+stare hory,sarehory,0,-,60,1.31004366812227
+vrutky,ruky,0,-,3,0.0
+lednicke rovne,lednicerovne,1,17,127,1.38888888888889
+velka hradna,velka hrdn,1,1,93,5.25164113785558
+bela nad cir,bla nd cir,1,1,83,8.84955752212389
+slovak archives -  jewish census 1942 townships and communities reel 4  box 190 file 3 continued,slvak archives -  jewish census 1942 townships and communities reel4  box 190 file 3 continued,1,1,160,1.97628458498024
+castkov,casov,1,32,46,1.86915887850467
+cinobana,cinoaa,1,12,17,3.50877192982456
+ortutov,rtutv,1,1,2,100.0
+stara lehota,stralehota,1,4,56,5.07936507936508
+zbudsky rokytov,zbudsk rokyov,1,1,23,26.1682242990654
+plavecky stvrtok,plaveckytvrtok,1,1,57,19.0839694656489
+dolne zemberovce,dolnezemerovce,0,-,189,0.674536256323777
+cierny balog,ciry balog,1,8,31,4.0
+nizny colgory ???,nizny clgory???,1,1,48,11.2852664576803
+dohnany,dhany,0,-,81,0.3584229390681
+janovce,janoe,1,1,22,10.0
+slovak archives  - jewish census 1942 townships and communities reel 1 box 182 corrected,slovak archives - jewish census 1942 townships and comunities reel 1 box 182 corrected,1,1,210,1.8034265103697
+stara bystrica,tara bystrca,1,14,65,2.07253886010363
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 188 file 2,slovak archives jewish cnsus 1942 townships and communities slovak archives reel 3  box 88 file 2,1,1,210,1.63757810816634
+oscadnica,scadica,1,34,64,1.57894736842105
+oslany,olan,1,8,22,4.54545454545455
+slavkovce,sakovce,1,21,168,1.0919017288444
+smolenice,olenice,1,1,104,5.96658711217184
+hornie srnie,hore srnie,1,1,62,7.94701986754967
+cierne,ciee,1,1,8,25.0
+lieskovec,lieovec,1,1,43,6.282722513089
+nemcar,mcar,1,5,6,11.1111111111111
+iadomirova,iadmirov,1,1,39,14.8148148148148
+cecehov,cehov,1,1,21,14.2857142857143
+sanbron,sabrn,0,-,6,0.0
+chrtany,hrtay,1,1,2,100.0
+strazske,strazs,1,1,42,9.25925925925926
+svaty antol,vay antol,1,1,70,4.90196078431373
+sliepkovce,siepkovc,1,1,161,2.96296296296296
+zatkovce,zatkvc,1,1,4,61.5384615384615
+lovinobana,lovinana,1,1,149,5.66037735849057
+niznia radvan,nizniaradvn,1,1,71,6.4343163538874
+breznica,eznica,1,1,77,4.70588235294118
+slovak archives  - jewish census 1942 townships and communities	reel 2  box 183 file 1,slovak archives  - jewish ensus 1942 townships and communities	reel 2  box 183 fil 1,1,1,198,1.74146014735432
+trencianske teplice,trecianske teplie,1,11,112,1.92616372391653
+potoky,poky,1,4,5,25.0
+certizne,crtine,1,11,22,5.88235294117647
+lastovce,lastvc,1,1,24,9.63855421686747
+spanie pole,spaie pol,1,1,55,8.29875518672199
+raztoky,raztk,1,1,9,20.0
+slovak archives - jewish census 1942 townships and communities reel 3  box 190 file 3,slova archives - jewish census 1942 townships and communities reel3  box 190 file 3,1,1,213,1.61394448030988
+mnisek nad popradom,mnisek ad popraom,1,3,137,2.83505154639175
+maly bab,mlybab,1,1,7,22.7272727272727
+mlynarovce,mlyaovce,1,1,124,1.44230769230769
+topolcany,tolcany,1,12,85,2.0997375328084
+visna olsava,visna lava,1,1,94,4.6189376443418
+slanec,sanc,0,-,13,0.0
+velky sulin,velkyulin,1,1,50,6.64451827242525
+zabokreky nad nitrou,zabokrek nadnitrou,1,1,148,9.75609756097561
+inacovce,nacoce,1,1,10,21.0526315789474
+nemecka poruba,neeca poruba,1,2,37,12.565445026178
+hornie otrokovce,horni otrkovce,0,-,202,0.609291698400609
+prietrz,priet,1,2,19,13.3333333333333
+brunovce,brunov,1,1,54,7.61904761904762
+slanica,slana,1,2,37,6.62251655629139
+stitnik,itnik,1,1,29,13.1578947368421
+lipovec,liove,1,10,29,4.12371134020619
+zilina,zina,1,20,33,2.02020202020202
+tesary nad zitavou,tsary nad ztavou,1,1,83,6.95322376738306
+brdarska,brdara,1,1,9,32.4324324324324
+durova,urva,0,-,1,NaN
+liesek,iesk,1,9,72,3.52112676056338
+klecenov,klecnv,1,1,5,44.4444444444444
+semetkovce,emetkove,1,1,96,5.0125313283208
+dolne drzkovce,dolnedrzkvce,1,17,151,0.964630225080386
+kysucke nove mesto,kysucke novemsto,1,1,141,3.72881355932203
+dolne strhary,dolne strar,1,1,90,6.57894736842105
+uhorska ves,horskaves,1,24,145,1.11856823266219
+rybary,rybr,1,2,4,40.0
+racice,racc,1,4,6,7.14285714285714
+dobova,dova,1,31,120,1.46520146520147
+chotca,chta,0,-,5,0.0
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 6,slovak archives  jewish census 1942 townshis and communities	slovak archives reel 2  box 185file 6,1,1,212,1.6532428995337
+kezmarok,kemark,1,3,18,8.21917808219178
+porubka,oruka,1,8,11,11.4285714285714
+zariecie,ariece,1,15,22,4.16666666666667
+sabotiste,sabotie,1,1,71,15.625
+pruske,ruke,0,-,1,NaN
+hardiste,hadite,0,-,15,0.0
+batovce,tovce,0,-,142,0.331858407079646
+sklabina,klabia,1,1,19,20.8333333333333
+lubica,lbca,0,-,2,0.0
+slovak archives - jewish census 1942 townships and communities reel 4  box 191 file 5,slovak archives - jewsh census 142 townships and communities reel 4  box 191 file 5,1,1,212,1.67474658439841
+belovez,bevez,1,2,3,44.4444444444444
+valasovce,valaovc,1,1,125,2.71493212669683
+balpotok,balotk,1,7,16,7.01754385964912
+nitrianska streda,nitiansa streda,1,1,135,6.10169491525424
+zbudza,zudz,1,1,3,50.0
+nova bystrica,novabystrca,1,40,182,0.763358778625954
+medvedzie,mevdzie,1,1,5,42.1052631578947
+ustie nad oravou,ustie nad orav,1,32,168,1.33185349611543
+hornia ves,horia es,1,3,50,4.46927374301676
+piestany,piesay,1,13,76,3.2
+koskovce,kosovc,1,4,152,1.59235668789809
+melcice,elcie,1,1,17,18.5185185185185
+falkusovce,falsovce,1,1,144,1.63934426229508
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 4,slovak archive  jewish cnsus 1942 townships and communities	slovak archives reel 2  box 185 file 4,1,1,209,1.6849199663016
+bolesov,blsov,1,34,42,0.675675675675676
+pohorela,porela,1,16,21,4.22535211267606
+borsky svaty mikulas,orsky vaty mikulas,1,1,69,13.8613861386139
+erdulka,erula,0,-,4,0.0
+dolny hricov,dolny hrco,1,21,67,1.76470588235294
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 183 file 2,slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  ox 183file 2,1,1,212,1.65149269532077
+bogdanovce,ogdanoce,1,1,24,20.2020202020202
+liptovsky hradok,litovsky hradk,1,1,111,7.45033112582782
+klacany,klcay,0,-,5,0.0
+luborec,ubore,1,1,29,10.2564102564103
+fekisovce,eisovce,1,1,147,1.60320641282565
+kochanovce,kochanvc,1,1,25,17.7777777777778
+remeniny,rmniny,1,1,13,20.0
+roztoky,rtoky,1,3,12,13.3333333333333
+trhoviste,trhovis,1,1,47,10.3092783505155
+velicna,elicn,1,8,16,6.25
+chynorany,chnoany,0,-,76,0.3690036900369
+necpaly,necpa,1,1,12,34.0909090909091
+podvlk,povk,0,-,8,0.0
+nizny svidnik,nizny vidni,1,1,53,8.09248554913295
+simonovany,smoovany,0,-,190,0.528169014084507
+kluknava,uknava,1,14,31,3.57142857142857
+hradisko,hradio,1,2,41,5.8252427184466
+velke senkvice,elke snkvice,1,11,116,1.57170923379175
+ploske,pose,0,-,2,0.0
+kec. peklany,kec. pekln,1,1,7,33.3333333333333
+svaty peter,svty eter,1,14,25,3.65853658536585
+petrikovce,petrikoe,1,1,25,16.9491525423729
+male hydnice,male hydie,1,1,88,10.5263157894737
+baldovce,baldoe,1,1,6,48.0
+giglovce,igloce,1,1,4,50.0
+slovenska reslavica,sovenka reslavica,1,1,246,7.00934579439252
+visnia jedlova,visnia jedlo,1,1,100,10.5263157894737
+rajcany,acany,1,9,75,2.41691842900302
+hankova,hanko,1,2,19,15.7894736842105
+svidnicka,sviicka,1,1,19,13.3333333333333
+lemesany,lemeny,1,2,20,10.989010989011
+tuchnica,tchnic,1,1,52,7.05882352941176
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 6,sovak archives jewish census 1942 townships ad communities slovak archives reel 3  box 187 file 6,1,1,277,1.55267295597484
+vlachy,achy,1,4,18,10.3896103896104
+slovakia,slovak,1,36,145,0.655737704918033
+sekule,kule,1,1,5,50.0
+hradiste,hradie,1,7,42,5.30973451327434
+myjava,mjva,0,-,1,NaN
+hlohovec,hlohoe,1,1,4,54.5454545454545
+laclava,lcava,1,4,31,4.34782608695652
+petrov,petr,1,2,11,14.5454545454545
+vislanka,visana,1,25,39,2.5
+smolnicka huta,smlnicka hta,1,1,102,5.54272517321016
+vysnia pisana,vyniapisana,1,1,45,10.4712041884817
+solna bana,olna bna,1,1,56,6.80851063829787
+pocenany,pocena,1,1,65,15.5339805825243
+velke surovce,velksurovce,0,-,174,0.608166811468288
+velka domasa,veka domsa,1,1,55,8.60215053763441
+dolna streda nad vahom,dlna strea nad vahom,1,1,126,6.41573994867408
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 2,slvak archives jewish census 1942 townships and communities slovak archives reel 3  bo 187 file 2,1,1,217,1.64686262247238
+rakovcik,rakock,1,4,17,10.8108108108108
+mur. dl. luka,mur. d.luka,1,1,14,31.5789473684211
+mataska,ataka,1,3,6,19.047619047619
+ohradzany,oradzay,1,30,49,1.84049079754601
+lubotin,lubon,1,2,18,11.4285714285714
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 9,slovak archives  jewish census 1942 townships and communitiesslovk archives reel 2  box 185 file 9,1,1,214,1.64868715652351
+kostolne,ostlne,1,21,27,2.1978021978022
+banska stiavnica,banska stavnia,1,5,132,2.33160621761658
+plavnica,plvnia,1,2,23,6.41025641025641
+iliasovce,iliaove,1,1,31,7.40740740740741
+istebnik,isebik,0,-,6,0.0
+likavka,liaka,0,-,7,0.0
+pcoline,pcone,1,1,5,33.3333333333333
+hanzlikova,nzlikova,1,1,176,4.44444444444444
+plavec nad popradom,lavec ad popradom,1,1,124,11.1301369863014
+sedlicna,sedlca,1,6,9,8.0
+radimov,radmv,1,13,29,4.49438202247191
+bystricka,bystrik,1,2,43,6.25
+plavetsky svaty mikulas,plavetsky svat mikuls,1,7,72,3.08880308880309
+niznia olka,nizni oka,1,29,34,1.38248847926267
+brezovica nad tor.,brezovia nad to.,1,1,162,5.77124868835257
+meslusa,mslsa,0,-,3,0.0
+nizny orlik,niznyorlk,1,1,25,8.29015544041451
+horne byhymcine,hrne byhmcine,1,1,60,15.2091254752852
+kozarovce,korovce,0,-,143,0.319829424307036
+vlasky,vsky,1,20,33,3.17460317460317
+malcov,lcov,1,17,24,2.40963855421687
+rakusy,raky,1,5,14,9.30232558139535
+bobrov,brov,1,1,38,6.83760683760684
+police headquarters in bratislava (continued),police headquarters i bratilava (continued),1,1,177,15.4327424400417
+trocany,tcany,1,6,76,2.52365930599369
+rakovec nad ondavou,rakovecad ondavou,1,1,150,8.38709677419355
+various places (to be established - very few),varous placs (to be established - very few),1,1,172,6.10561056105611
+batizovce,atzovce,1,1,129,1.75029171528588
+trebisov,trebso,1,1,19,15.0
+solosnica,slsnica,1,1,76,4.5045045045045
+podolinec,pooline,1,17,26,3.19148936170213
+turie pole,uie pole,1,19,61,1.83150183150183
+gajary,aary,1,6,8,4.0
+licartovce,licarove,1,1,120,2.9925187032419
+visny svidnik,viny svinik,1,1,76,6.83060109289618
+banovce nad ondavou,banovce naondavou,1,1,214,4.35656836461126
+pudmerice,pudmeic,1,1,2,100.0
+moraviany,moaviny,1,12,18,6.15384615384615
+kovalov,ovalv,1,1,119,2.96296296296296
+kapisov,kaiso,1,2,9,19.2307692307692
+cervenica,rvenica,1,1,75,5.61797752808989
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 3  box 186 file 4,slovak archives  jewish census 194 townshps and communities	slovak archives reel 3  box 186 file 4,1,1,212,1.68867720285776
+nizne ladiskovce,nizne ladikoce,1,1,79,8.42105263157895
+slovak archives jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 7,slovak archives jewish census 942 townships an communities	slovak archives reel 2  box 185 file 7,1,1,207,1.68453292496172
+marhan,mrhn,0,-,1,NaN
+drahovce,dahvce,0,-,121,0.240384615384615
+lukov nad teplou,luov ad teplou,1,9,63,2.66666666666667
+vysny mirosov,vys mirosov,1,1,63,10.8949416342412
+krivostany,krvostny,1,14,20,3.17460317460317
+stara lesna,tra lesna,1,1,44,10.7142857142857
+stara tura,tara tra,1,16,34,2.56410256410256
+hrabico,habio,1,7,8,3.44827586206897
+abranovce,abrnoce,1,1,10,16.6666666666667
+litava,lava,1,35,38,0.689655172413793
+spisska bela,sissa bela,1,17,42,3.2258064516129
+bertotovce,brtotoce,1,8,9,9.375
+zavadka,vadka,1,1,5,42.8571428571429
+klembarok,klbarok,1,15,22,3.8961038961039
+bobrovec,bobove,1,35,41,1.18343195266272
+vysny hrusov,ysy hrusov,1,2,62,7.38461538461539
+durdos,duos,0,-,1,NaN
+maly ruskov,ma ruskov,1,2,88,5.0
+kelemes,keees,0,-,1,NaN
+malinec,mainc,0,-,8,0.0
+petrmanovce,ptrmanove,1,1,79,5.03778337531486
+grane petrovce,gra petrovce,1,1,169,2.93847566574839
+spisska nova ves,spisska nv ves,1,1,146,7.4792243767313
+zlate moravce,zltemoravce,1,1,142,5.23560209424084
+stropkov,strpov,1,2,40,4.0
+petejovce,etejove,1,1,33,12.8
+podhradie,podhdie,1,1,23,16.6666666666667
+poltar,polr,1,2,16,9.43396226415094
+bytcica,btcia,1,2,6,25.0
+velka lihotka,velka litka,1,1,97,5.69105691056911
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 2,slvak archives  jewish census 192 townships and communities	slovak archives reel 2  box 185 file 2,1,1,212,1.6875
+dolne bzince,dolne bzne,1,1,52,7.38461538461539
+vilagy,viay,0,-,9,0.0
+holumnica,lumnica,1,20,71,1.63934426229508
+sarisske luky,aisske luky,1,1,73,9.66183574879227
+hasprunka,hsrunka,1,7,11,9.67741935483871
+topolovka,toplvka,1,3,13,13.5593220338983
+hvozdnica,hvoznic,1,1,63,6.66666666666667
+smizany,sizan,1,1,7,42.1052631578947
+niznia polanka,inia polanka,1,1,69,8.51063829787234
+karlova ves,karlov ve,1,1,117,6.66666666666667
+bodruzal,bdruza,1,1,7,44.4444444444444
+maly krtys,mal krys,1,1,29,8.0
+pricka,pcka,1,3,13,10.0
+danova,danv,1,3,5,28.5714285714286
+muranska lehota,uraska lehota,1,1,89,6.20689655172414
+kopcany,kopcn,1,2,4,22.2222222222222
+strvtok,strtk,1,28,37,3.03030303030303
+letanovce,lanovce,0,-,171,0.349040139616056
+niklova,nikva,1,16,25,4.44444444444444
+kremnicka,remicka,1,1,23,11.3207547169811
+boleraz,bolra,1,1,4,45.4545454545455
+dolny kubin,dolny kbi,1,2,61,3.16455696202532
+zborov nad bystr.,zborov na bysr.,1,1,134,6.31578947368421
+ceske brezovo,ceske ezovo,1,1,75,8.09248554913295
+biskupice pri dunaji,biskuice pri unaji,1,1,86,14.1176470588235
+polhore,poore,1,7,8,4.34782608695652
+myto pod dumbierom,mto poddumbierom,1,1,49,6.54761904761905
+zakamene,zakane,1,1,10,25.6410256410256
+myslina,yslin,1,1,19,18.75
+zvolen,zvoe,1,1,3,66.6666666666667
+kuchyna,ucyna,1,1,4,38.4615384615385
+maly slivnik,al slivnik,1,1,66,11.2676056338028
+hlboke,hbke,0,-,1,NaN
+visny orlik,isnyorlik,1,1,20,20.0
+vieska nad zitavou,ieskanad zitavou,1,1,187,5.38116591928251
+duplin,dpin,0,-,3,0.0
+krasny brod,rasny brd,1,1,46,13.7614678899083
+rakova,akov,0,-,68,0.72992700729927
+priekopa,piekpa,1,1,4,41.6666666666667
+chrast nad hornadom,crast nadhornadom,1,1,121,5.94594594594595
+nizna sunava,izna sunav,1,1,60,10.738255033557
+jablonica,ablonca,1,1,9,31.25
+velka lomnica,vlka lomnic,1,8,110,1.8957345971564
+nizny medzev,niny medzv,1,1,46,11.7370892018779
+girovce,gioce,0,-,2,0.0
+nemecka,emcka,1,16,17,1.85185185185185
+turzovka,urzovk,1,4,12,9.09090909090909
+trnava hora,trava hor,1,29,107,1.2853470437018
+solivar,olvar,1,4,12,13.8888888888889
+velke ozorovce,veke ozorvce,1,1,159,4.08858603066439
+medzibrod nad hronom,medzibrod na hroom,1,1,103,9.67741935483871
+benice,beni,1,1,13,20.5128205128205
+lozorno,oorno,1,20,28,2.27272727272727
+kubachy,kbchy,1,8,9,3.84615384615385
+vydrnik,ydrik,1,4,8,15.3846153846154
+horna strehova,horn stehova,1,1,185,3.88978930307942
+hriadky,hriay,1,1,7,30.7692307692308
+visna sunava,visa sunaa,1,1,40,11.1111111111111
+podkrivan,pdkivan,1,13,18,2.94117647058824
+cachtice,cchtic,1,9,11,5.66037735849057
+jaklovce,jalvce,1,13,121,1.20192307692308
+roznavske bystre,roavske bystre,1,1,105,6.05143721633888
+prensov badan,preno badan,1,1,29,20.0
+ceklis,ceki,1,2,3,20.0
+visoka nad kisucou,visok nad kisuou,1,35,83,1.4792899408284
+diviaky nad nitricou,diviaky ad itricou,1,4,110,2.6431718061674
+ruzina,rzin,1,2,10,19.047619047619
+slovak archives  jewish census 1942 townships and communities slovak archives reel 2  box 184 file 3,slovak archives  jewish census 1942 townships and communities slovak archivs reel 2  box 14 file 3,1,1,217,1.62304727125178
+bystre nad toplou,bstre nad tplou,1,1,95,4.77897252090801
+rostar,rsta,1,5,27,5.68181818181818
+horne obdiekovce,horne obdiekoc,1,1,71,13.4803921568627
+vieska,ieka,0,-,3,0.0
+visny kubin,isny kuin,1,14,44,2.29357798165138
+hincovce,hnovce,0,-,157,0.780487804878049
+tegena,egna,0,-,2,0.0
+lipt. hradok,lip. hradk,1,20,60,1.97628458498024
+mikusovce,mikuove,1,2,31,7.01754385964912
+koseca,ksea,0,-,1,NaN
+dezerice,dzerie,1,10,16,4.08163265306122
+brusnica,brusic,1,2,22,9.30232558139535
+chmelov,cmelv,1,3,4,10.0
+podskolie,podsole,1,2,35,7.3394495412844
+tomasovce,tomasve,1,10,17,5.17241379310345
+borsky svaty peter,borsky svatypter,1,3,70,8.31758034026465
+slovak archives - jewish census 1942 townships and communities reel 4  box 191 file 3,slovak archives - jewish census 1942 ownships and communities reel 4  box 91 file 3,1,1,206,1.66156536947967
+cerveny kamen,eveny kamen,1,1,51,13.3779264214047
+huncovce,ncovce,1,2,135,1.76795580110497
+revuca,reca,0,-,8,0.0
+marikova,arikva,1,1,12,25.0
+/vrbove,vrbve,1,4,5,8.33333333333333
+sotina,soti,1,3,4,18.1818181818182
+madunice,maduce,1,1,4,80.0
+vieska beckovska,iska beckovska,1,1,149,5.1150895140665
+timoradza,tiordza,1,3,8,22.2222222222222
+liborce,lirce,1,4,7,19.047619047619
+dolne vasardice,dlne vsardice,1,1,95,7.98004987531172
+horny mostenec,hony mosteec,1,1,64,9.95850622406639
+voderady,vderdy,1,3,4,16.6666666666667
+rokovo,okov,1,1,70,3.08880308880309
+kocovce,kooce,0,-,2,0.0
+dobsina,dobin,1,8,13,5.26315789473684
+slovak archives - jewish census 1942 townships and communities reel 4  box 191 file 4,sloak archives - jewish censs 1942 townships and communities reel 4  box 191 file 4,1,1,150,1.81554103122731
+bardiov,briov,1,4,7,11.1111111111111
+velka udica,velkaudca,1,29,42,1.19521912350598
+verekne,vekne,1,1,2,100.0
+liptovske revuce,liptvske evuce,1,13,69,2.1505376344086
+chlumec nad vahom,chlumc nad vaho,1,1,61,6.34920634920635
+uherska reslavica,uherskareslaica,1,6,119,2.00445434298441
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 188 file 4,slovak archives jewish census 1942 townships and communiies slovak archives reel3  box 188 file 4,1,1,211,1.62915326902465
+slepcany,slpcay,1,1,5,57.1428571428571
+merasice,rasice,1,2,60,6.55737704918033
+svaty ondrej nad hronom,svaty ondrej nad hnom,1,13,80,2.07317073170732
+zaborie,zabri,1,4,9,14.2857142857143
+okolicne,oolcne,1,8,9,3.44827586206897
+niznie cabiny,niznie cbiy,1,1,47,7.10059171597633
+senica,sena,1,9,13,3.44827586206897
+uzovce,uove,0,-,27,0.0
+velky bysterec,vely byterec,1,1,73,8.79120879120879
+kocurany,kocray,1,1,5,25.0
+dolny almas,lny almas,1,2,34,5.51181102362205
+medzany,mezay,0,-,1,NaN
+spissky hrusov,spssky husov,1,1,83,7.04225352112676
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 186 file 2,slovak archives  jeish census 1942 townships and communities	slovak archives reel2  box 186 file 2,1,1,211,1.66595472020504
+nova ves nad vahom,nova vs nad vahm,1,1,207,3.61247947454844
+bzovik,zoik,0,-,1,NaN
+pribovce,provce,1,23,142,1.09051254089422
+hertnik,hrnik,1,29,35,0.704225352112676
+velke levare,elkelevare,1,1,53,11.71875
+hornany,honan,1,3,9,16.6666666666667
+margecany,maecany,1,1,74,3.80952380952381
+puchov,puho,0,-,6,0.0
+straza,sraa,0,-,1,NaN
+herlany,heany,0,-,73,0.392156862745098
+malachov,mlacov,1,24,39,2.61437908496732
+liptovsky svaty mikulas,lptovsky svay mikulas,1,2,94,4.93827160493827
+liptovske trnovce,liptovke trnovc,1,5,213,1.20087336244541
+holomanovce,olomanvce,1,1,140,3.91389432485323
+hranovnica,hravnica,0,-,108,0.856531049250535
+lasovce,asvce,0,-,121,0.961538461538462
+visnie slovinky,visnieslovnky,1,1,155,4.23600605143722
+dolnia lehota,dolnia lota,1,1,66,7.42705570291777
+slovak archives - jewish census 1942 townships and communities reel 4  box 192 file 2,lovak archives - jewishcensus 1942 townships and communities reel 4  box 192 file 2,1,1,210,1.68711656441718
+zelene,zeen,0,-,1,NaN
+blatne revistia,blatnerevitia,1,1,85,13.6585365853659
+sastin,asti,1,19,24,2.5
+parnica,arnia,1,23,30,1.6260162601626
+hochetetno,hoceteno,1,8,13,6.25
+velke chlievany,elke chlivany,1,1,140,7.02028081123245
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 1,slova archives jewish census 1942 townships and communities slovak archives reel 3  bo 187 file 1,1,1,219,1.62451161834259
+prievidza,rividza,1,1,17,28.5714285714286
+krusetnica,rusetnia,1,6,33,4.27350427350427
+cicmany,ciany,0,-,79,0.317460317460317
+horne bzince,horne zice,1,4,113,3.08285163776493
+krompachy,krmpach,1,1,17,24.1935483870968
+nove mesto nad vahom,nov mesto nad ahom,1,1,138,7.35444330949949
+secovce,scvce,1,5,121,1.20192307692308
+vyrava,yrav,1,1,20,15.3846153846154
+pusty fedymes,pusy feymes,1,1,17,33.3333333333333
+starina,arina,1,1,37,9.16030534351145
+kudlovce,kuovce,1,26,123,0.970873786407767
+katlovce,kaloce,0,-,20,0.0
+lukacovce,lukaoce,1,4,13,14.5454545454545
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 3,slovak archives  jewish census 1942 townshis and communiies	slovak archives reel 2  box 185 file 3,1,1,207,1.69014084507042
+knazice,azice,1,1,53,6.41711229946524
+nizny sebes,nny sebes,1,1,46,12.2448979591837
+lubietova,ubietva,1,9,18,6.38297872340426
+trebasovo,trebavo,1,1,34,9.44881889763779
+devinska nova ves,devinska noa vs,1,1,99,8.18330605564648
+dolnie slazany,dolne slazny,1,19,105,1.32743362831858
+slovak archives - jewish census 1942 townships and communities reel 4  box 192 file 1,lovak archives - jewish census 1942 ownships and communities reel 4  box 192 file 1,1,1,205,1.69715671148336
+hnojne,hnon,1,2,4,33.3333333333333
+ticinec,tinec,1,2,27,8.33333333333333
+dlhe nad cir,de nad cir,1,1,113,4.26179604261796
+spacince,sacinc,1,15,22,3.8961038961039
+kojsov,ojso,1,1,2,100.0
+niznie slovinky,ninie lovinky,1,1,145,5.66801619433198
+pozdisovce,pozdisoe,1,4,18,8.62068965517241
+spisske vlachy,siske vlachy,1,12,81,1.93704600484262
+lazy pod makytou,lazy pd maytou,1,2,13,16.6666666666667
+vavrinec,vavric,1,1,17,24.4897959183673
+granastov,ganstov,1,2,57,4.08163265306122
+kolbovce,kolvce,1,1,127,1.82232346241458
+pezinok,peiok,0,-,1,NaN
+police headquarters in bratislava,police headquarers in bratislaa,1,2,126,13.8114209827357
+rozlozna,rozlon,1,1,10,33.3333333333333
+radosovce,adosove,1,1,81,6.6006600660066
+kalinov,kinov,1,2,55,3.7914691943128
+jablon,jblo,1,2,4,40.0
+farkasin,fakasn,1,6,7,14.8148148148148
+biely kostol,bely kosol,1,1,56,8.13008130081301
+gombas,gbas,1,1,4,38.4615384615385
+pernek,prek,0,-,9,0.0
+krusinec,krunec,1,1,20,14.0350877192982
+klokocov,kokcov,1,10,24,5.40540540540541
+hanusovce nad toplou,hanovce nad toplou,1,1,269,3.67647058823529
+mosovce,mosce,1,2,5,14.2857142857143
+stupne,stun,1,2,5,40.0
+smolnik,mlnik,1,1,34,7.75193798449612
+maly saris,malysars,1,1,39,6.66666666666667
+kolarovice,kolarove,1,19,73,1.74825174825175
+hornia lehota,horia lehta,1,1,68,6.64451827242525
+skalite,skaie,1,10,42,3.40136054421769
+stavce,stvc,0,-,2,0.0
+abraham,abrhm,1,3,4,11.1111111111111
+gronos,gnos,1,1,2,100.0
+osuske,ouse,0,-,4,0.0
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 189 file 2,slovak archives jewish censu 1942 townships and communities slovakarchives reel 3  box 189 file 2,1,1,218,1.64377861007074
+viaska potvorice,viaska otorice,1,1,139,5.21172638436482
+vis. stavkov,s. stavkov,1,1,110,6.82302771855011
+dolna strehova,dolnasrehova,1,1,163,6.52985074626866
+melzenice,mezence,1,4,14,8.51063829787234
+velke kostolany,velke kostlay,1,1,87,7.0298769771529
+cierne pole,crne pole,1,1,66,7.36196319018405
+zemianske lieskove,zminske lieskove,1,2,225,4.45344129554656
+roskoviany,rosoiany,1,1,84,3.65853658536585
+biskupice,biskupe,1,2,9,27.1186440677966
+zazriva,azria,1,5,6,10.5263157894737
+handlova,hanlva,1,8,11,3.125
+mala vieska,mala vska,1,1,85,5.249343832021
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 7,slovak archives jeish census 1942 townships and communities slovak archves reel 3  box 187 file 7,1,1,217,1.65099268547544
+zlatovce,zlatve,1,2,9,18.1818181818182
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 3,slovak archives jewish census 1942 townships and communities slovak archies reel 3  box 87 file 3,1,1,217,1.62451161834259
+niznia jedlova,niznia jeloa,1,1,96,7.52688172043011
+svaty kriz nad vahom,svaty krz nadvahom,1,1,86,8.43881856540084
+klatova nova ves,klaova nova vs,1,17,179,0.997150997150997
+nizna olsava,nizna olsa,1,1,47,13.4680134680135
+zlkovce,zlkvc,1,1,2,100.0
+tulcik,tlck,0,-,1,NaN
+zakarovce,akarvce,1,1,123,2.77136258660508
+oravka,orva,0,-,1,NaN
+zupkov,upov,0,-,6,0.0
+kuklov,kulv,0,-,6,0.0
+velky krtys,vlky krys,1,1,45,7.11111111111111
+vysnie cabiny,ysniecabiny,1,1,44,12.4444444444444
+dolne plachtince,dole plachince,1,1,137,8.1799591002045
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 189 file 1,slovak archives jewish census 1942 townships an commnities slovak archives reel 3  box 189 file 1,1,1,215,1.65073848827107
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 5,slovak archives  jewish census 1942 townships and communitis	slova archives reel 2  box 185 file 5,1,1,204,1.66187935986869
+hunkovce,hukovc,1,14,160,1.20300751879699
+svinna,svin,1,12,14,3.7037037037037
+slovenska ves,slvensk ves,1,1,101,6.44329896907216
+giraltovce,giraltvc,1,1,5,40.0
+ivanka pri dunaji,ivan pri dunaji,1,1,34,24.2290748898678
+bystra,bstr,1,15,37,3.03030303030303
+nizny slavkov,nizny lakov,1,1,110,3.44234079173838
+podvysoka,podysok,1,1,24,15.0
+sarisske dravce,sarsske ravce,1,24,194,0.8274231678487
+velke kozmalovce,vele kozmaloce,1,1,134,8.22622107969152
+podbiel,pdbil,1,1,2,100.0
+rejdova,rjdva,0,-,4,0.0
+hornia suca,horna uca,1,4,65,3.56083086053412
+visnie mirkovce,visnie mirovc,1,1,188,4.14269275028769
+niznia nad oravou,niznia nadorvou,1,36,104,1.13350125944584
+visoka,soka,1,1,10,16.6666666666667
+trnove,trne,1,4,16,8.69565217391304
+zavadka nad hronom,zavadka nadronom,1,1,131,5.97758405977584
+skacany,skaca,1,1,48,6.66666666666667
+bystricany,bytrican,1,35,78,1.49812734082397
+uhorske,uhore,1,2,38,6.75675675675676
+lendak,enda,1,1,5,36.3636363636364
+dlha nad oravou,dlha n oravou,1,11,58,3.01003344481605
+bajerov,bjero,1,1,6,61.5384615384615
+orechove,orhove,1,3,40,5.47945205479452
+zem. pohradie,zem. pohrad,1,1,58,12.5874125874126
+ochodnica,ochodna,1,6,19,7.27272727272727
+harhov,hrov,0,-,41,0.0
+bosaca,bsca,0,-,2,0.0
+holcikovce,holcikce,1,1,16,22.2222222222222
+cerova - lieskove,ceroa - liesove,1,7,154,1.85567010309278
+zvolenska slatina,zvolenka slaina,1,7,142,1.90677966101695
+hrabusice,hrabusc,1,1,27,18.018018018018
+dravce,rvce,0,-,121,0.961538461538462
+ludanice,ludane,1,8,12,8.10810810810811
+bardiovska nova ves,barivska nova ves,1,1,238,4.720692368214
+krajna bystra,kajna ystra,1,1,61,6.9164265129683
+vrbovce,vrbve,1,3,5,8.33333333333333
+slatina nad bebravou,slaina nad bebravo,1,1,147,6.82261208576998
+podolie,pdoie,0,-,1,NaN
+skalica,kaica,1,23,49,1.51515151515152
+velke bielice,velkbielice,1,1,96,7.47863247863248
+rajecke teplice,rajeceteplice,1,8,80,2.48447204968944
+hontianske tesary,hontanse tesary,1,4,54,4.28571428571429
+dolne pribelce,dole priblce,1,1,116,7.29483282674772
+vitanova,vtanov,1,1,59,4.1522491349481
+podturen,podurn,1,4,19,8.16326530612245
+pobelnik,poelnk,1,2,5,38.4615384615385
+hrustin,rutin,1,10,16,2.22222222222222
+kovarce,kvace,0,-,5,0.0
+sarfia,safa,0,-,1,NaN
+jedlove kostolany,jedlove ostoany,1,1,210,4.71821756225426
+hanigovce,haniovc,1,1,127,2.5974025974026
+breznicka,breznka,1,1,20,13.8888888888889
+vysny komarnik,vysny kmarni,1,1,69,8.71934604904632
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 5,slovak archives jewish census 1942 towships and communities slovak archives reel 3 box 187 file 5,1,1,217,1.63239347042612
+sarbov,saov,0,-,1,NaN
+prensov,pnsov,1,1,42,6.36942675159236
+sikelce,sielc,1,3,11,11.7647058823529
+udavske,udvse,0,-,1,NaN
+nemsova,nemso,1,1,10,37.5
+stara lubovna,stra lubvna,1,1,71,9.28792569659443
+domaniza,domaiz,1,13,19,3.03030303030303
+uderina,udena,1,4,8,14.8148148148148
+humenne,umene,1,1,15,15.0
+zemanska kotesova,zemanka koteova,1,10,184,1.58450704225352
+jakovany,jakoay,1,1,15,15.6862745098039
+turiany,triay,1,6,14,8.0
+horne oresany,horn oresny,1,1,62,8.25082508250825
+velke uherce,velke herc,1,26,71,1.41843971631206
+kosicka bela,kosick ela,1,14,40,3.18471337579618
+pavlovce nad uhom,avlovce nd uhom,1,1,226,4.46066504460665
+korytne,korne,1,16,29,3.47826086956522
+kriviany,krivan,1,3,22,9.19540229885057
+risnovce,isnvce,0,-,130,0.43859649122807
+velky bab,veky bb,1,2,34,5.92592592592593
+michalany nad torysou,michalany na trysou,1,1,193,7.85024154589372
+kraviany,rviany,1,1,81,3.64741641337386
+trstena,tstea,1,10,14,4.76190476190476
+svaty jur,vaty ju,1,8,18,3.67647058823529
+brodske,brosk,1,16,17,1.69491525423729
+svedlar,sedlr,1,5,6,6.66666666666667
+maly lipnik,mal lipik,1,1,42,10.2739726027397
+rarbok,rabk,0,-,9,0.0
+maluzina,maluza,1,19,28,3.03030303030303
+klastor pod znievom,klasto pod znivom,1,5,95,2.97297297297297
+zlatno,zlto,0,-,3,0.0
+visolaje,vsolje,1,5,6,18.1818181818182
+lutina,luti,1,1,4,57.1428571428571
+stupava,tpava,1,21,29,2.27272727272727
+stanca,tanc,1,1,11,21.6216216216216
+brestov,besov,0,-,43,0.0
+ladice,laie,0,-,1,NaN
+mestecko,meteko,0,-,9,0.0
+stara halic,sara hlic,1,1,43,12.3456790123457
+nedozery,edozey,1,2,3,42.8571428571429
+most nad grutiou,ost nad gutiou,1,34,72,1.6260162601626
+podskalie,posalie,1,1,31,7.40740740740741
+liptovska osada,liptoska osad,1,15,78,2.05949656750572
+tovarniky,tovarnk,1,1,154,5.06329113924051
+bratislava,ratisava,1,6,42,4.16666666666667
+velke rovne,lke rovne,1,12,73,2.28758169934641
+vislava,vlava,1,2,44,4.9079754601227
+zborov,zrov,1,30,32,1.0752688172043
+svinia,svia,1,13,14,2.4390243902439
+chabazany,chbazny,1,4,10,10.8108108108108
+slovak archives - jewish census 1942 townships and communities reel 4  box 192 file 309,slovak archives - jewish census 1942 townships and communities reel 4  box 192 fie 30,1,1,220,1.67977886455454
+nemcicany,nemciny,1,1,25,11.5384615384615
+kamenica nad cirom,kamenic nadcirom,1,21,121,1.43472022955524
+cajkov,jkov,0,-,67,0.816326530612245
+abrahamovce,abrahmvce,1,1,132,3.34029227557411
+hrusovany,husvany,1,2,92,2.42424242424242
+bracovce,bracoe,1,1,26,13.6363636363636
+oravsky podzamok,oravsky poamok,1,6,92,2.16919739696312
+mestisko,mstisk,1,1,23,14.1176470588235
+solcany,socny,0,-,3,0.0
+pecenady,ecnady,1,2,59,3.96039603960396
+busevce,buevc,1,1,2,100.0
+turciansky svaty martin,turciansky saty mrtin,1,1,107,4.65116279069767
+horne jaseno,orne jaseo,1,6,48,3.39805825242718
+ladomer,ldoer,0,-,2,0.0
+zubrohlava,zubrolaa,1,1,26,12.0
+hajtovka,hajova,0,-,121,1.43884892086331
+krajna porubka,krana porubk,1,1,76,10.443864229765
+trencanska tepla,trencansa tepa,1,1,58,17.1102661596958
+nova bana,ova bna,1,1,128,5.01392757660167
+nemcice,nemie,1,5,13,10.2564102564103
+kosarovce,osarvce,1,1,134,3.13152400835073
+trnava,tnva,0,-,1,NaN
+sielnica,selnic,1,38,57,1.38888888888889
+nemecky grob,neecy grob,1,1,4,80.0
+skyvov  ?,kyvo  ?,1,1,3,75.0
+bidovce,bovce,0,-,136,0.224971878515186
+straze,srae,0,-,1,NaN
+jakubiany,jakbiay,1,1,7,27.5862068965517
+liptovska stiavnica,ptovska stiavnica,1,1,165,7.38188976377953
+slovak archives - jewish census 1942 townships and communities reel 4  box 191 file 2,slovak achives - jewish census 1942 townships and communities reel 4  box 11 file 2,1,1,224,1.62150629400469
+niznie zbojne,niznie bjne,1,1,56,6.45161290322581
+komarov,kmaov,0,-,2,0.0
+paludzka,paluza,1,5,11,5.71428571428571
+urmince,umine,1,5,10,13.7931034482759
+modry kamen,mdry kmen,1,1,25,20.1680672268908
+velka bytca,velk byca,1,24,47,2.29007633587786
+liptovska tepla,litovska tepl,1,1,94,8.15217391304348
+liskova,likov,0,-,71,0.363636363636364
+zbynov,byno,1,1,3,88.8888888888889
+parchoviany,archovian,1,10,107,2.09580838323353
+dubravka,dbraka,1,12,25,4.70588235294118
+hajniky,ajniy,1,1,9,26.3157894736842
+humensky rokitov,umenskyrokitov,1,1,138,9.75609756097561
+kostany nad turcom,kosany nadturcom,1,1,229,5.15995872033024
+male levare,le levare,1,2,87,12.5
+trencin,tecin,1,8,15,5.40540540540541
+visnia radvan,isnia radvn,1,1,57,12.9032258064516
+hrabovec,raboec,1,2,16,12.3076923076923
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 8,slovak archies  jewish census 1942townships and communities	slovak archives reel 2  box 185 file 8,1,1,206,1.70025188916877
+pecovska nova ves,pecovkanova ves,1,1,190,4.63439752832132
+meretica,merica,1,2,61,5.23560209424084
+ivachnova,ivahnov,1,2,62,4.7808764940239
+jamnik,amik,0,-,5,0.0
+dubnica nad vahom,dunica na vahom,1,1,209,4.98338870431894
+lubochna,uochna,1,1,9,42.8571428571429
+krestar,krsta,1,24,27,1.13636363636364
+visnie zbojne,visniezojne,1,1,49,8.63309352517986
+drietoma,dritoa,1,3,4,11.1111111111111
+senohrad,snhrad,1,25,36,1.29032258064516
+strezenice,strenice,1,1,131,3.44234079173838
+michalovce,michalce,1,3,21,8.33333333333333
+majcichov,majccov,1,18,25,2.53164556962025
+pobedim,poeim,0,-,1,NaN
+mrazovce,mrazvc,1,1,9,22.2222222222222
+dobra niva,obra iva,1,20,32,3.63636363636364
+sokolce,skolc,1,1,31,8.54700854700855
+brezno nad hronom,brzn nad hronom,1,6,69,2.41935483870968
+drabsko,rabsk,1,1,9,32.4324324324324
+hatalov,hatao,1,1,5,40.0
+gocovo,ocov,1,17,23,2.40963855421687
+celovce,covce,1,17,135,1.11482720178372
+klcovany,kcovan,1,1,142,3.19148936170213
+rybnik,ryik,0,-,1,NaN
+uhrovec,urvec,1,12,14,2.04081632653061
+kralovany,ralovny,1,2,103,4.58015267175572
+ratkova,atkoa,1,7,8,5.88235294117647
+slovak archives - jewish census 1942 townships and communities reel 4  box 192 file 3,slovak archives - jewish census 1942 townships ad communitiesreel 4  box 192 file 3,1,1,237,1.62427869202821
+prasice,prsce,0,-,1,NaN
+kremnica,kreica,1,21,52,2.77777777777778
+tarnava,tarva,1,7,16,7.84313725490196
+mnesice,mnsie,0,-,2,0.0
+betlanovce,betlovce,1,1,205,1.53994225216554
+slovak archives  jewish census 1942 townships and communities slovak archives reel 3  box 189 file,slovak archives  jewish census 1942 townhips and ommunities slovak archives reel 3  box 189 file,1,3,210,1.64618086040386
+kapusany,apsany,1,4,75,3.43642611683849
+drienov,drien,1,1,10,30.0
+zbehnov,behnv,1,1,2,100.0
+pastuchov,pasthov,1,1,27,13.1868131868132
+hornie lelovce,hornie elvce,1,1,174,3.0690537084399
+backov,ackv,1,1,3,66.6666666666667
+harmanovce nad toplou,harmanovcenad toplu,1,1,275,3.18543799772469
+kuzmice,kuzie,1,1,8,29.4117647058824
+dulvina,duvin,1,5,11,10.2564102564103
+racistorf,racitrf,1,9,13,5.0
+rozhanovce,rzhanovc,1,33,154,0.713266761768902
+spissky vlachoch,spisskylachoch,1,9,64,2.64550264550265
+povazska bystrica,povazsk bystric,1,1,167,10.6451612903226
+nizna lipnica,izna lipnia,1,6,83,2.17983651226158
+svercov,svrov,0,-,33,0.0
+rumanova,rumava,1,1,29,8.88888888888889
+hornie stitany,horne titany,1,2,133,3.92798690671031
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 184 file 5,slovak archives  jwish census 1942 townships and communities	slovak archives reel 2  box 14 file 5,1,1,212,1.65254237288136
+vesele,vesl,1,4,77,3.81679389312977
+okruhle,okule,0,-,5,0.0
+senica nad myjavou,senic ad myjavou,1,8,109,2.24032586558045
+sabinov,sabno,1,1,3,54.5454545454545
+slovak archives jewish census 1942 townships and communities slovak archives reel 3 box 186 file 3 c,slovak archives jewish census 1942 townships and communities slovak achives reel 3 box 186 ile 3 c,1,1,230,1.63730569948187
+nizny hrusov,niny hrusv,1,1,57,7.63358778625954
+topolcianky,oplcianky,1,1,35,17.1232876712329
+medzilaborce,medzlabore,1,1,36,15.625
+nova lesna,nova sna,1,3,166,2.75862068965517
+gergelak,gergek,1,1,3,75.0
+dehtice,dhtic,1,1,10,23.8095238095238
+work camps in zilina county (documented by the hg),work campsin zilina county (documented b the hg),1,1,170,25.4160363086233
+velke bukovce,velebukovce,1,1,199,1.97856553998351
+krasno nad kys.,krasno ad ks.,1,1,68,12.3239436619718
+domanovce,doanvce,0,-,121,0.961538461538462
+liptovska luzna,iptovskaluzna,1,11,86,2.01793721973094
+krupina,kupna,0,-,5,0.0
+velaty,veay,0,-,1,NaN
+basovce,baoce,0,-,2,0.0
+hronec,honc,0,-,3,0.0
+gnazda,nazd,1,2,3,33.3333333333333
+pstrina,srina,1,3,30,7.69230769230769
+nedasovce,ndsovce,1,14,144,1.23456790123457
+mlynany,mlyny,1,2,3,50.0
+krajne,kran,1,26,27,1.05263157894737
+dvorniky,voriky,1,8,9,5.40540540540541
+blazov,blao,1,1,3,50.0
+hradiste pod vratnom,hradse pod vratnom,1,1,90,11.4035087719298
+trakovice,traovie,1,1,29,9.1743119266055
+valkov,alkv,1,1,3,50.0
+rebrin,rebn,1,3,5,26.6666666666667
+zakopcie,zkpcie,1,4,9,11.1111111111111
+svaty kriz nad hronom,saty kriz nd hronom,1,6,113,3.14606741573034
+cropov,croo,1,1,2,100.0
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 183 file 3,slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  bx 183 ile 3,1,1,212,1.66952054794521
+lipiany,liiay,0,-,1,NaN
+varhanovce,rhanovce,1,1,161,2.13143872113677
+pribylina,priblin,1,20,27,2.9126213592233
+trnavka,tavka,1,3,20,9.41176470588235
+vysny orlik,vysy orik,1,18,25,3.40909090909091
+miglesov,mileso,1,1,67,8.16326530612245
+hronska breznica,hronka beznica,1,1,134,5.06329113924051
+jacovce,covce,1,9,135,1.33779264214047
+male bialice,ale ialice,1,1,120,6.9164265129683
+kaluza,klua,0,-,3,0.0
+male vozokany,mle vozokay,1,1,72,21.0843373493976
+rozindol,rzindl,1,5,11,8.69565217391304
+slovak archives - jewish census 1942 townships and communities reel 4  box 191 file 6,slovak archives - jewish census 1942 townshis an communities reel 4  box 191 file 6,1,1,207,1.68086060062752
+jablonka,jablka,1,8,17,4.08163265306122
+novaky,nvak,1,1,59,8.06451612903226
+budatin,budtn,1,2,8,20.8333333333333
+stelbach,stlach,1,14,26,3.6697247706422
+sumiac,umac,0,-,4,0.0
+svrcinovec,vrciovec,1,1,32,10.8843537414966
+laksarska nova ves,lakarska nva ves,1,1,150,6.61375661375661
+vysna zubrica,ysna ubrica,1,5,94,2.08955223880597
+kosicke hamry,kosikehamry,1,1,23,19.8019801980198
+dolne oresany,dlne oresny,1,2,59,9.16030534351145
+nova ves nad zitavou,nova ves nad itvou,1,1,209,4.20757363253857
+kralova,kraov,1,9,14,8.0
+nolcovo,ncovo,1,2,31,7.01754385964912
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 184 file 6,slovak archives  jewish censs 1942 townships and cmmunities	slovak archives reel 2  box 184 file 6,1,1,208,1.69602087410307
+dubinne,ubine,1,1,20,11.5942028985507
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 186 file 3,slovak archives  jewish census 1942 townships and comunities	slova archives reel 2  box 186 file 3,1,1,214,1.66870166870167
+sliace,siac,1,1,3,80.0
+vistnia polanka,vistnia olank,1,1,70,9.02255639097744
+rosina,osna,0,-,8,0.0
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 187 file 4,slovak archives jewish census 1942 townships nd cmmunities slovak archives reel 3  box 187 file 4,1,1,210,1.65397170837867
+modranka,mdanka,1,12,16,2.98507462686567
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 188 file 1,slovak archives jewish census 1942 townships and ommunities slovak archives reel 3 box 188 file 1,1,1,216,1.63620909477263
+racanov,rcnov,1,27,53,2.07253886010363
+prievoz,pevoz,1,1,7,32.258064516129
+siroke,sroe,0,-,1,NaN
+krajne carno,krjne arno,1,1,95,8.51063829787234
+horny lieskov,hry lieskov,1,2,150,4.88656195462478
+smilno,siln,1,1,2,100.0
+moravsky svaty jan,morvsky svaty ja,1,1,71,10.989010989011
+vychodna,vyhdna,1,7,8,5.55555555555556
+krakovany,rakovan,1,26,181,0.826446280991736
+lysa pod makytou,lysa pd maytou,1,1,17,37.6470588235294
+mocarmany,ocrmany,1,1,79,4.13793103448276
+nadlice,adlce,1,2,9,14.8148148148148
+jastrable,astrabe,1,1,54,6.61157024793388
+hudcovce,hucove,1,11,50,2.4390243902439
+borsky svaty jur,borsky saty ur,1,1,66,8.88888888888889
+torysky,torsy,1,11,13,2.4390243902439
+lucivna,luvna,1,2,3,14.2857142857143
+osrblie,osrle,1,1,2,100.0
+lom nad hronom,lm ad hronom,1,2,66,9.25925925925926
+oponice,opice,1,16,52,2.16216216216216
+gelnica,gelia,1,1,9,18.75
+vysoka,ysoa,1,3,4,30.7692307692308
+preselany,prelany,1,1,90,5.60224089635854
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 188 file 5,slovak archives jewish census 1942 townships and communities slovak arcives reel   box 188 file 5,1,1,220,1.61488143908422
+maly cepcin,ly cepcin,1,1,80,5.0
+spissky strvtok,spisky strvtk,1,1,95,8.05008944543828
+moravske lieskove,movske lieskove,1,1,224,5.44554455445545
+banska bystrica,bansabystrica,1,3,111,3.2258064516129
+valaska,alask,1,15,20,3.75
+krusovce,krsovc,0,-,138,0.359712230215827
+habure,aure,1,1,3,55.5555555555556
+beckov,ecov,0,-,23,0.0
+sandal,sadl,0,-,5,0.0
+sucany,suay,0,-,1,NaN
+vrbovec,vroec,0,-,1,NaN
+horovce,hoovc,0,-,117,0.980392156862745
+slovenske pravno,slovenke prvno,1,1,161,6.58978583196046
+velky folkmar,elkyfolkmar,1,1,48,13.0841121495327
+belusa,eusa,1,2,5,41.6666666666667
+kostolna ves,kostona ve,1,1,74,5.91133004926108
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 185 file 1,slovak archives  jewish census 1942 townships ad communities	slovak archives reel 2  box 85 file 1,1,1,241,1.61157024793388
+velkrop,elkro,1,1,36,9.83606557377049
+bukovina,bkovia,1,3,84,2.48447204968944
+presov,reov,0,-,1,NaN
+poprad,opra,1,5,7,11.7647058823529
+spisske pohradie,pisske pohraie,1,1,99,8.66551126516464
+zbudske dlhe,zbske dlhe,1,1,55,9.09090909090909
+milbach,milbc,1,1,3,61.5384615384615
+bojnice,bojce,1,1,7,25.0
+lietavska lutca,ietavsa lutca,1,1,44,22.1674876847291
+velka causa,elk causa,1,7,43,3.44827586206897
+pocuradlo,pcurado,1,1,39,7.64331210191083
+zakovce,zakoc,1,1,17,13.3333333333333
+stary tekov,tarytekov,1,1,89,7.26744186046512
+slovak archives jewish census 1942 townships and communities slovak archives reel 3  box 190 file 2,slovak rchives jewish census 1942 townships and communities slovak achives reel 3  box 190 file 2,1,1,230,1.63122031798472
+vyhne labor camp,yhne labr camp,1,4,43,5.37634408602151
+hrubov,rubo,1,1,15,13.3333333333333
+hradok,haok,0,-,1,NaN
+zemianske kostolany,zemianske kstolay,1,1,105,7.79220779220779
+kruzlova,kruloa,1,2,10,15.3846153846154
+vyhne (tabor),yhne (tabo),1,2,35,5.83941605839416
+velky ruskov,vekyruskov,1,2,84,4.24403183023873
+sandorf,sndof,1,1,3,80.0
+vajnory,ajnoy,1,1,8,25.0
+horna micina,orna micin,1,5,67,2.84697508896797
+kurima,kria,0,-,10,0.0
+ustredna zidov list of workers and associates (?),ustredna zidov lit of workers and associates (),1,1,165,17.6285414480588
+kamenany,ameany,1,1,77,3.63636363636364
+medovarce,movarce,1,2,131,4.0920716112532
+radisa,aisa,1,3,4,11.1111111111111
+gaboltov,gaboto,1,2,16,14.7058823529412
+pilkov,pilo,1,1,3,50.0
+slovak archives  jewish census 1942 townships and communities slovak archives reel 3  box 189 file 4,slvak archives  jewish census 1942 townships and communities slovak archves reel 3  box 189 file 4,1,1,217,1.66566325506723
+slovak archives - jewish census 1942 townships and communities slovak archives reel 4  box 191 file,slovak archves - jewish census 142 townships and communities slovak archives reel 4  box 191 file,1,1,211,1.68120876782294
+jakubov,jakuo,1,1,7,24.2424242424242
+jews in custody in bratislava in sept 1942,ews in custody in bratislava in spt 1942,1,1,166,15.1479289940828
+malcice,mlcie,1,2,13,13.8888888888889
+stubove teplice,stuove telice,1,8,96,1.91780821917808
+koterbachy,kotebacy,1,1,10,41.6666666666667
+zarnovica,znovica,1,39,110,0.995024875621891
+budimir,udimr,1,1,5,44.4444444444444
+zavada,zavd,1,3,6,26.6666666666667
+male zaluzice,male luzice,1,9,141,1.61290322580645
+spisske. tomasovce,spisse. tomasovc,1,1,220,5.4176072234763
+radvan nad hronom,radvan nad hron,1,1,97,7.55813953488372
+velke vozokany,vlke vozokny,1,1,46,11.8143459915612
+uhorsky zipov,uhorskyzipv,1,1,54,9.63855421686747
+nemecka lupca,nemeka lupc,1,9,70,2.31023102310231
+bahoni,bani,0,-,16,0.0
+rybany,rbny,0,-,1,NaN
+hlinik nad hr.,hlinik nad h,1,34,93,1.40845070422535
+dolny lieskov,dolny liesv,1,20,134,1.69851380042463
+telgart,telar,1,13,15,2.94117647058824
+velke pole,velkeole,1,27,48,1.32013201320132
+cigelka,igelk,1,1,38,8.88888888888889
+dubodiel a cuklasovce,duodel a cuklasovce,1,1,218,4.35875943000838
+andrejov,andeov,1,2,62,5.47945205479452
+obeckov,obcko,1,3,6,22.2222222222222
+vysnie revistia,vynie rvistia,1,1,61,10.6060606060606
+lubisa,uisa,1,1,4,44.4444444444444
+spisske  vlachy,pisske  vlach,1,1,78,8.83534136546185
+hrusov,usov,1,8,42,4.25531914893617
+terchova,tecova,0,-,136,0.294117647058824
+cierne klucany,cirn klucany,1,13,82,1.73410404624277
+brezova nad bradlom,bezova nad bradom,0,-,219,0.99009900990099
+sulovce,suvce,0,-,121,0.961538461538462
+ondrasova,onrasva,1,12,23,5.97014925373134
+levoca,lvca,0,-,1,NaN
+hankovce,hakvce,0,-,121,0.961538461538462
+ivanovce,ivanvc,1,2,18,11.7647058823529
+horne motesice,hornemoteice,1,19,99,1.39211136890951
+slovenske klacany,slovenskeklacan,1,1,192,5.17647058823529
+cukalovce,cukalvc,1,1,16,19.3548387096774
+pliesovce,plisoce,1,12,19,2.04081632653061
+bijacovce,bjacove,1,35,49,1.54639175257732
+zliechov,zlieho,1,23,28,2.02020202020202
+hostovice,hotovie,1,1,56,4.14507772020725
+kalimovo,kaimoo,1,1,5,35.7142857142857
+slovak archives  jewish census 1942 townships and communities slovak archives reel 3  box 189 file 6,slovak archives  jewish census 192 townships and communities lovak archives reel 3  box 189 file 6,1,1,213,1.64626424651752
+slopna,slpa,0,-,2,0.0
+straze nad myjavou,straze ad myjavu,1,1,93,12.6436781609195
+banovce nad bebravou,banovce ad bebravo,1,3,232,1.83968462549277
+pruzina,ruina,1,21,27,1.28205128205128
+moranska zdychava,moranska zdcava,1,1,121,6.2111801242236
+dolnie dubove,olnie ubove,1,1,94,6.14035087719298
+raztocno,razocn,1,2,10,18.1818181818182
+slovak archives  jewish census 1942 townships and communities	slovak archives reel 2  box 184 file 4,slovak archives  jewish censu 1942 ownships and communities	slovak archives reel 2  box 184 file 4,1,1,205,1.70008718395815
