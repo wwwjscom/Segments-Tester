@@ -1,7 +1,100 @@
-3, Slovak Archives  Jewish Census 1942 townships and communities	Slovak Archives Reel 2  Box 184 File 4
-2, Slovak Archives  Jewish Census 1942 townships and communities Slovak Archives Reel 3  Box 189 File 4
-2, Slovak Archives - Jewish Census 1942 townships and communities Reel 4  Box 191 File 4
-2, Slovak Archives Jewish Census 1942 townships and communities Slovak Archives Reel 3  Box 188 File 4
-2, Slovak Archives Jewish Census 1942 townships and communities Slovak Archives Reel 3  Box 187 File 4
-2, Slovak Archives  Jewish Census 1942 townships and communities	Slovak Archives Reel 2  Box 185 File 4
-2, Slovak Archives  Jewish Census 1942 townships and communities	Slovak Archives Reel 3  Box 186 File 4
+4, Velke Bielice
+4, Velke Kostolany
+4, Velaty
+4, Velky Saris
+4, Velka Bytca
+4, Velke Levare
+4, Velke Chlievany
+2, Velke Surovce
+2, Velke Rovne
+2, Velke Ostratice
+2, Velka Hradna
+2, Velke Uherce
+2, Velky Ruskov
+2, Velke Vozokany
+2, Vojcice
+2, Velke Ozorovce
+2, Velka Domasa
+2, Velky Folkmar
+2, Velka Lihotka
+2, Velky Slivnik
+2, Velky Sulin
+2, Velke Bukovce
+2, Velke Kozmalovce
+2, Velky Krtys
+2, Velky Bab
+2, Velky Kolacin
+2, Visny Svidnik
+2, Velkrop
+2, Velky Bysterec
+2, Vysnie Revistia
+2, Vrbovec
+2, Velke Zaluzice
+2, Visnia Radvan
+2, Vyrava
+2, Vrbov
+2, Velka Lomnica
+2, Velicna
+2, Velke Senkvice
+2, Vinna
+2, Vesele
+2, Velke Pole
+2, Velka Causa
+2, Vyhne
+2, Velka
+2, Velka Udica
+1, Visnie Slovinky
+1, Versvar
+1, Vysny Komarnik
+1, Vyhne (Tabor)
+1, Vysoka
+1, Vieska nad Zitavou
+1, Vagas
+1, Vlasky
+1, Vislanka
+1, Vieska
+1, Vislava
+1, Vydrnik
+1, Visnia Jedlova
+1, Visoka nad Kisucou
+1, Valkov
+1, Valaska
+1, Vitanova
+1, Various places (to be established - very few)
+1, Vysny Mirosov
+1, Visny Orlik
+1, Valasovce
+1, Visna Olsava
+1, Vysnia Pisana
+1, Vapenik
+1, Visnie Mirkovce
+1, Visny Kubin
+1, Vola
+1, Vajnory
+1, Vistnia Polanka
+1, Verekne
+1, Vavrinec
+1, Vysny Hrusov
+1, Vlaca
+1, Vyhne Labor Camp
+1, Varin
+1, Vysny Orlik
+1, Vradiste
+1, Voderady
+1, Vysna Zubrica
+1, Vrutky
+1, Visolaje
+1, Vis. Stavkov
+1, Vazec
+1, Vychodna
+1, Vieska Beckovska
+1, Viaska Potvorice
+1, Visna Sunava
+1, Vrbovce
+1, Visoka
+1, Vydran
+1, Vlachy
+1, Vilagy
+1, Visnie Zbojne
+1, Vysnie Cabiny
+1, Varhanovce

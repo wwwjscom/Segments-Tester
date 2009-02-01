@@ -28,8 +28,11 @@ end
 
 class String
 	def dropChar
-		len = self.length
-		self[rand(len)] = ""
+		begin
+			len = self.length
+			self[rand(len)] = ""
+		rescue
+		end
 		return self
 	end
 
@@ -89,6 +92,13 @@ class String
 		return self
 	end
 
+	def swapChars times
+		for i in (1..times)
+			self.swapChar
+		end
+		return self
+	end
+
 	def swapAdjChar
 		len = self.length
 		
@@ -107,48 +117,40 @@ class String
 end
 
 
-def main
+
+def main test
 
 	######## MAIN ###########
-	queries = Array.new
 
-	tables.each do |table|
-		system("mysql -u root --password=root ngrams -e 'SELECT DISTINCT(query) INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table};'")
-
-		query_result = File.open("#{PATH}/query_result.txt")
-		while line = query_result.gets
-			line.chop!
-			queries.push(line)
-		end
-		File.delete("#{PATH}/query_result.txt")
-	end
-
-	# Remove duplicates and shuffle
-	queries.uniq!
-	queries.shuffle!
-
-	MULTIPLIER = 10
-	#MULTIPLIER = 8.92 # runs for 1000 results
-	TOTAL = queries.length
-	TEN_PERCENT = (TOTAL * 0.1).to_i
 	j = 0
 
-	ngram_results = Array.new
-	our_results = Array.new
+	@ngram_results = Array.new
+	@our_results = Array.new
 
 	for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
 
-		orig_query = queries[i].to_s
+		orig_query = @queries[i].to_s
 		query = String.new(orig_query)
+
 		# Fuck up query
-		#query = query.dropChar
-		query = query.dropChars(2)
-		#query = query.addChar
-		#query = query.addChars(2)
-		#query = query.replaceChar
-		#query = query.replaceChars(2)
-		#query = query.swapChar
-		#query = query.swapAdjChar
+		query = case test
+			when "d1": query.dropChar
+			when "d2": query.dropChars(2)
+			when "d3": query.dropChars(3)
+			when "d4": query.dropChars(4)
+			when "a1": query.addChar
+			when "a2": query.addChars(2)
+			when "a3": query.addChars(3)
+			when "a4": query.addChars(4)
+			when "r1": query.replaceChar
+			when "r2": query.replaceChars(2)
+			when "r3": query.replaceChars(3)
+			when "r4": query.replaceChars(4)
+			when "s1": query.swapAdjChar
+			when "s2": query.swapChars(2)
+			when "s3": query.swapChars(3)
+			when "s4": query.swapChars(4)
+		end
 
 		#puts "Orig: #{orig_query}, new: #{query}"
 
@@ -228,7 +230,7 @@ def main
 			our_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		else
 			result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
-			our_results.push(result_hash)
+			@our_results.push(result_hash)
 		end
 
 
@@ -281,20 +283,20 @@ def main
 		if match_rank > 40 or found == 0 then match_rank = '-' end
 
 		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
-		ngram_results.push(result_hash)
+		@ngram_results.push(result_hash)
 
 
 		if (use_ngrams == true and probability.to_f > our_probability.to_f) or our_probability.to_s == "NaN" then
 			#puts "Our new probability is #{probability}" # DEBUG
 			result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
-			our_results.push(result_hash)
+			@our_results.push(result_hash)
 			#elsif use_ngrams == true and probability.to_f <= our_probability.to_f then
 		elsif use_ngrams == true then
 			#puts "ngram probability is #{probability}, sticking with ours of #{our_probability}" # DEBUG
-			our_results.push(our_result_hash)
+			@our_results.push(our_result_hash)
 		end
 
-		puts "#{(TEN_PERCENT*MULTIPLIER).to_i - i} runs left"
+		puts "#{(TEN_PERCENT*MULTIPLIER).to_i - i} runs left, #{@remaining_tests} tests left"
 
 		#if i >= 2
 		#	break
@@ -307,18 +309,18 @@ def main
 
 end
 
-def writeResults
+def writeResults suffix
 
 	combined = Array.new
 
 
-	our_csv = File.open("#{PATH}/our_results.csv", "w")
+	our_csv = File.open("#{PATH}/our_results_#{suffix}.csv", "w")
 
 	our_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 
 
 	#puts "-"*50
-	our_results.each do |run|
+	@our_results.each do |run|
 		#puts "Orig Query: #{run.fetch('Orig Query')}"
 		#puts "New Query: #{run.fetch('New Query')}"
 		#puts "Found: #{run.fetch('Found')}"
@@ -335,13 +337,13 @@ def writeResults
 	our_csv.close
 
 
-	ngrams_csv = File.open("#{PATH}/ngram_results.csv", "w")
+	ngrams_csv = File.open("#{PATH}/ngram_results_#{suffix}.csv", "w")
 
 	ngrams_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 
 
 	#puts "-"*50
-	ngram_results.each do |run|
+	@ngram_results.each do |run|
 		#puts "Orig Query: #{run.fetch('Orig Query')}"
 		#puts "New Query: #{run.fetch('New Query')}"
 		#puts "Found: #{run.fetch('Found')}"
@@ -364,14 +366,14 @@ def writeResults
 
 
 
-	combined_csv = File.open("#{PATH}/combined_results.csv", "w")
+	combined_csv = File.open("#{PATH}/combined_results_#{suffix}.csv", "w")
 
 	combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,NGrams Match Rank,Ours Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
 
 
 	#puts "-"*50
 	i=0
-	ngram_results.each do |run|
+	@ngram_results.each do |run|
 		#puts "Orig Query: #{run.fetch('Orig Query')}"
 		#puts "New Query: #{run.fetch('New Query')}"
 		#puts "Found: #{run.fetch('Found')}"
@@ -380,7 +382,7 @@ def writeResults
 		#puts "Probability: #{run.fetch('Probability')}"
 		#puts "-"*50
 
-		combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{our_results[i].fetch('Probability')}"
+		combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{@our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{@our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{@our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{@our_results[i].fetch('Probability')}"
 
 		i += 1
 
@@ -395,20 +397,20 @@ def writeResults
 
 
 
-	combined_csv = File.open("#{PATH}/dropped_ngrams_notfound_results.csv", "w")
+	combined_csv = File.open("#{PATH}/dropped_ngrams_notfound_results_#{suffix}.csv", "w")
 
 	combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,NGrams Match Rank,Ours Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
 
 
 	j=0
 	i=0
-	ngram_results.each do |run|
+	@ngram_results.each do |run|
 
 		if (run.fetch('Found') == 0) then
 			i += 1
 			next
 		else
-			combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{our_results[i].fetch('Probability')}"
+			combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{@our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{@our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{@our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{@our_results[i].fetch('Probability')}"
 			i += 1
 			j += 1
 		end
@@ -424,3 +426,67 @@ def writeResults
 	combined_csv.close
 
 end
+
+
+
+
+
+@queries = Array.new
+
+tables.each do |table|
+	system("mysql -u root --password=root ngrams -e 'SELECT DISTINCT(query) INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table};'")
+
+	query_result = File.open("#{PATH}/query_result.txt")
+	while line = query_result.gets
+		line.chop!
+		@queries.push(line)
+	end
+	File.delete("#{PATH}/query_result.txt")
+end
+
+# Remove duplicates and shuffle
+@queries.uniq!
+@queries.shuffle!
+
+MULTIPLIER = 10
+#MULTIPLIER = 8.92 # runs for 1000 results
+TOTAL = @queries.length
+TEN_PERCENT = (TOTAL * 0.1).to_i
+
+
+@remaining_tests = 0
+
+
+
+def setup
+
+	tests = Hash[
+		"1_char_drop", "d1", 
+		"2_char_drop", "d2", 
+		"3_char_drop", "d3", 
+		"4_char_drop", "d4", 
+		"1_char_add", "a1", 
+		"2_char_add", "a2", 
+		"3_char_add", "a3", 
+		"4_char_add", "a4", 
+		"1_char_replace", "r1",
+		"2_char_replace", "r2",
+		"3_char_replace", "r3",
+		"4_char_replace", "r4",
+		"Adj_char_swap", "s1",
+		"2_char_swap", "s2",
+		"3_char_swap", "s3",
+		"4_char_swap", "s4"
+		]
+
+	@remaining_tests = tests.length - 1
+
+	tests.each do |test|
+		main(test[1])
+		writeResults(test[0])
+		@remaining_tests -= 1
+	end
+
+end
+
+setup
