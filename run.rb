@@ -217,11 +217,11 @@ def main test
 
 		#if probability.to_s == "NaN" then puts "-"*200 end # DEBUG
 
-		# Disreguard any finds whos rank is > 40
-		if match_rank > 40 then found = 0 end
+		# Disreguard any finds whos rank is > 100
+		if match_rank > 100 then found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > 40 or found == 0 then match_rank = '-' end
+		if match_rank > 100 or found == 0 then match_rank = '-' end
 
 		if probability.to_f <= 20 or probability.to_s == "NaN" then
 			#puts "Very low probability: #{probability}" # DEBUG
@@ -276,11 +276,11 @@ def main test
 		probability = (match_votes.to_f/total_votes.to_f)*100
 
 
-		# Disreguard any finds whos rank is > 40
-		if match_rank > 40 then found = 0 end
+		# Disreguard any finds whos rank is > 100
+		if match_rank > 100 then found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > 40 or found == 0 then match_rank = '-' end
+		if match_rank > 100 or found == 0 then match_rank = '-' end
 
 		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		@ngram_results.push(result_hash)
@@ -391,6 +391,7 @@ def writeResults suffix
 	i += 1
 
 	combined_csv.puts ",,=SUM(C2:C#{i}),=SUM(D2:D#{i}),=AVERAGE(E2:E#{i}),=AVERAGE(F2:F#{i}),=AVERAGE(G2:G#{i}),=AVERAGE(H2:H#{i}),=AVERAGE(I2:I#{i}),=AVERAGE(J2:J#{i})"
+	combined_csv.puts ",,=C#{i+1}/#{i-1}*100,=D#{i+1}/#{i-1}*100"
 
 	combined_csv.close
 

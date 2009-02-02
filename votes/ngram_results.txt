@@ -1,4 +1,2 @@
-5, dolne strhary
-4, raztocno
-4, varhanovce
-1, marhan
+5, zakamene
+4, zakarovce
