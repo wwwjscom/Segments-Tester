@@ -1,15 +1,11 @@
-6, Nova Bana
-4, Nemsova
-4, Nizna Olsava
-2, Nizna Sunava
-2, Nova Lesna
-2, Niznia Jedlova
-2, Niklova
-2, Nova Bystrica
-1, Nemecka Poruba
-1, Nitrianska Streda
-1, Niznia Polanka
-1, Niznia Olka
-1, Nemecka
-1, Nemecka Lupca
-1, Nizna Lipnica
+2, Sucany
+2, Sarisske Luky
+1, Skacany
+1, Slepcany
+1, Spisske  Vlachy
+1, Solcany
+1, Slovenske Klacany
+1, Spisske Vlachy
+1, Simonovany
+1, Stare Hory
+1, Smizany

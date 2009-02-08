@@ -217,11 +217,11 @@ def main test
 
 		#if probability.to_s == "NaN" then puts "-"*200 end # DEBUG
 
-		# Disreguard any finds whos rank is > 100
-		if match_rank > 100 then found = 0 end
+		# Disreguard any finds whos rank is > CUTOFF
+		if match_rank > CUTOFF then found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > 100 or found == 0 then match_rank = '-' end
+		if match_rank > CUTOFF or found == 0 then match_rank = '-' end
 
 		if probability.to_f <= 20 or probability.to_s == "NaN" then
 			#puts "Very low probability: #{probability}" # DEBUG
@@ -276,11 +276,11 @@ def main test
 		probability = (match_votes.to_f/total_votes.to_f)*100
 
 
-		# Disreguard any finds whos rank is > 100
-		if match_rank > 100 then found = 0 end
+		# Disreguard any finds whos rank is > CUTOFF
+		if match_rank > CUTOFF then found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > 100 or found == 0 then match_rank = '-' end
+		if match_rank > CUTOFF or found == 0 then match_rank = '-' end
 
 		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		@ngram_results.push(result_hash)
@@ -390,8 +390,8 @@ def writeResults suffix
 
 	i += 1
 
-	combined_csv.puts ",,=SUM(C2:C#{i}),=SUM(D2:D#{i}),=AVERAGE(E2:E#{i}),=AVERAGE(F2:F#{i}),=AVERAGE(G2:G#{i}),=AVERAGE(H2:H#{i}),=AVERAGE(I2:I#{i}),=AVERAGE(J2:J#{i})"
-	combined_csv.puts ",,=C#{i+1}/#{i-1}*100,=D#{i+1}/#{i-1}*100"
+	#combined_csv.puts ",,=SUM(C2:C#{i}),=SUM(D2:D#{i}),=AVERAGE(E2:E#{i}),=AVERAGE(F2:F#{i}),=AVERAGE(G2:G#{i}),=AVERAGE(H2:H#{i}),=AVERAGE(I2:I#{i}),=AVERAGE(J2:J#{i})"
+	#combined_csv.puts ",,=C#{i+1}/#{i-1}*100,=D#{i+1}/#{i-1}*100"
 
 	combined_csv.close
 
@@ -422,13 +422,136 @@ def writeResults suffix
 	i += 1
 	j += 1
 
-	combined_csv.puts ",,=SUM(C2:C#{j}),=SUM(D2:D#{j}),=AVERAGE(E2:E#{j}),=AVERAGE(F2:F#{j}),=AVERAGE(G2:G#{j}),=AVERAGE(H2:H#{j}),=AVERAGE(I2:I#{j}),=AVERAGE(J2:J#{j})"
+	#combined_csv.puts ",,=SUM(C2:C#{j}),=SUM(D2:D#{j}),=AVERAGE(E2:E#{j}),=AVERAGE(F2:F#{j}),=AVERAGE(G2:G#{j}),=AVERAGE(H2:H#{j}),=AVERAGE(I2:I#{j}),=AVERAGE(J2:J#{j})"
 
 	combined_csv.close
 
 end
 
 
+# Gathers the statistics for all the runs and outputs them nicely to a file
+def statistics
+
+	@out = Hash.new()
+
+	@tests.each do |test|
+
+		total_runs = 0
+		ngrams_runs = 0
+		s_runs = 0
+		ngrams_match = 0
+		s_match = 0
+		ngrams_rank = 0
+		s_rank = 0
+
+		c_results = File.open("combined_results_#{test[0]}.csv", "r")
+		while line = c_results.gets
+			line = line.split(",")
+
+			ngrams_match += line[2].to_i
+			s_match += line[3].to_i
+
+			if(line[4] != "-") then 
+				ngrams_runs += 1
+				ngrams_rank += line[4].to_i 
+			end
+			if(line[5] != "-") then 
+				s_runs += 1
+				s_rank += line[5].to_i 
+			end
+
+			last_line = line
+
+			total_runs += 1
+		end
+
+		ngrams_rank = "%.2f" % (ngrams_rank.to_f/(ngrams_runs-1)).to_f
+		s_rank = "%.2f" % (s_rank.to_f/(s_runs-1)).to_f
+
+		ngrams_match_percent = "%.2f" % (ngrams_match.to_f/(total_runs-1)*100)
+		s_match_percent = "%.2f" % (s_match.to_f/(total_runs-1)*100)
+
+		s_rank_alt = 0
+		i = 0
+		n_results = File.open("dropped_ngrams_notfound_results_#{test[0]}.csv", "r")
+		while line = n_results.gets
+			line = line.split(",")
+
+			if(line[5] != "-") then 
+				i += 1
+				s_rank_alt += line[5].to_f
+			end
+		end
+
+		s_rank_alt = "%.2f" % (s_rank_alt/(i-1)).to_f
+
+		type = test[0].split("_")[2]
+		sub_type = test[0].split("_")[0] + " " + test[0].split("_")[1]
+
+		output = "* #{sub_type}\n** ngrams found: #{ngrams_match_percent}% (#{ngrams_match}/#{total_runs-1}); rank: #{ngrams_rank}\n** segments found: #{s_match_percent}% (#{s_match}/#{total_runs-1}); rank #{s_rank} & #{s_rank_alt}\n\n"
+
+		@out["#{test[1]}"] = output
+	end
+
+
+	file = File.open('STATS.txt', 'w')
+
+	# output all of the goodness
+	if (@out.key?("a1") or @out.key?("a2") or @out.key?("a3") or @out.key?("a4")) then
+		file.puts "Add\n\n"
+
+		begin
+			if @out.key?("a1") then file.puts @out["a1"] end
+			if @out.key?("a2") then file.puts @out["a2"] end
+			if @out.key?("a3") then file.puts @out["a3"] end
+			if @out.key?("a4") then file.puts @out["a4"] end
+		rescue
+		end
+		file.puts '-'*75
+	end
+	if (@out.key?("d1") or @out.key?("d2") or @out.key?("d3") or @out.key?("d4")) then
+		file.puts "Drop\n\n"
+
+		begin
+			if @out.key?("d1") then file.puts @out["d1"] end
+			if @out.key?("d2") then file.puts @out["d2"] end
+			if @out.key?("d3") then file.puts @out["d3"] end
+			if @out.key?("d4") then file.puts @out["d4"] end
+		rescue
+		end
+		file.puts '-'*75
+	end
+
+
+	if (@out.key?("r1") or @out.key?("r2") or @out.key?("r3") or @out.key?("r4")) then
+		file.puts "Replace\n\n"
+
+		begin
+			if @out.key?("r1") then file.puts @out["r1"] end
+			if @out.key?("r2") then file.puts @out["r2"] end
+			if @out.key?("r3") then file.puts @out["r3"] end
+			if @out.key?("r4") then file.puts @out["r4"] end
+		rescue
+		end
+		file.puts '-'*75
+	end
+
+
+	if (@out.key?("s1") or @out.key?("s2") or @out.key?("s3") or @out.key?("s4")) then
+		file.puts "Swap\n\n"
+
+		begin
+			if @out.key?("s1") then file.puts @out["s1"] end
+			if @out.key?("s2") then file.puts @out["s2"] end
+			if @out.key?("s3") then file.puts @out["s3"] end
+			if @out.key?("s4") then file.puts @out["s4"] end
+		rescue
+		end
+		file.puts '-'*75
+	end
+
+	file.close
+end
 
 
 
@@ -449,8 +572,8 @@ end
 @queries.uniq!
 @queries.shuffle!
 
-MULTIPLIER = 10
-#MULTIPLIER = 8.92 # runs for 1000 results
+MULTIPLIER = 10 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
+CUTOFF = 60 # When a result is ranked greated than this, its marked as not found.
 TOTAL = @queries.length
 TEN_PERCENT = (TOTAL * 0.1).to_i
 
@@ -461,7 +584,7 @@ TEN_PERCENT = (TOTAL * 0.1).to_i
 
 def setup
 
-	tests = Hash[
+	@tests = Hash[
 		"1_char_drop", "d1", 
 		"2_char_drop", "d2", 
 		"3_char_drop", "d3", 
@@ -480,9 +603,9 @@ def setup
 		"4_char_swap", "s4"
 		]
 
-	@remaining_tests = tests.length - 1
+	@remaining_tests = @tests.length - 1
 
-	tests.each do |test|
+	@tests.each do |test|
 		main(test[1])
 		writeResults(test[0])
 		@remaining_tests -= 1
@@ -491,3 +614,4 @@ def setup
 end
 
 setup
+statistics

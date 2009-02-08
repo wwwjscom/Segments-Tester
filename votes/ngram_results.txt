@@ -1,2 +1,69 @@
-5, zakamene
-4, zakarovce
+10, moravske lieskove
+10, spisske pohradie
+10, nitrianske rudno
+10, slovenske pravno
+10, velke chlievany
+10, sarisske luky
+8, hoske  ?
+8, slovenske klacany
+8, zemianske lieskove
+8, zbudske dlhe
+8, ceske brezovo
+8, roznavske bystre
+8, hricovske pohradie
+8, zemianske kostolany
+8, spisske  vlachy
+5, velke bielice
+5, velke kostolany
+5, slatina nad bebravou
+5, uhorske
+5, slovenska reslavica
+5, velke levare
+5, strazske
+5, udavske
+5, oslany
+5, pruske
+5, slanica
+4, nizny slavkov
+4, police headquarters in bratislava (continued)
+4, velke bukovce
+4, slavkovce
+4, vislava
+4, osuske
+4, jews in custody in bratislava in sept 1942
+4, smolinske
+4, niznie cabiny
+4, police headquarters in bratislava
+4, velke kozmalovce
+4, spisske. tomasovce
+4, vysnie cabiny
+4, maly slavkov
+4, velke ostratice
+4, vislanka
+4, velke ozorovce
+4, ploske
+4, velke vozokany
+4, krajne carno
+4, kosicke hamry
+2, sarisske dravce
+2, liptovske trnovce
+2, hontianske tesary
+2, bratislava
+2, kysucke nove mesto
+2, trencianske teplice
+2, liptovske revuce
+2, spisske vlachy
+1, brodske
+1, slavosovce
+1, velke surovce
+1, velke uherce
+1, rajecke teplice
+1, lednicke rovne
+1, velke rovne
+1, uherska reslavica
+1, slanec
+1, velke zaluzice
+1, velke senkvice
+1, velke pole
+1, zvolenska slatina
+1, dolnie slazany
