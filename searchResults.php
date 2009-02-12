@@ -17,6 +17,7 @@ $_GET['query'] = $query;
 		$list5=method5($_GET['query'],$et);
 		$list6=method6($_GET['query'],$et);
 		$list7=method7($_GET['query'],$et);
+		#$list7=array();
 	
 		/* Merge all of the returned results into one array */
 		$finalArray=array_merge($list1,$list3,$list4,$list5,$list6,$list7);

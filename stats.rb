@@ -2,6 +2,7 @@
 class Stats
 
 	def initialize()
+    puts "Run with -help for help"
 		@stat = options('s')
 
 		if @stat then

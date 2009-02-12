@@ -3,6 +3,7 @@
 # Queries both engines using a specified test
 
 load "queryToNgramToVote.rb"
+load "soundex.rb"
 
 ########### CONFIG ################
 tables = Array['t', 'h', 'o', 'm', 'p']
@@ -126,6 +127,8 @@ def main test
 
 	@ngram_results = Array.new
 	@our_results = Array.new
+	@soundex_results = Array.new
+	@dm_soundex_results = Array.new
 
 	for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
 
@@ -170,6 +173,255 @@ def main test
 
 		# Query our engine
 		system("php #{PATH}/searchResults.php '#{query}'")	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		#######################################
+		#######################################
+		##### DM SOUNDEX ENGINE....GO #########
+		#######################################
+		#######################################
+
+		# reset vars
+		dm_soundex_result_hash = Hash.new
+		result_hash = Hash.new
+		dm_soundex_probability = 0
+		total_votes = 0
+		rank = 1
+		found = 0
+		match_rank = 0
+		probability = 0
+		match_votes = 0
+
+
+		puts query
+
+		begin
+			if query.include? 'j' then
+				puts "Skipping....j...."
+				next
+			end
+		rescue
+		end 
+
+		#print "Query: #{query}"
+		# Convery query to dm soundex
+		system("perl dm-soundex.pl \"#{query}\" > /tmp/tmp-dm.txt")
+
+		f = File.open('/tmp/tmp-dm.txt')
+		dm_soundex_query = f.gets.chop
+		#print " - #{dm_soundex_query}\n"
+		f.close
+
+		tables = Array['t', 'p', 'm', 'o', 'h']
+
+
+		#puts "Orig Query: #{orig_query}, Query: #{query}, soundex_query: #{soundex_query}"
+
+		tables.each do |table|
+
+			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_query}\";'")
+			dm_soundex_results = File.open("#{PATH}/query_result.txt", 'r')
+
+			while vote = dm_soundex_results.gets do
+
+				vote = vote.chomp!
+				begin
+					dm_soundex_result_hash[vote] += 1
+				rescue
+					dm_soundex_result_hash[vote] = 1
+				end
+			end
+
+			File.delete("#{PATH}/query_result.txt")
+		end
+
+		##
+		##
+		##
+		##
+		## MUST FIND A WAY TO SORT A HASH BASED ON ITS VOTES
+		#@
+		#@
+		#@
+		#@
+		#@
+
+
+		# loop through each line to see if it matches our original query
+		rank = 1
+		dm_soundex_found = 0
+		dm_soundex_match_rank = 0
+		dm_soundex_result_hash.each do |suggestion, votes|
+
+			#puts ".#{suggestion}. *#{orig_query}* with #{votes} votes out of #{soundex_result_hash.size}"
+			if suggestion.downcase == orig_query.downcase then
+				#puts "DM---SOUNDEX4TW"
+				dm_soundex_match_rank = rank
+				dm_soundex_found = 1
+			end
+
+			rank += 1
+		end
+
+		#puts "Match Rank: #{soundex_match_rank} out of #{soundex_result_hash.size}"
+
+		probability = nil
+
+		# Disreguard any finds whos rank is > CUTOFF
+		if match_rank > CUTOFF then dm_soundex_found = 0 end
+
+		# Make the match_rank - if it wasnt found or was too high
+		if match_rank > CUTOFF or dm_soundex_found == 0 then match_rank = '-' end
+
+		dm_soundex_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", dm_soundex_found, "Match Rank", dm_soundex_match_rank, "Rank", rank-1, "Probability", probability]
+		@dm_soundex_results.push(dm_soundex_result_hash)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#		#######################################
+#		#######################################
+#		####### SOUNDEX ENGINE....GO ##########
+#		#######################################
+#		#######################################
+#
+#		# reset vars
+#		soundex_result_hash = Hash.new
+#		result_hash = Hash.new
+#		soundex_probability = 0
+#		total_votes = 0
+#		rank = 1
+#		found = 0
+#		match_rank = 0
+#		probability = 0
+#		match_votes = 0
+#
+#
+#		soundex_query = query.soundex(false)
+#
+#		tables = Array['t', 'p', 'm', 'o', 'h']
+#
+#
+#		#puts "Orig Query: #{orig_query}, Query: #{query}, soundex_query: #{soundex_query}"
+#
+#		tables.each do |table|
+#
+#			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_query}\";'")
+#			soundex_results = File.open("#{PATH}/query_result.txt", 'r')
+#
+#			while vote = soundex_results.gets do
+#
+#				vote = vote.chomp!
+#				begin
+#					soundex_result_hash[vote] += 1
+#				rescue
+#					soundex_result_hash[vote] = 1
+#				end
+#			end
+#
+#			File.delete("#{PATH}/query_result.txt")
+#		end
+#
+#		##
+#		##
+#		##
+#		##
+#		## MUST FIND A WAY TO SORT A HASH BASED ON ITS VOTES
+#		#@
+#		#@
+#		#@
+#		#@
+#		#@
+#
+#
+#		# loop through each line to see if it matches our original query
+#		rank = 1
+#		soundex_found = 0
+#		soundex_match_rank = 0
+#		soundex_result_hash.each do |suggestion, votes|
+#
+#			#puts ".#{suggestion}. *#{orig_query}* with #{votes} votes out of #{soundex_result_hash.size}"
+#			if suggestion.downcase == orig_query.downcase then
+#				#puts "SOUNDEX4TW"
+#				soundex_match_rank = rank
+#				soundex_found = 1
+#			end
+#
+#			rank += 1
+#		end
+#
+#		#puts "Match Rank: #{soundex_match_rank} out of #{soundex_result_hash.size}"
+#
+#		probability = nil
+#
+#		# Disreguard any finds whos rank is > CUTOFF
+#		if match_rank > CUTOFF then soundex_found = 0 end
+#
+#		# Make the match_rank - if it wasnt found or was too high
+#		if match_rank > CUTOFF or soundex_found == 0 then match_rank = '-' end
+#
+#		soundex_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", soundex_found, "Match Rank", soundex_match_rank, "Rank", rank-1, "Probability", probability]
+#		@soundex_results.push(soundex_result_hash)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 		#######################################
 		#######################################
@@ -361,6 +613,41 @@ def writeResults suffix
 	ngrams_csv.close
 
 
+#	soundex_csv = File.open("#{PATH}/soundex_results_#{suffix}.csv", "w")
+#
+#	soundex_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
+#
+#
+#	@soundex_results.each do |run|
+#
+#		soundex_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{run.fetch('Match Rank')},#{run.fetch('Rank')},#{run.fetch('Probability')}"
+#		combined.push(run)
+#
+#	end
+#
+#	soundex_csv.close
+
+
+	dm_soundex_csv = File.open("#{PATH}/dm_soundex_results_#{suffix}.csv", "w")
+
+	dm_soundex_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
+
+
+	@dm_soundex_results.each do |run|
+
+		dm_soundex_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{run.fetch('Match Rank')},#{run.fetch('Rank')},#{run.fetch('Probability')}"
+		combined.push(run)
+
+	end
+
+	dm_soundex_csv.close
+
+
+
+
+
+
+
 
 
 
@@ -368,7 +655,7 @@ def writeResults suffix
 
 	combined_csv = File.open("#{PATH}/combined_results_#{suffix}.csv", "w")
 
-	combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,NGrams Match Rank,Ours Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
+	combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,Soundex Found,DM Soundex Found,NGrams Match Rank,Ours Match Rank,Soundex Match Rank,DM Soundex Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
 
 
 	#puts "-"*50
@@ -382,7 +669,7 @@ def writeResults suffix
 		#puts "Probability: #{run.fetch('Probability')}"
 		#puts "-"*50
 
-		combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{@our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{@our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{@our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{@our_results[i].fetch('Probability')}"
+		combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{@our_results[i].fetch('Found')},#{@soundex_results[i].fetch('Found')},#{@dm_soundex_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{@our_results[i].fetch('Match Rank')},#{@soundex_results[i].fetch('Match Rank')},#{@dm_soundex_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{@our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{@our_results[i].fetch('Probability')}"
 
 		i += 1
 
@@ -437,11 +724,20 @@ def statistics
 	@tests.each do |test|
 
 		total_runs = 0
+
 		ngrams_runs = 0
+		soundex_runs = 0
+		dm_soundex_runs = 0
 		s_runs = 0
+
 		ngrams_match = 0
+		soundex_match = 0
+		dm_soundex_match = 0
 		s_match = 0
+
 		ngrams_rank = 0
+		soundex_rank = 0
+		dm_soundex_rank = 0
 		s_rank = 0
 
 		c_results = File.open("combined_results_#{test[0]}.csv", "r")
@@ -450,16 +746,25 @@ def statistics
 
 			ngrams_match += line[2].to_i
 			s_match += line[3].to_i
+			soundex_match += line[4].to_i
+			dm_soundex_match += line[5].to_i
 
-			if(line[4] != "-") then 
+			if(line[6] != "-") then 
 				ngrams_runs += 1
-				ngrams_rank += line[4].to_i 
+				ngrams_rank += line[6].to_i 
 			end
-			if(line[5] != "-") then 
+			if(line[7] != "-") then 
 				s_runs += 1
-				s_rank += line[5].to_i 
+				s_rank += line[7].to_i 
 			end
-
+			if(line[8] != "-") then 
+				soundex_runs += 1
+				soundex_rank += line[8].to_i 
+			end
+			if(line[9] != "-") then 
+				dm_soundex_runs += 1
+				dm_soundex_rank += line[9].to_i 
+			end
 			last_line = line
 
 			total_runs += 1
@@ -467,9 +772,13 @@ def statistics
 
 		ngrams_rank = "%.2f" % (ngrams_rank.to_f/(ngrams_runs-1)).to_f
 		s_rank = "%.2f" % (s_rank.to_f/(s_runs-1)).to_f
+		soundex_rank = "%.2f" % (soundex_rank.to_f/(soundex_runs-1)).to_f
+		dm_soundex_rank = "%.2f" % (dm_soundex_rank.to_f/(dm_soundex_runs-1)).to_f
 
 		ngrams_match_percent = "%.2f" % (ngrams_match.to_f/(total_runs-1)*100)
 		s_match_percent = "%.2f" % (s_match.to_f/(total_runs-1)*100)
+		soundex_match_percent = "%.2f" % (soundex_match.to_f/(total_runs-1)*100)
+		dm_soundex_match_percent = "%.2f" % (dm_soundex_match.to_f/(total_runs-1)*100)
 
 		s_rank_alt = 0
 		i = 0
@@ -488,7 +797,7 @@ def statistics
 		type = test[0].split("_")[2]
 		sub_type = test[0].split("_")[0] + " " + test[0].split("_")[1]
 
-		output = "* #{sub_type}\n** ngrams found: #{ngrams_match_percent}% (#{ngrams_match}/#{total_runs-1}); rank: #{ngrams_rank}\n** segments found: #{s_match_percent}% (#{s_match}/#{total_runs-1}); rank #{s_rank} & #{s_rank_alt}\n\n"
+		output = "* #{sub_type}\n** ngrams found: #{ngrams_match_percent}% (#{ngrams_match}/#{total_runs-1}); rank: #{ngrams_rank}\n** segments found: #{s_match_percent}% (#{s_match}/#{total_runs-1}); rank #{s_rank} & #{s_rank_alt}\n** soundex found: #{soundex_match_percent}% (#{soundex_match}/#{total_runs-1}); rank #{soundex_rank}\n** DM soundex found: #{dm_soundex_match_percent}% (#{dm_soundex_match}/#{total_runs-1}); rank #{dm_soundex_rank}\n\n"
 
 		@out["#{test[1]}"] = output
 	end

@@ -1,11 +1,17 @@
-2, Sucany
-2, Sarisske Luky
-1, Skacany
-1, Slepcany
-1, Spisske  Vlachy
-1, Solcany
-1, Slovenske Klacany
-1, Spisske Vlachy
-1, Simonovany
-1, Stare Hory
-1, Smizany
+4, Bratislava
+2, Bosaca
+2, Belusa
+2, Breznicka
+2, Banska Stiavnica
+2, Banska Bystrica
+1, Bukovina
+1, Breznica
+1, Bela
+1, Brusnica
+1, Bytcica
+1, Brdarska
+1, Banka
+1, Bojna
+1, Bystra
+1, Bystricka
+1, Blatne Revistia

@@ -1,69 +1,134 @@
-10, moravske lieskove
-10, spisske pohradie
-10, nitrianske rudno
-10, slovenske pravno
-10, velke chlievany
-10, sarisske luky
-8, hoske  ?
-8, slovenske klacany
-8, zemianske lieskove
-8, zbudske dlhe
-8, ceske brezovo
-8, roznavske bystre
-8, hricovske pohradie
-8, zemianske kostolany
-8, spisske  vlachy
-5, velke bielice
-5, velke kostolany
-5, slatina nad bebravou
-5, uhorske
-5, slovenska reslavica
-5, velke levare
-5, strazske
-5, udavske
-5, oslany
-5, pruske
-5, slanica
-4, nizny slavkov
-4, police headquarters in bratislava (continued)
-4, velke bukovce
-4, slavkovce
-4, vislava
-4, osuske
-4, jews in custody in bratislava in sept 1942
-4, smolinske
-4, niznie cabiny
-4, police headquarters in bratislava
-4, velke kozmalovce
-4, spisske. tomasovce
-4, vysnie cabiny
-4, maly slavkov
-4, velke ostratice
-4, vislanka
-4, velke ozorovce
-4, ploske
-4, velke vozokany
-4, krajne carno
-4, kosicke hamry
-2, sarisske dravce
+15, secovce
+12, hincovce
+12, lukacovce
+12, kocovce
+12, bracovce
+12, huncovce
+12, inacovce
+12, hudcovce
+12, jacovce
+10, kosarovce
+10, pavlovce nad uhom
+10, koskovce
+10, horne obdiekovce
+10, jaklovce
+10, banovce nad ondavou
+10, bogdanovce
+10, celovce
+10, batizovce
+10, budkovce
+10, pribovce
+10, hanusovce nad toplou
+10, radosovce
+10, markusovce
+8, velke ozorovce
+8, kochanovce
+8, giglovce
+8, velke bukovce
+8, petrovce
+8, kudlovce
+8, valasovce
+8, sliepkovce
+8, horovce
+8, betlanovce
+8, spisske. tomasovce
+8, kolbovce
+8, zlkovce
+8, baldovce
+8, katlovce
+8, zakarovce
+8, holomanovce
+8, falkusovce
+8, laskovce
+8, hornie lelovce
+8, petejovce
+8, zakovce
+8, petrmanovce
+8, lastovce
+8, hunkovce
+8, hanigovce
+8, lasovce
+8, zatkovce
+8, visnie mirkovce
+8, brunovce
+8, girovce
+8, ivanovce
+8, abrahamovce
+8, sulovce
+8, harmanovce nad toplou
+8, basovce
+8, abranovce
+8, cabalovce
+8, domanovce
+8, licartovce
+8, fekisovce
+8, cukalovce
+8, slavkovce
+8, castkovce
+8, machalovce
+8, uzovce
+8, mlynarovce
+8, zamarovce
+8, farkasovce
+8, hotkovce
+8, semetkovce
+8, grane petrovce
+8, velke kozmalovce
+8, iliasovce
+8, hankovce
+8, petrikovce
+8, holcikovce
+8, nizne ladiskovce
+8, varhanovce
+8, mikusovce
+8, mrazovce
+8, markovce
+8, nedasovce
+8, janovce
+8, zlatovce
+8, dubodiel a cuklasovce
+6, zlate moravce
+5, hrabovcik
+5, cacov
+5, pecovska nova ves
+4, dacov
+4, nolcovo
+4, giraltovce
+4, banovce nad bebravou
+4, dravce
+4, michalovce
+4, rakovcik
+4, klcovany
+4, klokocov
+4, stavce
+4, hricovske pohradie
+3, bijacovce
+2, letanovce
+2, risnovce
+2, dolne drzkovce
+2, dolne zemberovce
+2, bertotovce
+2, pozdisovce
+2, batovce
+2, drahovce
+2, rozhanovce
+2, krusovce
+2, hornie otrokovce
+2, kozarovce
 2, liptovske trnovce
-2, hontianske tesary
-2, bratislava
-2, kysucke nove mesto
-2, trencianske teplice
-2, liptovske revuce
-2, spisske vlachy
-1, brodske
-1, slavosovce
-1, velke surovce
-1, velke uherce
-1, rajecke teplice
-1, lednicke rovne
-1, velke rovne
-1, uherska reslavica
-1, slanec
-1, velke zaluzice
-1, velke senkvice
-1, velke pole
-1, zvolenska slatina
-1, dolnie slazany
+2, bidovce
+2, slavosovce
+2, pliesovce
+2, hostovce
+2, velke surovce
+2, tomasovce
+2, mosovce
+2, vrbovce
+1, kostolne moravce
+1, ocova
+1, dolny hricov
+1, gocovo
+1, busevce
+1, sarisske dravce
+1, svercov
+1, malcov
