@@ -1,0 +1,108 @@
+Add
+
+* 1 char
+** ngrams found: 95.07% (983/1034); rank: 2.67
+** segments found: 100.00% (1034/1034); rank 1.68 & 1.70
+** four grams found: 88.20% (912/1034); rank 1.89
+** DM soundex found: 41.30% (427/1034); rank 3.92
+
+* 2 char
+** ngrams found: 92.84% (960/1034); rank: 3.46
+** segments found: 99.52% (1029/1034); rank 2.39 & 2.38
+** four grams found: 78.14% (808/1034); rank 2.23
+** DM soundex found: 19.83% (205/1034); rank 4.60
+
+* 3 char
+** ngrams found: 88.20% (912/1034); rank: 4.45
+** segments found: 97.58% (1009/1034); rank 3.22 & 3.04
+** four grams found: 69.92% (723/1034); rank 2.37
+** DM soundex found: 10.74% (111/1034); rank 5.07
+
+* 4 char
+** ngrams found: 83.85% (867/1034); rank: 4.86
+** segments found: 94.49% (977/1034); rank 3.89 & 3.82
+** four grams found: 62.38% (645/1034); rank 2.73
+** DM soundex found: 6.19% (64/1034); rank 5.66
+
+---------------------------------------------------------------------------
+Drop
+
+* 1 char
+** ngrams found: 93.61% (952/1017); rank: 3.48
+** segments found: 100.00% (1017/1017); rank 2.64 & 2.67
+** four grams found: 82.79% (842/1017); rank 2.35
+** DM soundex found: 41.49% (422/1017); rank 3.64
+
+* 2 char
+** ngrams found: 84.53% (792/937); rank: 4.71
+** segments found: 97.44% (913/937); rank 4.32 & 3.66
+** four grams found: 63.18% (592/937); rank 2.44
+** DM soundex found: 21.45% (201/937); rank 4.97
+
+* 3 char
+** ngrams found: 73.89% (583/789); rank: 5.77
+** segments found: 92.78% (732/789); rank 6.37 & 4.68
+** four grams found: 51.96% (410/789); rank 3.05
+** DM soundex found: 9.63% (76/789); rank 6.43
+
+* 4 char
+** ngrams found: 69.00% (414/600); rank: 6.29
+** segments found: 85.83% (515/600); rank 7.10 & 5.19
+** four grams found: 47.83% (287/600); rank 2.93
+** DM soundex found: 9.33% (56/600); rank 5.93
+
+---------------------------------------------------------------------------
+Replace
+
+* 1 char
+** ngrams found: 91.26% (950/1041); rank: 3.16
+** segments found: 100.00% (1041/1041); rank 2.12 & 1.96
+** four grams found: 80.88% (842/1041); rank 2.24
+** DM soundex found: 31.22% (325/1041); rank 4.43
+
+* 2 char
+** ngrams found: 80.06% (843/1053); rank: 4.30
+** segments found: 93.83% (988/1053); rank 4.14 & 3.40
+** four grams found: 62.49% (658/1053); rank 2.75
+** DM soundex found: 18.14% (191/1053); rank 4.82
+
+* 3 char
+** ngrams found: 70.28% (740/1053); rank: 5.02
+** segments found: 86.51% (911/1053); rank 5.26 & 3.75
+** four grams found: 50.62% (533/1053); rank 2.74
+** DM soundex found: 8.55% (90/1053); rank 5.72
+
+* 4 char
+** ngrams found: 57.91% (615/1062); rank: 5.82
+** segments found: 74.58% (792/1062); rank 6.63 & 4.57
+** four grams found: 38.70% (411/1062); rank 2.89
+** DM soundex found: 4.90% (52/1062); rank 4.33
+
+---------------------------------------------------------------------------
+Swap
+
+* Adj char
+** ngrams found: 85.40% (883/1034); rank: 4.46
+** segments found: 97.87% (1012/1034); rank 3.70 & 3.03
+** four grams found: 68.28% (706/1034); rank 2.67
+** DM soundex found: 57.54% (595/1034); rank 3.42
+
+* 2 char
+** ngrams found: 54.84% (567/1034); rank: 7.34
+** segments found: 71.95% (744/1034); rank 8.08 & 5.94
+** four grams found: 34.43% (356/1034); rank 3.29
+** DM soundex found: 17.41% (180/1034); rank 2.94
+
+* 3 char
+** ngrams found: 42.94% (444/1034); rank: 7.02
+** segments found: 57.83% (598/1034); rank 8.81 & 6.07
+** four grams found: 24.56% (254/1034); rank 3.41
+** DM soundex found: 9.19% (95/1034); rank 2.77
+
+* 4 char
+** ngrams found: 33.75% (349/1034); rank: 8.94
+** segments found: 44.97% (465/1034); rank 9.39 & 7.44
+** four grams found: 16.15% (167/1034); rank 3.36
+** DM soundex found: 7.35% (76/1034); rank 3.28
+
+---------------------------------------------------------------------------

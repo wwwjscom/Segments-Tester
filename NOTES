@@ -1,0 +1,8 @@
+Drop the h table from the runs -- DONE
+Don't use any queries greater than length 25 -- DONE
+re-compute the stats for the new collection
+Find queries from the yiuzkor database and put them in our test database
+Add names from the 2nd paragraph introduction in our paper, and the following paragraph.  (All names frmo the introduction)
+Soundex is not needed for our runs. -- DONE
+
+Run 4grams @ word level along with all other tests. -- DONE
