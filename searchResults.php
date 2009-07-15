@@ -45,7 +45,7 @@ $_GET['query'] = $query;
 				$percent= $val/$origLen; 
 				$percent=round($percent*100);
 				$tmp = findType($key);//Figures out what type (ie. Prov, Dist, etc) the current array value is
-				if($tmp == 'p' || $tmp == 'o' || $tmp == 'm' || $tmp == 't' || $tmp == 'h')
+				if($tmp == 'p' || $tmp == 'o' || $tmp == 'm' || $tmp == 't' || $tmp == 'h' || $tmp == 'new_queries')
 				{
 					//Makes the output look better
 					if($tmp == 'p')
@@ -68,9 +68,11 @@ $_GET['query'] = $query;
 				}	else
 				//Does the same as above, except for townships.
 					if($percent==100)
-						$stringData = "$key is the only close match we found.\n";
+						$stringData = "$val, $key\n";
+						//$stringData = "$key is the only close match we found.\n";
 					else
-						$stringData = "$key is $percent% likely to be your choice.\n";
+						$stringData = "$val, $key\n";
+						//$stringData = "$key is $percent% likely to be your choice.\n";
 
 				fwrite($fh, $stringData);
 			}

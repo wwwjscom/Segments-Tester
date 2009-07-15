@@ -7,7 +7,18 @@ include("functions.php");
 function queryDB($x,$y,$z)
 {
 	openConn();
-	$query="SELECT $x FROM locality WHERE $y LIKE \"$z\"";
+
+	/* Since we aren't going to query the h table (since the
+	 * entreis are too long, per Ophirs orders) change any calls
+	 * to the h table to new_queries.  This should only happen
+	 * while we are testing segments against other algorithms.
+	 * Once live, remove this if statement */
+	if ($x == 'h' && $y == 'h') {
+
+		$query="SELECT query FROM new_queries WHERE query LIKE \"$z\"";
+	} else {
+		$query="SELECT $x FROM locality WHERE $y LIKE \"$z\"";
+	}
 //echo "$query\n";
 	$query_result=mysql_query($query);
 //echo mysql_num_rows($query_result)."\n";
@@ -20,6 +31,16 @@ function showResults($query_num,$query_result,$field)
 	$chosenList = array();
 	for($i=0;$i<$query_num;$i++)
 	{
+
+		/* Since we aren't going to query the h table (since the
+		 * entreis are too long, per Ophirs orders) change any calls
+		 * to the h table to new_queries.  This should only happen
+		 * while we are testing segments against other algorithms.
+		 * Once live, remove this if statement */
+		if($field == 'h') {
+			$field = 'query';
+		}
+
 		$dis = mysql_result($query_result,$i,$field);
 		if(!in_array($dis,$chosenList))
 		{
