@@ -12,7 +12,7 @@
 
 ################ CONFIGS ####################
 
-type = 'new_queries' # h, t, o, m, p
+type = 'query_logs' # h, t, o, m, p, new_queries
 
 ############### /CONFIGS ####################
 

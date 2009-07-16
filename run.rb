@@ -7,8 +7,8 @@ require 'parseconfig'
 load "queryToNgramToVote.rb"
 load "soundex.rb"
 
+# Access config: config.get_value('test') 
 config = ParseConfig.new("#{Dir.getwd}/CONFIG")
-# Access configputs config.get_value('test') 
 
 ########### CONFIG ################
 tables = []
