@@ -1,2 +1,4 @@
-2, Slovenske Pravno
-2, Smilno
+4, Rybnik
+2, Ruzomberok
+1, Rakovcik
+1, Rarbok

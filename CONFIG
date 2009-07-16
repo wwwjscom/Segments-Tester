@@ -1,0 +1,10 @@
+# The tests we wish to run.  Either select RAND or
+# LOGS.  RAND will randomly generate queries using
+# specific algorithms, while logs will pull query
+# logs from a specified table.
+tests = LOGS
+
+
+# Which table should be used
+#tables = t, o, m, p, new_queries
+tables = query_logs

@@ -1,13 +1,21 @@
 #! /usr/bin/env ruby -w
 
+require 'rubygems'
+require 'parseconfig'
 # Queries both engines using a specified test
 
 load "queryToNgramToVote.rb"
 load "soundex.rb"
 
+config = ParseConfig.new("#{Dir.getwd}/CONFIG")
+# Access configputs config.get_value('test') 
+
 ########### CONFIG ################
-#tables = Array['t', 'h', 'o', 'm', 'p'] # orig table listing
-tables = Array['t', 'o', 'm', 'p', 'new_queries'] # dropped h table
+tables = []
+config.get_value('tables').split(',').each do |t|
+  tables << t
+end
+
 PATH = Dir.getwd
 
 ########## CLEANUP ################
@@ -992,24 +1000,30 @@ TEN_PERCENT = (TOTAL * 0.1).to_i
 
 def setup
 
-	@tests = Hash[
-		"1_char_drop", "d1", 
-		"2_char_drop", "d2", 
-		"3_char_drop", "d3", 
-		"4_char_drop", "d4", 
-		"1_char_add", "a1", 
-		"2_char_add", "a2", 
-		"3_char_add", "a3", 
-		"4_char_add", "a4", 
-		"1_char_replace", "r1",
-		"2_char_replace", "r2",
-		"3_char_replace", "r3",
-		"4_char_replace", "r4",
-		"Adj_char_swap", "s1",
-		"2_char_swap", "s2",
-		"3_char_swap", "s3",
-		"4_char_swap", "s4"
-		]
+  case config.get_value('tests')
+  when "RAND" then
+    @tests = Hash[
+      "1_char_drop", "d1", 
+      "2_char_drop", "d2", 
+      "3_char_drop", "d3", 
+      "4_char_drop", "d4", 
+      "1_char_add", "a1", 
+      "2_char_add", "a2", 
+      "3_char_add", "a3", 
+      "4_char_add", "a4", 
+      "1_char_replace", "r1",
+      "2_char_replace", "r2",
+      "3_char_replace", "r3",
+      "4_char_replace", "r4",
+      "Adj_char_swap", "s1",
+      "2_char_swap", "s2",
+      "3_char_swap", "s3",
+      "4_char_swap", "s4"
+      ]
+  when "LOGS" then
+    # test from query logs
+
+  end
 
 	@remaining_tests = @tests.length - 1
 

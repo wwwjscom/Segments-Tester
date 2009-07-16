@@ -1,3 +1,10 @@
+3, koskovce
+3, batizovce
+2, ploske
+2, roskoviany
+2, koska
+2, hoske  ?
+2, batovce
+2, stos
 2, zlatovce
 1, klatova nova ves
-1, batovce
