@@ -13,7 +13,8 @@
 
 ################ CONFIGS ####################
 
-type = 'new_queries' # h, t, o, m, p
+type = 'query_logs' # h, t, o, m, p, new_queries
+skip_queries = ['myjava', 'sea;klefjsdf'] # Skip these queries because they make our program crash
 
 ############### /CONFIGS ####################
 
@@ -35,7 +36,7 @@ while (query = file.gets)
   if query[0].chr == 'j' then next end
   if query[1].chr == 'j' then next end
   if query[2].chr == 'j' then next end
-  if query == 'myjava' then next end
+  next if skip_queries.include?(query)
   rescue
   end
 
