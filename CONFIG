@@ -9,6 +9,12 @@ tests = LOGS
 # ex: tables = t, o, m, p, new_queries
 correct_tables = query_logs_correct
 
+
 # Which table should be used to find the mispelled queries
 # Really only used when tests = LOGS
 mispelled_tables = query_logs_mispelled
+
+
+# Mysql login
+mysql_username = root
+mysql_password = root

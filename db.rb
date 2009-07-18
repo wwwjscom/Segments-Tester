@@ -8,7 +8,6 @@
 
 
 require 'mysql'
-require 'date'
 
 
 class DB
@@ -21,45 +20,10 @@ class DB
   end
 
 
-  # meta function for calling all
-  # methods needed to add a tweet
-  def add(data)
-    # get the associated movie id and add
-    # it to the data hash
-    movie_id = get_movie_id(data[:movie_name])
-    movie_id = movie_id[0].fetch_row
-    data[:movie_id] = movie_id
-
-    # insert the data hash into our
-    # table
-    insert(data)
+  # Abstract query function
+  def query(q)
+    _query([q])
   end
-
-
-  def get_movie_id(movie_name)
-    q = ["SELECT id FROM movies WHERE name = '#{movie_name}'"]
-    _query(q)
-  end
-
-
-  # Add the data hash to the tweets table
-  def insert(data)
-    q = ["
-          INSERT INTO tweets 
-          (username, text, movie_id) VALUES 
-          ('#{data[:username]}', '#{data[:text]}', '#{data[:movie_id]}')
-        "]
-    _query(q)
-  end
-
-
-  # delete the item with id from items table
-  def delete_item(id)
-    q = ["DELETE FROM items WHERE id = #{id}"]
-    _query(q)
-  end
-
-
 
   #------ private methods
 
@@ -85,8 +49,3 @@ class DB
 
 
 end
-
-
-#tweet = { :text => 'lawl the hangonver', :username => 'jsoo', :movie_name => 'the hangover' }
-#db = DB.new
-#db.add(tweet)
