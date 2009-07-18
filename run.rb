@@ -20,8 +20,10 @@ load "soundex.rb"
   @correct_tables << t
 end
 
-@@path = Dir.getwd
+@dm_soundex_sql = DB.new(@mysql_username, @mysql_password, 'dm_soundex')
+@ngrams_sql     = DB.new(@mysql_username, @mysql_password, 'ngrams')
 
+@@path = Dir.getwd
 
 ########## HELPERS ################
 class Array
@@ -253,18 +255,14 @@ def main test
 
 		@tables.each do |table|
 
+      dm_soundex_results = Array.new
 
-      @dm_soundex_results = Array.new
-
-      @dm_soundex_sql = DB.new(@mysql_username, @mysql_password, 'dm_soundex')
-      results = @dm_soundex_sql.query("SELECT query FROM #{table} WHERE dm_soundex = \"#{dm_soundex_mispelled_query}\";")
+      results = dm_soundex_sql.query("SELECT query FROM #{table} WHERE dm_soundex = \"#{dm_soundex_mispelled_query}\";")
       results.each do |result|
-        @dm_soundex_results.push(result)
+        dm_soundex_results.push(result)
       end
 
-      @dm_soundex_results.each do |vote|
-        #while vote = dm_soundex_results.gets do
-
+      dm_soundex_results.each do |vote|
         vote = vote.chomp!
         begin
           dm_soundex_result_hash[vote] += 1
@@ -983,7 +981,6 @@ end
 @queries = Array.new
 
 @correct_tables.each do |table|
-  @ngrams_sql = DB.new(@mysql_username, @mysql_password, 'ngrams')
   results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs;')
   results.each do |result|
     @queries.push(result)
@@ -1032,9 +1029,8 @@ def setup
     @tests = ['place_holder']
 
     #@correct_tables = @config.get_values('correct_tables')
-    db = DB.new(@mysql_username, @mysql_password, 'ngrams')
-    puts db.query("SELECT * FROM query_logs;")
-    @tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
+    @tests = @dm_soundex_sql.query("SELECT query FROM #{@correct_tables};")
+    #@tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
   end
 
 	@remaining_tests = @tests.length - 1
