@@ -4,6 +4,7 @@ require 'rubygems'
 require 'parseconfig'
 # Queries both engines using a specified test
 
+require 'db'
 load "queryToNgramToVote.rb"
 load "soundex.rb"
 
@@ -11,9 +12,9 @@ load "soundex.rb"
 @config = ParseConfig.new("#{Dir.getwd}/CONFIG")
 
 ########### CONFIG ################
-tables = []
-@config.get_value('tables').split(',').each do |t|
-  tables << t
+@tables = []
+@config.get_value('correct_tables').split(',').each do |t|
+  @tables << t
 end
 
 PATH = Dir.getwd
@@ -248,12 +249,12 @@ def main test
 		#print " - #{dm_soundex_mispelled_query}\n"
 		f.close
 
-		tables = Array['t', 'p', 'm', 'o', 'h']
+		#tables = Array['t', 'p', 'm', 'o', 'h']
 
 
 		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
 
-		tables.each do |table|
+		@tables.each do |table|
 
 			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_mispelled_query}\";'")
 			dm_soundex_results = File.open("#{PATH}/query_result.txt", 'r')
@@ -359,12 +360,12 @@ def main test
 #
 #		soundex_mispelled_query = mispelled_query.soundex(false)
 #
-#		tables = Array['t', 'p', 'm', 'o', 'h']
+#		@tables = Array['t', 'p', 'm', 'o', 'h']
 #
 #
 #		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
 #
-#		tables.each do |table|
+#		@tables.each do |table|
 #
 #			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_mispelled_query}\";'")
 #			soundex_results = File.open("#{PATH}/query_result.txt", 'r')
@@ -978,7 +979,7 @@ end
 
 @queries = Array.new
 
-tables.each do |table|
+@tables.each do |table|
 	system("mysql -u root --password=root ngrams -e 'SELECT DISTINCT(query) INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table};'")
 
 	query_result = File.open("#{PATH}/query_result.txt")
@@ -1030,6 +1031,8 @@ def setup
     @tests = ['place_holder']
 
     @correct_tables = @config.get_values('correct_table')
+    db = DB.new(@config.get_values('mysql_username'), @config.get_values('mysql_password'), 'ngrams')
+    puts db.query("SELECT * FROM h;")
     @tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
   end
 
