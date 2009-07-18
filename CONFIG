@@ -5,6 +5,10 @@
 tests = LOGS
 
 
-# Which table should be used
-#tables = t, o, m, p, new_queries
-tables = query_logs
+# Which table should be used to find the correct queries
+# ex: tables = t, o, m, p, new_queries
+correct_tables = query_logs_correct
+
+# Which table should be used to find the mispelled queries
+# Really only used when tests = LOGS
+mispelled_tables = query_logs_mispelled

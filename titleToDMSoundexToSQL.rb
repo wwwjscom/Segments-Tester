@@ -33,10 +33,7 @@ while (query = file.gets)
 
 	query = query.chop.downcase
   begin
-  if query[0].chr == 'j' then next end
-  if query[1].chr == 'j' then next end
-  if query[2].chr == 'j' then next end
-  next if skip_queries.include?(query)
+    next if skip_queries.include?(query) || query[0].chr == 'j' || query[1].chr == 'j' || query[2].chr == 'j'
   rescue
   end
 

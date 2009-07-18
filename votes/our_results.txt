@@ -1,4 +1,1 @@
-4, Rybnik
-2, Ruzomberok
-1, Rakovcik
-1, Rarbok
+2, Malinec

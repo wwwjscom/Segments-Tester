@@ -8,11 +8,11 @@ load "queryToNgramToVote.rb"
 load "soundex.rb"
 
 # Access config: config.get_value('test') 
-config = ParseConfig.new("#{Dir.getwd}/CONFIG")
+@config = ParseConfig.new("#{Dir.getwd}/CONFIG")
 
 ########### CONFIG ################
 tables = []
-config.get_value('tables').split(',').each do |t|
+@config.get_value('tables').split(',').each do |t|
   tables << t
 end
 
@@ -150,47 +150,52 @@ def main test
 	for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
 
 		orig_query = @queries[i].to_s
-		query = String.new(orig_query)
+		mispelled_query = String.new(orig_query)
 
 		if orig_query.length > 25 then
 			puts "skipping, query is too long: #{orig_query}"
 			next
 		end
 
-		# Fuck up query
-		query = case test
-			when "d1": query.dropChar
-			when "d2": query.dropChars(2)
-			when "d3": query.dropChars(3)
-			when "d4": query.dropChars(4)
-			when "a1": query.addChar
-			when "a2": query.addChars(2)
-			when "a3": query.addChars(3)
-			when "a4": query.addChars(4)
-			when "r1": query.replaceChar
-			when "r2": query.replaceChars(2)
-			when "r3": query.replaceChars(3)
-			when "r4": query.replaceChars(4)
-      when "s1": query.swapAdjChar
-      when "s2": query.swapChars(2)
-			when "s3": query.swapChars(3)
-			when "s4": query.swapChars(4)
-		end
+		# Fuck up query if we are using the RAND algorithms.
+    # Otherwise leave the query as is.
+    if @config.get_value('tests') == "RAND"
+      mispelled_query = case test
+              when "d1": mispelled_query.dropChar
+              when "d2": mispelled_query.dropChars(2)
+              when "d3": mispelled_query.dropChars(3)
+              when "d4": mispelled_query.dropChars(4)
+              when "a1": mispelled_query.addChar
+              when "a2": mispelled_query.addChars(2)
+              when "a3": mispelled_query.addChars(3)
+              when "a4": mispelled_query.addChars(4)
+              when "r1": mispelled_query.replaceChar
+              when "r2": mispelled_query.replaceChars(2)
+              when "r3": mispelled_query.replaceChars(3)
+              when "r4": mispelled_query.replaceChars(4)
+              when "s1": mispelled_query.swapAdjChar
+              when "s2": mispelled_query.swapChars(2)
+              when "s3": mispelled_query.swapChars(3)
+              when "s4": mispelled_query.swapChars(4)
+              end
+    else
+      mispelled_query = orig_query
+    end
 
-		#puts "Orig: #{orig_query}, new: #{query}"
+		#puts "Orig: #{orig_query}, new: #{mispelled_query}"
 
-		if query.length <= 3
-			puts "Skipping...Query too short: #{query}"
+		if mispelled_query.length <= 3
+			puts "Skipping...Query too short: #{mispelled_query}"
 			next
 		end
 
 		# Setup query
 		queries_file = File.open("#{PATH}/queries.txt", "w")
-		queries_file.puts query	
+		queries_file.puts mispelled_query	
 		queries_file.close
 
 		# Query our engine
-		system("php #{PATH}/searchResults.php '#{query}'")	
+		system("php #{PATH}/searchResults.php '#{mispelled_query}'")	
 
 
 
@@ -224,33 +229,33 @@ def main test
 		match_votes = 0
 
 
-		#puts query
+		#puts mispelled_query
 
 		begin
-			if query.include? 'j' then
+			if mispelled_query.include? 'j' then
 				puts "Skipping....j...."
 				next
 			end
 		rescue
 		end 
 
-		#print "Query: #{query}"
-		# Convery query to dm soundex
-		system("perl dm-soundex.pl \"#{query}\" > /tmp/tmp-dm.txt")
+		#print "Query: #{mispelled_query}"
+		# Convery mispelled_query to dm soundex
+		system("perl dm-soundex.pl \"#{mispelled_query}\" > /tmp/tmp-dm.txt")
 
 		f = File.open('/tmp/tmp-dm.txt')
-		dm_soundex_query = f.gets.chop
-		#print " - #{dm_soundex_query}\n"
+		dm_soundex_mispelled_query = f.gets.chop
+		#print " - #{dm_soundex_mispelled_query}\n"
 		f.close
 
 		tables = Array['t', 'p', 'm', 'o', 'h']
 
 
-		#puts "Orig Query: #{orig_query}, Query: #{query}, soundex_query: #{soundex_query}"
+		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
 
 		tables.each do |table|
 
-			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_query}\";'")
+			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_mispelled_query}\";'")
 			dm_soundex_results = File.open("#{PATH}/query_result.txt", 'r')
 
 			while vote = dm_soundex_results.gets do
@@ -304,7 +309,7 @@ def main test
 		# Make the match_rank - if it wasnt found or was too high
 		if dm_soundex_match_rank > CUTOFF or dm_soundex_found == 0 then dm_soundex_match_rank = '-' end
 
-		dm_soundex_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", dm_soundex_found, "Match Rank", dm_soundex_match_rank, "Rank", rank-1, "Probability", probability]
+		dm_soundex_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", dm_soundex_found, "Match Rank", dm_soundex_match_rank, "Rank", rank-1, "Probability", probability]
 		@dm_soundex_results.push(dm_soundex_result_hash)
 
 
@@ -352,16 +357,16 @@ def main test
 #		match_votes = 0
 #
 #
-#		soundex_query = query.soundex(false)
+#		soundex_mispelled_query = mispelled_query.soundex(false)
 #
 #		tables = Array['t', 'p', 'm', 'o', 'h']
 #
 #
-#		#puts "Orig Query: #{orig_query}, Query: #{query}, soundex_query: #{soundex_query}"
+#		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
 #
 #		tables.each do |table|
 #
-#			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_query}\";'")
+#			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_mispelled_query}\";'")
 #			soundex_results = File.open("#{PATH}/query_result.txt", 'r')
 #
 #			while vote = soundex_results.gets do
@@ -415,7 +420,7 @@ def main test
 #		# Make the match_rank - if it wasnt found or was too high
 #		if match_rank > CUTOFF or soundex_found == 0 then match_rank = '-' end
 #
-#		soundex_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", soundex_found, "Match Rank", soundex_match_rank, "Rank", rank-1, "Probability", probability]
+#		soundex_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", soundex_found, "Match Rank", soundex_match_rank, "Rank", rank-1, "Probability", probability]
 #		@soundex_results.push(soundex_result_hash)
 
 
@@ -448,7 +453,7 @@ def main test
 
 		# Query ngrams engine
 		four_grams = Ngrams.new(4)
-		four_grams.query
+		four_grams.mispelled_query
 
 
 
@@ -492,7 +497,7 @@ def main test
 		# Make the match_rank - if it wasnt found or was too high
 		if match_rank > CUTOFF or four_grams_found == 0 then match_rank = '-' end
 
-		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", four_grams_found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+		result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", four_grams_found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		@four_grams_results.push(result_hash)
 
 
@@ -552,7 +557,7 @@ def main test
 
 		probability = (match_votes.to_f/total_votes.to_f)*100
 
-		#puts "Probability: #{probability} Query: #{query}" # DEBUG
+		#puts "Probability: #{probability} Query: #{mispelled_query}" # DEBUG
 
 		#if probability.to_s == "NaN" then puts "-"*200 end # DEBUG
 
@@ -566,9 +571,9 @@ def main test
 			#puts "Very low probability: #{probability}" # DEBUG
 			use_ngrams = true
 			our_probability = probability.to_f
-			our_result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+			our_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		else
-			result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+			result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 			@our_results.push(result_hash)
 		end
 
@@ -584,7 +589,7 @@ def main test
 
 		# Query ngrams engine
 		trigrams = Ngrams.new(3)
-		trigrams.query
+		trigrams.mispelled_query
 
 		# reset vars
 		total_votes = 0
@@ -623,13 +628,13 @@ def main test
 		# Make the match_rank - if it wasnt found or was too high
 		if match_rank > CUTOFF or found == 0 then match_rank = '-' end
 
-		result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+		result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		@ngram_results.push(result_hash)
 
 
 		if (use_ngrams == true and probability.to_f > our_probability.to_f) or our_probability.to_s == "NaN" then
 			#puts "Our new probability is #{probability}" # DEBUG
-			result_hash = Hash["Orig Query", orig_query, "New Query", query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
+			result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 			@our_results.push(result_hash)
 			#elsif use_ngrams == true and probability.to_f <= our_probability.to_f then
 		elsif use_ngrams == true then
@@ -1000,7 +1005,7 @@ TEN_PERCENT = (TOTAL * 0.1).to_i
 
 def setup
 
-  case config.get_value('tests')
+  case @config.get_value('tests')
   when "RAND" then
     @tests = Hash[
       "1_char_drop", "d1", 
@@ -1022,7 +1027,7 @@ def setup
       ]
   when "LOGS" then
     # test from query logs
-
+    @tests = ['place_holder'] 
   end
 
 	@remaining_tests = @tests.length - 1

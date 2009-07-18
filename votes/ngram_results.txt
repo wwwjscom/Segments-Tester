@@ -1,10 +1,44 @@
-3, koskovce
-3, batizovce
-2, ploske
-2, roskoviany
-2, koska
-2, hoske  ?
-2, batovce
-2, stos
-2, zlatovce
-1, klatova nova ves
+3, plavecky stvrtok
+3, nizny medzev
+3, rakovec nad ondavou
+3, tesary nad zitavou
+3, nova ves nad zitavou
+3, straze nad myjavou
+3, levoca
+3, banovce nad ondavou
+3, slatina nad bebravou
+3, plavnica
+3, medzilaborce
+3, plavec nad popradom
+3, slovenska reslavica
+2, slavkovce
+2, laclava
+2, police headquarters in bratislava
+2, niznia jedlova
+2, medzibrodie nad oravou
+2, vislava
+2, police headquarters in bratislava (continued)
+2, maly slavkov
+2, medovarce
+2, jedlove kostolany
+2, zubrohlava
+2, medzany
+2, medvedzie
+2, medzibrod nad hronom
+2, slavosovce
+2, svedlar
+2, jews in custody in bratislava in sept 1942
+2, nizny slavkov
+2, vieska nad zitavou
+2, visnia jedlova
+1, zavod
+1, ustie nad oravou
+1, bratislava
+1, ilava
+1, niznia nad oravou
+1, senica nad myjavou
+1, banovce nad bebravou
+1, dlha nad oravou
+1, sedlicna
+1, plavetsky svaty mikulas
+1, uherska reslavica
