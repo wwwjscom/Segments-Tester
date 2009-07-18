@@ -262,22 +262,18 @@ def main test
         @dm_soundex_results.push(result)
       end
 
-#			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_mispelled_query}\";'")
-#			dm_soundex_results = File.open("#{PATH}/query_result.txt", 'r')
-
       @dm_soundex_results.each do |vote|
-			#while vote = dm_soundex_results.gets do
+        #while vote = dm_soundex_results.gets do
 
-				vote = vote.chomp!
-				begin
-					dm_soundex_result_hash[vote] += 1
-				rescue
-					dm_soundex_result_hash[vote] = 1
-				end
-			end
+        vote = vote.chomp!
+        begin
+          dm_soundex_result_hash[vote] += 1
+        rescue
+          dm_soundex_result_hash[vote] = 1
+        end
+      end
 
-#			File.delete("#{PATH}/query_result.txt")
-		end
+    end
 
 		##
 		##
@@ -993,14 +989,6 @@ end
     @queries.push(result)
   end
 
-#	system("mysql -u root --password=root ngrams -e 'SELECT DISTINCT(query) INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table};'")
-#
-#	query_result = File.open("#{PATH}/query_result.txt")
-#	while line = query_result.gets
-#		line.chop!
-#		@queries.push(line)
-#	end
-#	File.delete("#{PATH}/query_result.txt")
 end
 
 # Remove duplicates and shuffle
