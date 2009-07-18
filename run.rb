@@ -15,12 +15,12 @@ load "soundex.rb"
 @mysql_username = @config.get_value('mysql_username')
 @mysql_password = @config.get_value('mysql_password')
 
-@tables = []
+@correct_tables = []
 @config.get_value('correct_tables').split(',').each do |t|
-  @tables << t
+  @correct_tables << t
 end
 
-PATH = Dir.getwd
+@@path = Dir.getwd
 
 
 ########## HELPERS ################
@@ -188,12 +188,12 @@ def main test
 		end
 
 		# Setup query
-		queries_file = File.open("#{PATH}/queries.txt", "w")
+		queries_file = File.open("#{@@path}/queries.txt", "w")
 		queries_file.puts mispelled_query	
 		queries_file.close
 
 		# Query our engine
-		system("php #{PATH}/searchResults.php '#{mispelled_query}'")	
+		system("php #{@@path}/searchResults.php '#{mispelled_query}'")	
 
 
 
@@ -370,8 +370,8 @@ def main test
 #
 #		@tables.each do |table|
 #
-#			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_mispelled_query}\";'")
-#			soundex_results = File.open("#{PATH}/query_result.txt", 'r')
+#			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{@@path}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_mispelled_query}\";'")
+#			soundex_results = File.open("#{@@path}/query_result.txt", 'r')
 #
 #			while vote = soundex_results.gets do
 #
@@ -383,7 +383,7 @@ def main test
 #				end
 #			end
 #
-#			File.delete("#{PATH}/query_result.txt")
+#			File.delete("#{@@path}/query_result.txt")
 #		end
 #
 #		##
@@ -472,7 +472,7 @@ def main test
 		match_votes = 0
 
 		# Read in results of ngrams
-		four_gram_results_file = File.open("#{PATH}/votes/ngram_results.txt", 'r')
+		four_gram_results_file = File.open("#{@@path}/votes/ngram_results.txt", 'r')
 
 		# loop through each line to see if it matches our original query
 		while line = four_gram_results_file.gets
@@ -539,7 +539,7 @@ def main test
 		match_votes = 0
 
 		# Read in results of our engine
-		our_results_file = File.open("#{PATH}/votes/our_results.txt", 'r')
+		our_results_file = File.open("#{@@path}/votes/our_results.txt", 'r')
 
 		# loop through each line to see if it matches our original query
 		while line = our_results_file.gets
@@ -604,7 +604,7 @@ def main test
 		match_votes = 0
 
 		# Read in results of ngrams
-		ngram_results_file = File.open("#{PATH}/votes/ngram_results.txt", 'r')
+		ngram_results_file = File.open("#{@@path}/votes/ngram_results.txt", 'r')
 
 		# loop through each line to see if it matches our original query
 		while line = ngram_results_file.gets
@@ -664,7 +664,7 @@ def writeResults suffix
 	combined = Array.new
 
 
-	our_csv = File.open("#{PATH}/our_results_#{suffix}.csv", "w")
+	our_csv = File.open("#{@@path}/our_results_#{suffix}.csv", "w")
 
 	our_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 
@@ -687,7 +687,7 @@ def writeResults suffix
 	our_csv.close
 
 
-	ngrams_csv = File.open("#{PATH}/ngram_results_#{suffix}.csv", "w")
+	ngrams_csv = File.open("#{@@path}/ngram_results_#{suffix}.csv", "w")
 
 	ngrams_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 
@@ -712,7 +712,7 @@ def writeResults suffix
 
 
 
-four_grams_csv = File.open("#{PATH}/four_grams_results_#{suffix}.csv", "w")
+four_grams_csv = File.open("#{@@path}/four_grams_results_#{suffix}.csv", "w")
 
 four_grams_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 
@@ -729,7 +729,7 @@ four_grams_csv.close
 
 
 
-#	soundex_csv = File.open("#{PATH}/soundex_results_#{suffix}.csv", "w")
+#	soundex_csv = File.open("#{@@path}/soundex_results_#{suffix}.csv", "w")
 #
 #	soundex_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 #
@@ -744,7 +744,7 @@ four_grams_csv.close
 #	soundex_csv.close
 
 
-	dm_soundex_csv = File.open("#{PATH}/dm_soundex_results_#{suffix}.csv", "w")
+	dm_soundex_csv = File.open("#{@@path}/dm_soundex_results_#{suffix}.csv", "w")
 
 	dm_soundex_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
 
@@ -769,7 +769,7 @@ four_grams_csv.close
 
 
 
-	combined_csv = File.open("#{PATH}/combined_results_#{suffix}.csv", "w")
+	combined_csv = File.open("#{@@path}/combined_results_#{suffix}.csv", "w")
 
 	combined_csv.puts "Orig Query,New Query,Three-grams Found,Ours Found,Four-grams Found,DM Soundex Found,NGrams Match Rank,Ours Match Rank,Four-grams Match Rank,DM Soundex Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
 
@@ -801,7 +801,7 @@ four_grams_csv.close
 
 
 
-	combined_csv = File.open("#{PATH}/dropped_ngrams_notfound_results_#{suffix}.csv", "w")
+	combined_csv = File.open("#{@@path}/dropped_ngrams_notfound_results_#{suffix}.csv", "w")
 
 	combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,NGrams Match Rank,Ours Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
 
@@ -982,7 +982,7 @@ end
 
 @queries = Array.new
 
-@tables.each do |table|
+@correct_tables.each do |table|
   @ngrams_sql = DB.new(@mysql_username, @mysql_password, 'ngrams')
   results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs;')
   results.each do |result|
@@ -1031,11 +1031,9 @@ def setup
     # test from query logs
     @tests = ['place_holder']
 
-    @correct_tables = @config.get_values('correct_table')
+    #@correct_tables = @config.get_values('correct_tables')
     db = DB.new(@mysql_username, @mysql_password, 'ngrams')
-puts 'here'
     puts db.query("SELECT * FROM query_logs;")
-puts 'here'
     @tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
   end
 
