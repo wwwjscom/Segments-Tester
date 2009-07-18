@@ -1,6 +1,4 @@
 #!/usr/bin/ruby -w
-
-
 ##############################################
 ########           Jason Soo          ########
 ######## Sun Jun  7 00:44:48 CDT 2009 ########
@@ -25,6 +23,7 @@ class DB
     _query([q])
   end
 
+
   #------ private methods
 
 
@@ -33,8 +32,12 @@ class DB
     ret = []
     begin
       db = Mysql.real_connect('localhost', @user, @pass, @database)
-      q.each do |query|
-        ret.push(db.query(query))
+      if q.size == 1
+        ret = db.query(q[0])
+      else
+        q.each do |query|
+          ret.push(db.query(query))
+        end
       end
     rescue Mysql::Error => e
       puts "Error code: #{e.errno}"

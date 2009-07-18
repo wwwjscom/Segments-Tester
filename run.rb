@@ -12,6 +12,9 @@ load "soundex.rb"
 @config = ParseConfig.new("#{Dir.getwd}/CONFIG")
 
 ########### CONFIG ################
+@mysql_username = @config.get_value('mysql_username')
+@mysql_password = @config.get_value('mysql_password')
+
 @tables = []
 @config.get_value('correct_tables').split(',').each do |t|
   @tables << t
@@ -256,10 +259,20 @@ def main test
 
 		@tables.each do |table|
 
-			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_mispelled_query}\";'")
-			dm_soundex_results = File.open("#{PATH}/query_result.txt", 'r')
 
-			while vote = dm_soundex_results.gets do
+      @dm_soundex_results = Array.new
+
+      @dm_soundex_sql = DB.new(@mysql_username, @mysql_password, 'dm_soundex')
+      results = @dm_soundex_sql.query("SELECT query FROM #{table} WHERE dm_soundex = \"#{dm_soundex_mispelled_query}\";")
+      results.each do |result|
+        @dm_soundex_results.push(result)
+      end
+
+#			system("mysql -u root --password=root dm_soundex -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE dm_soudex = \"#{dm_soundex_mispelled_query}\";'")
+#			dm_soundex_results = File.open("#{PATH}/query_result.txt", 'r')
+
+      @dm_soundex_results.each do |vote|
+			#while vote = dm_soundex_results.gets do
 
 				vote = vote.chomp!
 				begin
@@ -269,7 +282,7 @@ def main test
 				end
 			end
 
-			File.delete("#{PATH}/query_result.txt")
+#			File.delete("#{PATH}/query_result.txt")
 		end
 
 		##
@@ -980,14 +993,20 @@ end
 @queries = Array.new
 
 @tables.each do |table|
-	system("mysql -u root --password=root ngrams -e 'SELECT DISTINCT(query) INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table};'")
+  @ngrams_sql = DB.new(@mysql_username, @mysql_password, 'ngrams')
+  results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs;')
+  results.each do |result|
+    @queries.push(result)
+  end
 
-	query_result = File.open("#{PATH}/query_result.txt")
-	while line = query_result.gets
-		line.chop!
-		@queries.push(line)
-	end
-	File.delete("#{PATH}/query_result.txt")
+#	system("mysql -u root --password=root ngrams -e 'SELECT DISTINCT(query) INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table};'")
+#
+#	query_result = File.open("#{PATH}/query_result.txt")
+#	while line = query_result.gets
+#		line.chop!
+#		@queries.push(line)
+#	end
+#	File.delete("#{PATH}/query_result.txt")
 end
 
 # Remove duplicates and shuffle
@@ -1031,8 +1050,10 @@ def setup
     @tests = ['place_holder']
 
     @correct_tables = @config.get_values('correct_table')
-    db = DB.new(@config.get_values('mysql_username'), @config.get_values('mysql_password'), 'ngrams')
-    puts db.query("SELECT * FROM h;")
+    db = DB.new(@mysql_username, @mysql_password, 'ngrams')
+puts 'here'
+    puts db.query("SELECT * FROM query_logs;")
+puts 'here'
     @tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
   end
 
