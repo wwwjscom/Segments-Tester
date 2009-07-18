@@ -1027,7 +1027,10 @@ def setup
       ]
   when "LOGS" then
     # test from query logs
-    @tests = ['place_holder'] 
+    @tests = ['place_holder']
+
+    @correct_tables = @config.get_values('correct_table')
+    @tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
   end
 
 	@remaining_tests = @tests.length - 1
