@@ -22,12 +22,6 @@ end
 
 PATH = Dir.getwd
 
-########## CLEANUP ################
-begin
-	File.delete("#{PATH}/query_result.txt")
-rescue
-end
-
 
 ########## HELPERS ################
 class Array
