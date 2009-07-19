@@ -14,14 +14,16 @@ load "soundex.rb"
 ########### CONFIG ################
 @mysql_username = @config.get_value('mysql_username')
 @mysql_password = @config.get_value('mysql_password')
+@mysql_database = @config.get_value('mysql_database')
+@test_type      = @config.get_value('tests')
 
 @correct_tables = []
-@config.get_value('correct_tables').split(',').each do |t|
+@config.get_value('correct_tables').split(', ').each do |t|
   @correct_tables << t
 end
 
-@dm_soundex_sql = DB.new(@mysql_username, @mysql_password, 'dm_soundex')
-@ngrams_sql     = DB.new(@mysql_username, @mysql_password, 'ngrams')
+@dm_soundex_sql = DB.new(@mysql_username, @mysql_password, @mysql_database)
+@ngrams_sql     = DB.new(@mysql_username, @mysql_password, @mysql_database)
 
 @@path = Dir.getwd
 
@@ -140,7 +142,7 @@ def main test
 
 	######## MAIN ###########
 
-	j = 0
+	j = 1
 
 	@ngram_results = Array.new
 	@our_results = Array.new
@@ -149,7 +151,7 @@ def main test
 
 	for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
 
-		orig_query = @queries[i].to_s
+		orig_query = @correct_queries[i].to_s
 		mispelled_query = String.new(orig_query)
 
 		if orig_query.length > 25 then
@@ -159,7 +161,7 @@ def main test
 
 		# Fuck up query if we are using the RAND algorithms.
     # Otherwise leave the query as is.
-    if @config.get_value('tests') == "RAND"
+    if @test_type == "RAND"
       mispelled_query = case test
               when "d1": mispelled_query.dropChar
               when "d2": mispelled_query.dropChars(2)
@@ -177,9 +179,11 @@ def main test
               when "s2": mispelled_query.swapChars(2)
               when "s3": mispelled_query.swapChars(3)
               when "s4": mispelled_query.swapChars(4)
-              end
+      end
     else
-      mispelled_query = orig_query
+      #mispelled_query = orig_query
+      #mispelled_query = @mispelled_queries[i].to_s
+      mispelled_query = @mispelled_queries.shift.to_s
     end
 
 		#puts "Orig: #{orig_query}, new: #{mispelled_query}"
@@ -253,17 +257,16 @@ def main test
 
 		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
 
-		@tables.each do |table|
+		@correct_tables.each do |table|
 
       dm_soundex_results = Array.new
 
-      results = dm_soundex_sql.query("SELECT query FROM #{table} WHERE dm_soundex = \"#{dm_soundex_mispelled_query}\";")
+      results = @dm_soundex_sql.query("SELECT query FROM #{table}_dm_soundex WHERE dm_soundex = \"#{dm_soundex_mispelled_query}\";")
       results.each do |result|
-        dm_soundex_results.push(result)
+        dm_soundex_results.push(result.to_s)
       end
 
       dm_soundex_results.each do |vote|
-        vote = vote.chomp!
         begin
           dm_soundex_result_hash[vote] += 1
         rescue
@@ -455,7 +458,7 @@ def main test
 
 		# Query ngrams engine
 		four_grams = Ngrams.new(4)
-		four_grams.mispelled_query
+		four_grams.query
 
 
 
@@ -591,7 +594,7 @@ def main test
 
 		# Query ngrams engine
 		trigrams = Ngrams.new(3)
-		trigrams.mispelled_query
+		trigrams.query
 
 		# reset vars
 		total_votes = 0
@@ -978,24 +981,36 @@ end
 
 
 
-@queries = Array.new
+@correct_queries = Array.new
+@mispelled_queries = Array.new
 
 @correct_tables.each do |table|
-  results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs;')
+  results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs_correct;')
   results.each do |result|
-    @queries.push(result)
+    @correct_queries.push(result)
+  end
+
+  if @test_type == 'LOGS'
+    results = @ngrams_sql.query('SELECT query FROM query_logs_mispelled;')
+    results.each do |result|
+      @mispelled_queries.push(result)
+    end
   end
 
 end
 
 # Remove duplicates and shuffle
-@queries.uniq!
-@queries.shuffle!
+if @test_type == 'RAND'
+  @correct_queries.uniq!
+  @correct_queries.shuffle!
+end
 
 MULTIPLIER = 10 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
 CUTOFF = 60 # When a result is ranked greated than this, its marked as not found.
-TOTAL = @queries.length
-TEN_PERCENT = (TOTAL * 0.1).to_i
+TOTAL = (@correct_queries.length) - 1
+puts TOTAL
+puts TOTAL * 0.1
+TEN_PERCENT = (TOTAL * 0.1).to_f
 
 
 @remaining_tests = 0
@@ -1004,33 +1019,31 @@ TEN_PERCENT = (TOTAL * 0.1).to_i
 
 def setup
 
-  case @config.get_value('tests')
-  when "RAND" then
-    @tests = Hash[
-      "1_char_drop", "d1", 
-      "2_char_drop", "d2", 
-      "3_char_drop", "d3", 
-      "4_char_drop", "d4", 
-      "1_char_add", "a1", 
-      "2_char_add", "a2", 
-      "3_char_add", "a3", 
-      "4_char_add", "a4", 
-      "1_char_replace", "r1",
-      "2_char_replace", "r2",
-      "3_char_replace", "r3",
-      "4_char_replace", "r4",
-      "Adj_char_swap", "s1",
-      "2_char_swap", "s2",
-      "3_char_swap", "s3",
-      "4_char_swap", "s4"
+  case @test_type
+    when "RAND" then
+      @tests = Hash[
+        "1_char_drop", "d1", 
+        "2_char_drop", "d2", 
+        "3_char_drop", "d3", 
+        "4_char_drop", "d4", 
+        "1_char_add", "a1", 
+        "2_char_add", "a2", 
+        "3_char_add", "a3", 
+        "4_char_add", "a4", 
+        "1_char_replace", "r1",
+        "2_char_replace", "r2",
+        "3_char_replace", "r3",
+        "4_char_replace", "r4",
+        "Adj_char_swap", "s1",
+        "2_char_swap", "s2",
+        "3_char_swap", "s3",
+        "4_char_swap", "s4"
+        ]
+    when "LOGS" then
+      # test from query logs
+      @tests = Hash["query_logs_mom", "query_logs_mom",
+        "query_logs_alayna", "query_logs_alayna"
       ]
-  when "LOGS" then
-    # test from query logs
-    @tests = ['place_holder']
-
-    #@correct_tables = @config.get_values('correct_tables')
-    @tests = @dm_soundex_sql.query("SELECT query FROM #{@correct_tables};")
-    #@tests = system("mysql -u root --password=root dm_soundex -e 'SELECT query FROM #{@correct_tables};'")
   end
 
 	@remaining_tests = @tests.length - 1

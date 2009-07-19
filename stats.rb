@@ -4,6 +4,7 @@ class Stats
 	def initialize()
     puts "Run with -help for help"
 		@stat = options('s')
+		@file_name = options('f')
 
 		if @stat then
 
@@ -22,21 +23,21 @@ class Stats
 	def help()
 		puts "-s [option]"
 		puts "\tavg_query_length - gives stats for various runs"
-		puts "\tdataset - gives stats for the dataset itself"
+		puts "\tdataset - gives stats for the dataset itself\n\t\t-f [filename] - name of the csv file to analyze"
 	end
 
 	def options(param)
 
 		i = 0
+    match = nil
 		ARGV.each do |valeur|
 
 			if (valeur == '-' + param.to_s)
-				return ARGV[i+1]
-			elsif (valeur != '-' + param.to_s)
-				return false
+				match = ARGV[i+1]
 			end
 			i += 1
 		end
+    return match
 	end
 
 	def avg_query_length
@@ -70,7 +71,7 @@ class Stats
 
 	def dataset
 
-		f = File.open('combined_results_1_char_add.csv', 'r')
+		f = File.open(@file_name, 'r')
 
 		median_array = Array.new()
 		j = 0
@@ -148,7 +149,7 @@ class Stats
 			numerator += entry
 		end
 		dev_mean = (numerator / std_dev_array.size)
-		puts dev_mean
+		#puts dev_mean
 
 		# square root to get the std. dev.
 		std_dev = Math.sqrt(dev_mean)

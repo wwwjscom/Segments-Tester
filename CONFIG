@@ -6,6 +6,10 @@ tests = LOGS
 
 
 # Which table should be used to find the correct queries
+# The table is concatanted with '_' and the type of algorithm we
+# are running, so for example we have ngrams and dm soundex,
+# so t_segments, or query_logs_correct_dm_soundex.  This concat
+# is done within the program, and should not be defined here.
 # ex: tables = t, o, m, p, new_queries
 correct_tables = query_logs_correct
 
@@ -18,3 +22,13 @@ mispelled_tables = query_logs_mispelled
 # Mysql login
 mysql_username = root
 mysql_password = root
+
+
+# Mysql database
+mysql_database = segments_tester
+
+
+# Skip these words - usually we want to skip them
+# because our dm soundex script errors on words
+# with a 'j' in particular a location
+skip_list= bijacovce, hajniky
