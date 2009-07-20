@@ -1,19 +1,1 @@
-4, bodruzal
-3, rakovec nad ondavou
-3, trakovice
-2, brakov
-2, zamarovce
-2, rakes
-2, kruzlova
-2, hamborek
-2, ruzina
-2, rakusy
-2, kaluza
-2, rakovcik
-1, krakovany
-1, pruzina
-1, myto pod dumbierom
 1, giraltovce
-1, rakova
-1, oravsky podzamok
-1, ruzomberok
