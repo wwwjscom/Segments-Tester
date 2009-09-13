@@ -14,8 +14,9 @@ require 'directories_setup'
 
 ################ CONFIGS ####################
 
-type = 'query_logs_correct' # h, t, o, m, p, new_queries
-skip_queries = ['myjava', 'sea;klefjsdf'] # Skip these queries because they make our program crash
+# type is the name of the table
+type = 'census_surnames_dm_soundex' # h, t, o, m, p, new_queries
+skip_queries = ['myjava', 'sea;klefjsdf','benjamin'] # Skip these queries because they make our program crash
 
 ############### /CONFIGS ####################
 

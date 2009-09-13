@@ -14,7 +14,7 @@ require 'directories_setup'
 
 ################ CONFIGS ####################
 
-type = 'p' # h, t, o, m, p
+type = 'census_surnames_soundex' # h, t, o, m, p
 
 ############### /CONFIGS ####################
 
