@@ -857,7 +857,7 @@ def statistics
 		dm_soundex_rank = 0
 		s_rank = 0
 
-		c_results = File.open("combined_results_#{test[0]}.csv", "r")
+		c_results = File.open("#{OUTPUT_DIR}/combined_results_#{test[0]}.csv", "r")
 		while line = c_results.gets
 			line = line.split(",")
 
@@ -899,7 +899,7 @@ def statistics
 
 		s_rank_alt = 0
 		i = 0
-		n_results = File.open("dropped_ngrams_notfound_results_#{test[0]}.csv", "r")
+		n_results = File.open("#{OUTPUT_DIR}/dropped_ngrams_notfound_results_#{test[0]}.csv", "r")
 		while line = n_results.gets
 			line = line.split(",")
 
@@ -922,61 +922,66 @@ def statistics
   puts "OUT:"
   puts @out
 
-	file = File.open('STATS.txt', 'w')
+	file = File.open("#{OUTPUT_DIR}/STATS.txt", 'w')
 
-	# output all of the goodness
-	if (@out.key?("a1") or @out.key?("a2") or @out.key?("a3") or @out.key?("a4")) then
-		file.puts "Add\n\n"
+  if @test_type == "RAND" 
+    # output all of the goodness
+    if (@out.key?("a1") or @out.key?("a2") or @out.key?("a3") or @out.key?("a4")) then
+      file.puts "Add\n\n"
 
-		begin
-			if @out.key?("a1") then file.puts @out["a1"] end
-			if @out.key?("a2") then file.puts @out["a2"] end
-			if @out.key?("a3") then file.puts @out["a3"] end
-			if @out.key?("a4") then file.puts @out["a4"] end
-		rescue
-		end
-		file.puts '-'*75
-	end
-	if (@out.key?("d1") or @out.key?("d2") or @out.key?("d3") or @out.key?("d4")) then
-		file.puts "Drop\n\n"
+      begin
+        if @out.key?("a1") then file.puts @out["a1"] end
+        if @out.key?("a2") then file.puts @out["a2"] end
+        if @out.key?("a3") then file.puts @out["a3"] end
+        if @out.key?("a4") then file.puts @out["a4"] end
+      rescue
+      end
+      file.puts '-'*75
+    end
+    if (@out.key?("d1") or @out.key?("d2") or @out.key?("d3") or @out.key?("d4")) then
+      file.puts "Drop\n\n"
 
-		begin
-			if @out.key?("d1") then file.puts @out["d1"] end
-			if @out.key?("d2") then file.puts @out["d2"] end
-			if @out.key?("d3") then file.puts @out["d3"] end
-			if @out.key?("d4") then file.puts @out["d4"] end
-		rescue
-		end
-		file.puts '-'*75
-	end
-
-
-	if (@out.key?("r1") or @out.key?("r2") or @out.key?("r3") or @out.key?("r4")) then
-		file.puts "Replace\n\n"
-
-		begin
-			if @out.key?("r1") then file.puts @out["r1"] end
-			if @out.key?("r2") then file.puts @out["r2"] end
-			if @out.key?("r3") then file.puts @out["r3"] end
-			if @out.key?("r4") then file.puts @out["r4"] end
-		rescue
-		end
-		file.puts '-'*75
-	end
+      begin
+        if @out.key?("d1") then file.puts @out["d1"] end
+        if @out.key?("d2") then file.puts @out["d2"] end
+        if @out.key?("d3") then file.puts @out["d3"] end
+        if @out.key?("d4") then file.puts @out["d4"] end
+      rescue
+      end
+      file.puts '-'*75
+    end
 
 
-	if (@out.key?("s1") or @out.key?("s2") or @out.key?("s3") or @out.key?("s4")) then
-		file.puts "Swap\n\n"
+    if (@out.key?("r1") or @out.key?("r2") or @out.key?("r3") or @out.key?("r4")) then
+      file.puts "Replace\n\n"
 
-		begin
-			if @out.key?("s1") then file.puts @out["s1"] end
-			if @out.key?("s2") then file.puts @out["s2"] end
-			if @out.key?("s3") then file.puts @out["s3"] end
-			if @out.key?("s4") then file.puts @out["s4"] end
-		rescue
-		end
-		file.puts '-'*75
-	end
+      begin
+        if @out.key?("r1") then file.puts @out["r1"] end
+        if @out.key?("r2") then file.puts @out["r2"] end
+        if @out.key?("r3") then file.puts @out["r3"] end
+        if @out.key?("r4") then file.puts @out["r4"] end
+      rescue
+      end
+      file.puts '-'*75
+    end
+
+
+    if (@out.key?("s1") or @out.key?("s2") or @out.key?("s3") or @out.key?("s4")) then
+      file.puts "Swap\n\n"
+
+      begin
+        if @out.key?("s1") then file.puts @out["s1"] end
+        if @out.key?("s2") then file.puts @out["s2"] end
+        if @out.key?("s3") then file.puts @out["s3"] end
+        if @out.key?("s4") then file.puts @out["s4"] end
+      rescue
+      end
+      file.puts '-'*75
+    end
+
+  elsif @test_type == "LOGS"
+    file.puts @out
+  end
 
 	file.close
 end
@@ -1044,9 +1049,9 @@ def setup
     when "LOGS" then
       # test from query logs
       @tests = Hash[
-        "query_logs_mom", "query_logs_mom",
-        "query_logs_alayna", "query_logs_alayna",
-        "query_logs_jay", "query_logs_jay",
+        #"query_logs_mom", "query_logs_mom",
+        #"query_logs_alayna", "query_logs_alayna",
+        #"query_logs_jay", "query_logs_jay",
         "query_logs_dave", "query_logs_dave",
         "query_logs_chelsey", "query_logs_chelsey"
       ]
