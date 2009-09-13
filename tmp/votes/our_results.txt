@@ -1,9 +1,499 @@
-4, Rozhysche
+6, Nadas
+4, Nove Mesto nad Vahom
+4, Namestovo
+3, Nova Bana
+3, Povazska Bystrica
+3, Modry Kamen
+3, Nacina Ves
+3, Medzilaborce
+3, Presov
+3, Levoca
+3, Prievidza
+3, Stropkov
+3, Trebisov
+3, Zlate Moravce
+3, Stara Lubovna
+3, Spisska Nova Ves
+3, Puchov
+3, Revuca
+3, Kezmarok
+3, Sabinov
+3, Lovinobana
+3, Humenne
+3, 
+3, Gelnica
+2, Necpaly
+2, Nemce
+2, Spissky Strvtok
+2, Horne Byhymcine
+2, Kostany nad Turcom
+2, Celovce
+2, Sucany
+2, Belusa
+2, Koseca
+2, Dubnica nad Vahom
+2, Cerveny Kamen
+2, Priekopa
+2, Luky
+2, Bzovik
+2, Oslany
+2, Tubrina
+2, Solivar
+2, Pribovce
+2, Sokolce
+2, Velky Saris
+2, Sarisske Luky
+2, Slovenske Pravno
+2, Nadlice
+2, Hajniky
+2, Spisske Pohradie
+2, Nitrianske Rudno
+2, Novaky
+2, Bojnice
+2, Liptovsky Hradok
+2, Harhov
+2, Liesek
+2, Udavske
+2, Pcoline
+2, Kamenany
+2, Pobelnik
+2, Gombas
+2, Snina
+2, Stara Halic
+2, Liptovska Stiavnica
+2, Kalimovo
+2, Poltar
+2, Uhorske
+2, Krasno nad Kys.
+2, Divin
+2, Nova Ves
+2, Koskovce
+2, Pusty Fedymes
+2, Vrbov
+2, Trakovice
+2, Slovenska Ves
+2, Tvrdosin
+2, Nahac
+2, Liptovska Tepla
+2, Plavec nad Popradom
+2, Maly Bab
+2, Lemesany
+2, Muran
+2, Podvlk
+2, Pruske
+2, Zavadka
+2, Turany
+2, Solosnica
+2, Dolne Strhary
+2, Nemecky Grob
+2, Sklabina
+2, Dolna Strehova
+2, Obyce
+2, Dolne Plachtince
+2, Svaty Kriz nad Vahom
+2, Topolcianky
+2, Banovce nad Ondavou
+2, Nizny Sebes
+2, Jovsa
+2, Casta
+2, Tesary nad Zitavou
+2, Male Vozokany
+2, Pobedim
+2, Moravske Lieskove
+2, Rybnik
+2, Beckov
+2, Vyhne
+2, Sasa
+2, Hvozdnica
+2, Stary Tekov
+2, Slanica
+2, Rajec
+2, Zakamene
+2, Neverice
+2, Vesele
+2, Rabca
+2, Budatin
+2, Lietavska Lutca
+2, Nova Ves nad Zitavou
+2, Velke Kostolany
+2, Plavecky Stvrtok
+2, Moravsky Svaty Jan
+2, Terna
+2, Marikova
+2, Habure
+2, Velke Levare
+2, Bogdanovce
+2, Laksarska Nova Ves
+2, Kapusany
+2, Meretica
+2, Borsky Svaty Jur
+2, Stavnik
+2, Kiripolec
+2, Kuchyna
+2, Madunice
+2, Vyrava
+2, Vinna
+2, Batizovce
+2, Strazske
+2, Spisska Sobota
+2, Ubrez
+2, Vrbovec
+2, Rakovec nad Ondavou
+2, Pavlovce nad Uhom
+2, Krasny Brod
+2, Visnia Radvan
+2, Malcice
+2, Budkovce
+2, Vysnie Revistia
+2, Kostolany nad Hor.
+2, Michalany nad Torysou
+2, Velke Chlievany
+2, Vojcice
+2, Velaty
+2, Prasice
+2, Kuzmice
+2, Radvan nad Hronom
+2, Nadvurnah
+2, Slatina nad Bebravou
+2, Nemsova
+2, Ustredna Zidov
+2, Trencanska Tepla
+2, Bosaca
+2, Melcice
+2, Horne Obdiekovce
+2, Bosany
+2, Preselany
+2, Zabokreky nad Nitrou
+2, Pecovska Nova Ves
+2, Gaboltov
+2, Bardiovska Nova Ves
+2, Visny Svidnik
+2, Nizna Olsava
+2, Breznicka
+2, Slovenska Reslavica
+2, Iadomirova
+2, Hrabovcik
+2, Krajna Porubka
+2, Secovce
+2, Kosarovce
+2, Piarg
+2, Kovarce
+2, Prensov
+2, Zvolen
+2, Velka Bytca
+2, Dolny Kubin
+2, Dobsina
+2, Cadca
+2, Giraltovce
+2, Hlohovec
+2, Kremnica
+2, Kysucke Nove Mesto
+2, Brezno nad Hronom
+2, Bardiov
+2, Zilina
+2, Velke Bielice
+2, Bratislava
+2, Banovce nad Bebravou
+2, Banska Stiavnica
+2, Banska Bystrica
+2, Ilava
+2, Krupina
+2, Trencin
+2, Skalica
+2, Tovarniky
+2, Topolcany
+2, Trnava
+2, Turciansky Svaty Martin
+2, Trstena
+2, Ruzomberok
+2, Poprad
+2, Malacky
+2, Liptovsky Svaty Mikulas
+2, Michalovce
+2, Modra
+2, Piestany
+2, Myjava
+2, Smilno
+2, Kapisov
+2, Lom nad Hronom
+2, Koterbachy
+2, Cacov
+2, Markusovce
+2, Bohunice
+2, Smolnik
+2, Horne Oresany
+2, Smolenice
+2, Hrabusice
+2, Stitnik
+2, Straze nad Myjavou
+2, Dolna Streda nad Vahom
+2, Krajna Polana
+2, Borsky Svaty Mikulas
+2, Dehtice
+2, Rostar
+2, Staskov
+2, Dolna Krupa
+2, Sabotiste
+2, Unin
 2, Radosovce
+2, Skalite
+2, Hronec
+2, Devinska Nova Ves
+2, Brezovica nad Tor.
+2, Maly Lipnik
+2, Nizny Medzev
+2, Lipiany
+2, Hanusovce nad Toplou
+2, Kurima
+2, Plavnica
+2, Hlboke
+2, Boleraz
+2, Ivanka pri Dunaji
+2, Nagov
+2, Helpa
+2, Spissky Hrusov
+2, Jaklovce
+2, Krompachy
+2, Jablonica
+2, Prievoz
+2, Biskupice pri Dunaji
+1, Nizny Colgory ???
+1, Soma
+1, Tolcemes
+1, Vislanka
+1, Uzovce
+1, Medzany
+1, Gergelak
+1, Mikusovce
+1, Zubak
+1, Lubotin
+1, Ujak
+1, Tuchnica
+1, Lysa pod Makytou
+1, Spanie Pole
+1, Jakovany
+1, Zemanska Ludrova
+1, Rakes
+1, Mur. Dl. Luka
+1, Turik
+1, Lutina
+1, Dubovica
+1, Ivachnova
+1, Stiavnicka
+1, Dacov
+1, Vlasky
+1, Sliace
+1, Kriviany
+1, Hanigovce
+1, Velky Slivnik
+1, Revucka
+1, Lubochna
+1, Blazov
+1, Zatkovce
+1, Dulov
+1, Mokra Luka
+1, Maly Slivnik
+1, Roskoviany
+1, Muranska Lehota
+1, Balpotok
+1, Moranska Zdychava
+1, Hradisko
+1, Marsany
+1, Pecenady
+1, Kaluza
+1, Suche
+1, Nizny Hrusov
+1, Tarnava
+1, Vola
+1, Jastrable
+1, Inacovce
+1, Cecehov
+1, Moraviany
+1, Lesne
+1, Sliepkovce
+1, Slavkovce
+1, Hatalov
+1, Blatne Revistia
+1, Tegena
+1, Visoka
+1, Cierne Pole
+1, Krasok
+1, Rebrin
+1, Durova
+1, Nemecka Poruba
+1, Klokocov
+1, Pila
+1, Sarfia
+1, Cataj
+1, Dobova
+1, Trhoviste
+1, Lozin
+1, Gajdos
+1, Hnojne
+1, Fekisovce
+1, Bracovce
+1, Falkusovce
+1, Laskovce
+1, Racanov
+1, Petrikovce
+1, Markovce
+1, Raztoky
+1, Vlachy
+1, Ondrasova
+1, Kuklov
+1, Pernek
+1, Sekule
+1, Niklasov
+1, Jakubov
+1, Podturen
+1, Porubka
+1, Dravce
+1, Abrahamovce
+1, Stavce
+1, Domanovce
+1, Baldovce
+1, Grane Petrovce
+1, Vis. Stavkov
+1, Lab
+1, Rarbok
+1, Hrubov
+1, Brestov
+1, Niznia Radvan
+1, Hrabovec
+1, Sukov
+1, Vysnie Cabiny
+1, Niznie Cabiny
+1, Niznie Zbojne
+1, Visnie Zbojne
+1, Vydran
+1, Kalinov
+1, Male Levare
+1, Borov
+1, Certizne
+1, Vilagy
+1, Cabalovce
+1, Velky Krtys
+1, Maly Krtys
+1, Visnie Mirkovce
+1, Varhanovce
+1, Ploske
+1, Vagas
+1, Lada
+1, Budimir
+1, Mala Vieska
+1, Bajerov
+1, Mocarmany
+1, Hatne
+1, Nova Lesna
+1, Milbach
+1, Stola
+1, Visna Sunava
+1, Nizna Sunava
+1, Stupne
+1, Horny Mostenec
+1, Drienov
+1, Chabazany
+1, Kostolna Ves
+1, Liestany
+1, Hornie Lelovce
+1, Hornia Ves
+1, Dolny Kamenec
+1, Raztocno
+1, Zemianske Kostolany
+1, Kocurany
+1, Velka Lihotka
+1, Kelemes
+1, Maly Saris
+1, Licartovce
+1, Cervenica
+1, Solna Bana
+1, Kos
+1, Cigel
+1, Hamborek
+1, Straze
+1, Bobrov
+1, Klin
+1, Sikelce
+1, Zubrohlava
+1, Brehy
+1, Velke Kozmalovce
+1, Klacany
+1, Zupkov
+1, Mutne
+1, Novot
+1, Obeckov
+1, Horna Strehova
+1, Potor
+1, Slovenske Klacany
+1, Chrtany
+1, Dolne Pribelce
+1, Stredne Plachtince
 1, Rapiste
-1, Rovne
-1, Roznavske Bystre
-1, Rajecke Teplice
-1, Racice
-1, Risnovce
-1, Rozhanovce
+1, Mnesice
+1, Horna Streda
+1, Basovce
+1, Dolne Srnie
+1, Korytne
+1, Castkovce
+1, Viaska Potvorice
+1, Brunovce
+1, Horne Bzince
+1, Dolne Bzince
+1, Nova Ves nad Vahom
+1, Kocovce
+1, Kalnica
+1, Vieska Beckovska
+1, Horka
+1, Stara Lehota
+1, Luka
+1, Strezenice
+1, Velke Bukovce
+1, Ratkovo
+1, Nolcovo
+1, Lipovec
+1, Zaborie
+1, Bela
+1, Trebasovo
+1, Sucha Hora
+1, Vitanova
+1, Bukovina
+1, Biely Kostol
+1, Podskolie
+1, Oravka
+1, Srnie
+1, Diviaky
+1, Laclava
+1, Nemcicany
+1, Zlatno
+1, Male Hydnice
+1, Velke Vozokany
+1, Vieska nad Zitavou
+1, Mlynany
+1, Kolenany
+1, Knazice
+1, Rokovo
+1, Rudno
+1, Benice
+1, Danova
+1, Hricovske Pohradie
+1, Pald
+1, Biksard
+1, Rajcany
+1, Hornie Stitany
+1, Podhradie
+1, Zavada
+1, Lasovce
+1, Valasovce
+1, Krnca
+1, Hradiste
+1, Jacovce
+1, Dobra
+1, Nemcice
+1, Urmince
+1, Skacany
+1, Hrusovany
+1, Male Bialice
+1, Gan
+1, Katlovce
+1, Dolne Oresany
+1, Farkasin

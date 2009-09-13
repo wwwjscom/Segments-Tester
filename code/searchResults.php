@@ -22,7 +22,8 @@ $_GET['query'] = $query;
 		/* Merge all of the returned results into one array */
 		$finalArray=array_merge($list1,$list3,$list4,$list5,$list6,$list7);
 
-		$myFile = "/Applications/MAMP/locality/ngrams/votes/our_results.txt";
+		#$myFile = "/Applications/MAMP/locality/ngrams/votes/our_results.txt";
+		$myFile = "../tmp/votes/our_results.txt";
 		$fh = fopen($myFile, 'w') or die("can't open file");
 
 		/* If empty, nothing was found */

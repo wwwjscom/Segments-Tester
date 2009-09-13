@@ -1,28 +1,39 @@
-3, trakovice
-3, pruske
-3, belusa
-3, spissky hrusov
-3, rakovec nad ondavou
-3, kapusany
-3, velke bielice
-2, hrusov
-2, vysny hrusov
-2, nizny hrusov
-2, krusinec
-2, velky ruskov
-2, hrusovany
-2, maly ruskov
-2, rakovcik
-2, rakusy
-2, male bialice
-2, rakes
-2, brakov
-2, brusnica
-1, velka causa
-1, hrustin
-1, krusetnica
-1, meslusa
-1, giraltovce
-1, rakova
-1, krakovany
-1, krusovce
+4, moranska zdychava
+4, margecany
+3, tovarniky
+3, piarg
+3, zavadka
+3, kovarce
+3, velke levare
+3, nizna olsava
+3, solivar
+3, vyrava
+2, havaj
+2, zavadka nad hronom
+2, gergelak
+2, tarnava
+2, nizna sunava
+2, laclava
+2, zavada
+2, medovarce
+2, police headquarters in bratislava
+2, vislava
+2, varhanovce
+2, police headquarters in bratislava (continued)
+2, zubrohlava
+2, visna sunava
+2, male levare
+2, jews in custody in bratislava in sept 1942
+2, visna olsava
+2, zavar
+1, stupava
+1, sintava
+1, bratislava
+1, ilava
+1, litava
+1, trnava
+1, varin
+1, kluknava
+1, trnava hora
+1, myjava
+1, versvar

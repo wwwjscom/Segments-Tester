@@ -1,4 +1,5 @@
 #! /usr/bin/env ruby -w
+require 'directories_setup'
 
 ############################################################
 #
@@ -15,7 +16,6 @@
 
 #@@types = Array['h', 't', 'o', 'm', 'p'] # The tables we wish to query
 @@types = Array['t', 'o', 'm', 'p'] # The tables we wish to query (no h table)
-PATH = Dir.getwd
 
 ############### /CONFIGS ####################
 
@@ -30,27 +30,27 @@ class Ngrams
 
 
   def query
-    file = File.open("#{PATH}/queries.txt", "r")
+    file = File.open("#{TMP_DIR}/queries.txt", "r")
     while (query = file.gets)
 
       # Convery query to lowercase
       query = query.chop.downcase
 
       # Write query to file to be read by count.pl
-      in_file = File.new("#{PATH}/in.txt", 'w')
+      in_file = File.new("#{TMP_DIR}/in.txt", 'w')
       in_file.puts query
       in_file.close
 
       # Invoke ngrams script, output to out.txt
       if @type == 3 then
-        system("/Users/wwwjscom/Downloads/Text-NSP-1.09/bin/count.pl --token /Users/wwwjscom/Downloads/Text-NSP-1.09/bin/REGEX --ngram 3 --window 3 #{PATH}/out.txt #{PATH}/in.txt")
+        system("/Users/wwwjscom/Downloads/Text-NSP-1.09/bin/count.pl --token /Users/wwwjscom/Downloads/Text-NSP-1.09/bin/REGEX --ngram 3 --window 3 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
       elsif @type == 4 then
-        system("/Users/wwwjscom/Downloads/Text-NSP-1.09/bin/count.pl --token /Users/wwwjscom/Downloads/Text-NSP-1.09/bin/REGEX --ngram 4 --window 4 #{PATH}/out.txt #{PATH}/in.txt")
+        system("/Users/wwwjscom/Downloads/Text-NSP-1.09/bin/count.pl --token /Users/wwwjscom/Downloads/Text-NSP-1.09/bin/REGEX --ngram 4 --window 4 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
 
       end
 
       # Iterate over out.txt assembling ngrams
-      out_file = File.open("#{PATH}/out.txt", 'r')
+      out_file = File.open("#{TMP_DIR}/out.txt", 'r')
       i = 0
       ngrams = []
       while (line = out_file.gets)
@@ -73,12 +73,12 @@ class Ngrams
         ngrams.each { |ngram|
 
           if @type == 3 then
-            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE ngram = \"#{ngram}\";'")
+            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE ngram = \"#{ngram}\";'")
           elsif @type == 4 then
-            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{PATH}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table}_4grams WHERE ngram = \"#{ngram}\";'")
+            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table}_4grams WHERE ngram = \"#{ngram}\";'")
           end
 
-          results = File.open("#{PATH}/query_result.txt", 'r')
+          results = File.open("#{TMP_DIR}/query_result.txt", 'r')
           while (vote = results.gets)
             vote = vote.chop
 
@@ -92,13 +92,13 @@ class Ngrams
           end
 
           results.close
-          File.delete("#{PATH}/query_result.txt")
+          File.delete("#{TMP_DIR}/query_result.txt")
         }
       }
 
 
 
-      votes_file = File.new("#{PATH}/votes/ngram_results.txt", 'w') # UNCOMMENT TO WRITE TO FILE
+      votes_file = File.new("#{TMP_DIR}/votes/ngram_results.txt", 'w') # UNCOMMENT TO WRITE TO FILE
       # Write the votes to a results file
       # Sort the hash by value
       votes.sort{|a,b| a[1]<=>b[1]}.reverse.each { |elem|
@@ -107,7 +107,7 @@ class Ngrams
       votes_file.close # UNCOMMENT TO WRITE TO FILE
 
       # Delete the query file
-      File.delete("#{PATH}/out.txt")
+      File.delete("#{TMP_DIR}/out.txt")
 
     end
     file.close
