@@ -10,6 +10,7 @@
 #
 ##########################################################
 
+require 'directories_setup'
 
 ################ CONFIGS ####################
 
@@ -21,7 +22,7 @@ skip_queries = ['myjava', 'sea;klefjsdf'] # Skip these queries because they make
 
 # Erase any old SQL files laying around
 begin
-	File.delete('/tmp/dm_soundex_sql.sql')
+	File.delete("#{TMP_DIR}/dm_soundex_sql.sql")
 rescue
 
 end
@@ -45,9 +46,9 @@ while (query = file.gets)
 
   print "Query: #{i} #{query}"
 	# Convery query to dm soundex
-  system("perl dm-soundex.pl \"#{query}\" > /tmp/tmp-dm.txt")
+  system("perl dm-soundex.pl \"#{query}\" > #{TMP_DIR}/tmp-dm.txt")
 
-  f = File.open('/tmp/tmp-dm.txt')
+  f = File.open("#{TMP_DIR}/tmp-dm.txt")
   dm_soundex_query = f.gets.chop
   #dm_soundex_query = f.gets
   print " - #{dm_soundex_query}\n"
@@ -58,7 +59,7 @@ end
 file.close
 
 # Write assembled soundex's to soundex_sql file in sql insert calls
-sql_file = File.new('/tmp/dm_soundex_sql.sql', 'a')
+sql_file = File.new("#{TMP_DIR}/dm_soundex_sql.sql", 'a')
 
 soundex_hash.each do |query, soundex|
 

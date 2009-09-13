@@ -10,6 +10,7 @@
 #
 ##########################################################
 
+require 'directories_setup'
 
 ################ CONFIGS ####################
 
@@ -50,7 +51,7 @@ end
 
 # Erase any old SQL files laying around
 begin
-	File.delete('/tmp/soundex_sql.sql')
+	File.delete("#{TMP_DIR}/soundex_sql.sql")
 rescue
 
 end
@@ -70,7 +71,7 @@ end
 file.close
 
 # Write assembled soundex's to soundex_sql file in sql insert calls
-sql_file = File.new('/tmp/soundex_sql.sql', 'a')
+sql_file = File.new("#{TMP_DIR}/soundex_sql.sql", 'a')
 
 soundex_hash.each do |query, soundex|
 
