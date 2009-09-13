@@ -1007,7 +1007,7 @@ if @test_type == 'RAND'
   @correct_queries.shuffle!
 end
 
-MULTIPLIER = 3 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
+MULTIPLIER = 10 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
 CUTOFF = 60 # When a result is ranked greated than this, its marked as not found.
 TOTAL = (@correct_queries.length) - 1
 puts TOTAL
@@ -1043,8 +1043,12 @@ def setup
         ]
     when "LOGS" then
       # test from query logs
-      @tests = Hash["query_logs_mom", "query_logs_mom",
-        "query_logs_alayna", "query_logs_alayna"
+      @tests = Hash[
+        "query_logs_mom", "query_logs_mom",
+        "query_logs_alayna", "query_logs_alayna",
+        "query_logs_jay", "query_logs_jay",
+        "query_logs_dave", "query_logs_dave",
+        "query_logs_chelsey", "query_logs_chelsey"
       ]
   end
 

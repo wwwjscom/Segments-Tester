@@ -1,1 +1,28 @@
+3, trakovice
+3, pruske
+3, belusa
+3, spissky hrusov
+3, rakovec nad ondavou
+3, kapusany
+3, velke bielice
+2, hrusov
+2, vysny hrusov
+2, nizny hrusov
+2, krusinec
+2, velky ruskov
+2, hrusovany
+2, maly ruskov
+2, rakovcik
+2, rakusy
+2, male bialice
+2, rakes
+2, brakov
+2, brusnica
+1, velka causa
+1, hrustin
+1, krusetnica
+1, meslusa
 1, giraltovce
+1, rakova
+1, krakovany
+1, krusovce

@@ -1,4 +1,3 @@
-INSERT INTO query_logs_mispelled VALUES ('response');
 INSERT INTO query_logs_mispelled VALUES ('draluca');
 INSERT INTO query_logs_mispelled VALUES ('mytopodumbium');
 INSERT INTO query_logs_mispelled VALUES ('resnonadhoran');
