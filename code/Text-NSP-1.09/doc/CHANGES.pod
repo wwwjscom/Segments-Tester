@@ -1,0 +1,154 @@
+=head1 NAME
+
+CHANGES Changelog for the Ngram Statistics Package (Text-NSP)
+
+=head1 SYNOPSIS
+
+Revision history for Perl module Text::NSP
+
+=head1 DESCRIPTION
+
+=item 1.09
+
+Released March 26, 2008 all changes by TDP
+
+=over
+
+=item 
+
+Spell checked the modules
+
+=item 
+
+Relaxed test caes 27, 29 for ll, 20 for x2, and 13 for phi, due to 
+arithemetic differences on 64 bit architectures
+
+=item
+
+Modified Makefile.PL to go back to more standard methods of testing and 
+installation. 
+
+=item
+
+Modified structure of /t directory for 'make test'. It appears that the 
+use of subdirectories in /t with test cases might have been causing 
+problems for Windows testing, so we have moved all test files to the top 
+level of /t, and also removed the TEST program so that things are called 
+in a more standard or generic fashion.
+
+=back
+
+=item 1.07
+
+Released March 24, 2008 all changes by TDP
+
+=over
+
+=item
+
+Updated Makefile.PL to no longer require 5.8.5 - have dropped back to 5.6
+
+=item
+
+Updated FAQ with some explanation of ALL-TESTS.sh
+
+=item
+
+Renamed /docs as /doc to be consistent with other packages
+
+=item
+
+Added descriptive labels in POD in NAME field of .pl programs to provide 
+that info on CPAN display
+
+=item 
+
+Fixed duplicate Copyright message bug in documentation of Measures.pm
+
+=item
+
+Removed "help" messages from Makefile.PL execution so as to (hopefully) 
+avoid problems with installations on Windows.
+
+=item
+
+Corrected error in INSTALL instructions - csh ./ALL-TESTS.sh must be 
+performed after 'make install'
+
+=back
+
+=item 1.05 
+
+Released March 20, 2008 all changes by TDP
+
+=over
+
+=item
+
+Fixed problem with file Testing/statistic/t2 would appear 
+(mysteriously) but not be in the MANIFEST. This file was left behind 
+during /Testing/statistic/normal-op.sh and is now being removed.
+
+
+=item
+
+Fixed problem in /Testing where .sh files are sometimes not executable. 
+Those files are now invoked via 'csh test.sh' rather than './test.sh', 
+meaning that they no longer need to be executable.
+
+=item
+
+Fixed ticket number 24061 from rt.cpan.org regarding incorrection 
+version information coming from Measures.pm
+
+=item 
+
+Archived all old ChangeLogs to doc/ChangeLogs directory. Began to use 
+pod in CHANGES directory instead
+
+=item 
+
+Added doc/update-pod.sh to automatically refresh top level read only 
+documentation including README, CHANGES, TODO and INSTALL
+
+=item 
+
+Fixed Makefile.PL to avoid problems during Windows install. This 
+problem and fix was reported by Richard Churchill to the ngram mailing 
+list. This may also address ticket #20371 from rt.cpan.org. 
+
+=item 
+
+Modified Makefile.PL to allow for use of 'make dist' and also creation 
+of META.yml
+
+=back
+
+=head1 AUTHORS
+
+ Ted Pedersen, University of Minnesota, Duluth
+ tpederse at d.umn.edu
+
+This document last modified by :
+$Id: CHANGES.pod,v 1.6 2008/03/26 17:56:11 tpederse Exp $
+
+=head1 SEE ALSO
+
+L<http://ngram.sourceforge.net>
+
+=head1 COPYRIGHT AND LICENSE
+
+Copyright (c) 2004-2008 Ted Pedersen
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.2
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+Texts.
+
+Note: a copy of the GNU Free Documentation License is available on
+the web at L<http://www.gnu.org/copyleft/fdl.html> and is included in
+this distribution as FDL.txt.
+
+=cut
+

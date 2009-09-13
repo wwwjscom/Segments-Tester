@@ -1,0 +1,3 @@
+ERROR(sort-bigrams.pl):
+        Line 11 in BIGRAM file <test-B1.bigram> should be formatted as the
+        Bigram output of NSP.

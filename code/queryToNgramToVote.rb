@@ -43,9 +43,9 @@ class Ngrams
 
       # Invoke ngrams script, output to out.txt
       if @type == 3 then
-        system("/Users/wwwjscom/Downloads/Text-NSP-1.09/bin/count.pl --token /Users/wwwjscom/Downloads/Text-NSP-1.09/bin/REGEX --ngram 3 --window 3 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
+        system("#{CODE_DIR}/Text-NSP-1.09/bin/count.pl --token #{CODE_DIR}/Text-NSP-1.09/bin/REGEX --ngram 3 --window 3 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
       elsif @type == 4 then
-        system("/Users/wwwjscom/Downloads/Text-NSP-1.09/bin/count.pl --token /Users/wwwjscom/Downloads/Text-NSP-1.09/bin/REGEX --ngram 4 --window 4 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
+        system("#{CODE_DIR}/Text-NSP-1.09/bin/count.pl --token #{CODE_DIR}/Text-NSP-1.09/bin/REGEX --ngram 4 --window 4 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
 
       end
 

@@ -1,0 +1,2 @@
+ERROR(split-data.pl):
+        Can not divide DATA file <test-B1.data> with 12 lines into 15 parts.
