@@ -14,8 +14,14 @@ require 'directories_setup'
 
 ################ CONFIGS ####################
 
+@@types = []
 #@@types = Array['h', 't', 'o', 'm', 'p'] # The tables we wish to query
-@@types = Array['t', 'o', 'm', 'p'] # The tables we wish to query (no h table)
+#@@types = Array['t', 'o', 'm', 'p'] # The tables we wish to query (no h table)
+if @type == 3
+  @@types = Array['census_surnames_3grams'] # The tables we wish to query (no h table)
+elsif @type == 4
+  @@types = Array['census_surnames_4grams'] # The tables we wish to query (no h table)
+end
 
 ############### /CONFIGS ####################
 
@@ -73,9 +79,9 @@ class Ngrams
         ngrams.each { |ngram|
 
           if @type == 3 then
-            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE ngram = \"#{ngram}\";'")
+            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM segments_tester.#{table} WHERE LCASE(ngram) = LCASE(\"#{ngram}\");'")
           elsif @type == 4 then
-            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table}_4grams WHERE ngram = \"#{ngram}\";'")
+            system("mysql -u root --password=root ngrams -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE LCASE(ngram) = LCASE(\"#{ngram}\");'")
           end
 
           results = File.open("#{TMP_DIR}/query_result.txt", 'r')

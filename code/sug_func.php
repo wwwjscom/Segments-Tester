@@ -15,7 +15,9 @@ function queryDB($x,$y,$z)
 	 * Once live, remove this if statement */
 	if ($x == 'h' && $y == 'h') {
 
-		$query="SELECT query FROM new_queries WHERE query LIKE \"$z\"";
+		/* DEBUG: THIS NEED TO CHANGE WHEN WE QUERY DIFFERENT DATASETS!! */
+		$query="SELECT query FROM segments_tester.census_surnames WHERE query LIKE \"$z\"";
+		#echo "$query\n"; // DEBUG
 	} else {
 		$query="SELECT $x FROM locality WHERE $y LIKE \"$z\"";
 	}

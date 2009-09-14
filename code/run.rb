@@ -8,10 +8,8 @@ require 'db'
 load "queryToNgramToVote.rb"
 load "soundex.rb"
 require 'directories_setup'
+require 'config_parser'
 
-
-# Access config: config.get_value('test') 
-@config = ParseConfig.new("#{ROOT_DIR}/CONFIG")
 
 ########### CONFIG ################
 @mysql_username = @config.get_value('mysql_username')
@@ -148,6 +146,7 @@ def main test
 	@our_results = Array.new
 	@four_grams_results = Array.new
 	@dm_soundex_results = Array.new
+	@soundex_results = Array.new
 
 	for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
 
@@ -186,7 +185,7 @@ def main test
       mispelled_query = @mispelled_queries.shift.to_s
     end
 
-		#puts "Orig: #{orig_query}, new: #{mispelled_query}"
+		puts "Orig: #{orig_query}, new: #{mispelled_query}" # DEBUG
 
 		if mispelled_query.length <= 3
 			puts "Skipping...Query too short: #{mispelled_query}"
@@ -236,7 +235,7 @@ def main test
 		#puts mispelled_query
 
 		begin
-			if mispelled_query.include? 'j' then
+			if mispelled_query.downcase.include? 'j' then
 				puts "Skipping....j...."
 				next
 			end
@@ -344,89 +343,89 @@ def main test
 
 
 
-#		#######################################
-#		#######################################
-#		####### SOUNDEX ENGINE....GO ##########
-#		#######################################
-#		#######################################
-#
-#		# reset vars
-#		soundex_result_hash = Hash.new
-#		result_hash = Hash.new
-#		soundex_probability = 0
-#		total_votes = 0
-#		rank = 1
-#		found = 0
-#		match_rank = 0
-#		probability = 0
-#		match_votes = 0
-#
-#
-#		soundex_mispelled_query = mispelled_query.soundex(false)
-#
-#		@tables = Array['t', 'p', 'm', 'o', 'h']
-#
-#
-#		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
-#
-#		@tables.each do |table|
-#
-#			system("mysql -u root --password=root soundex -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table} WHERE soudex = \"#{soundex_mispelled_query}\";'")
-#			soundex_results = File.open("#{TMP_DIR}/query_result.txt", 'r')
-#
-#			while vote = soundex_results.gets do
-#
-#				vote = vote.chomp!
-#				begin
-#					soundex_result_hash[vote] += 1
-#				rescue
-#					soundex_result_hash[vote] = 1
-#				end
-#			end
-#
-#			File.delete("#{TMP_DIR}/query_result.txt")
-#		end
-#
-#		##
-#		##
-#		##
-#		##
-#		## MUST FIND A WAY TO SORT A HASH BASED ON ITS VOTES
-#		#@
-#		#@
-#		#@
-#		#@
-#		#@
-#
-#
-#		# loop through each line to see if it matches our original query
-#		rank = 1
-#		soundex_found = 0
-#		soundex_match_rank = 0
-#		soundex_result_hash.each do |suggestion, votes|
-#
-#			#puts ".#{suggestion}. *#{orig_query}* with #{votes} votes out of #{soundex_result_hash.size}"
-#			if suggestion.downcase == orig_query.downcase then
-#				#puts "SOUNDEX4TW"
-#				soundex_match_rank = rank
-#				soundex_found = 1
-#			end
-#
-#			rank += 1
-#		end
-#
-#		#puts "Match Rank: #{soundex_match_rank} out of #{soundex_result_hash.size}"
-#
-#		probability = nil
-#
-#		# Disreguard any finds whos rank is > CUTOFF
-#		if match_rank > CUTOFF then soundex_found = 0 end
-#
-#		# Make the match_rank - if it wasnt found or was too high
-#		if match_rank > CUTOFF or soundex_found == 0 then match_rank = '-' end
-#
-#		soundex_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", soundex_found, "Match Rank", soundex_match_rank, "Rank", rank-1, "Probability", probability]
-#		@soundex_results.push(soundex_result_hash)
+		#######################################
+		#######################################
+		####### SOUNDEX ENGINE....GO ##########
+		#######################################
+		#######################################
+
+		# reset vars
+		soundex_result_hash = Hash.new
+		result_hash = Hash.new
+		soundex_probability = 0
+		total_votes = 0
+		rank = 1
+		found = 0
+		match_rank = 0
+		probability = 0
+		match_votes = 0
+
+
+		soundex_mispelled_query = mispelled_query.soundex(false)
+
+		#@tables = Array['t', 'p', 'm', 'o', 'h']
+
+
+		#puts "Orig Query: #{orig_query}, Query: #{mispelled_query}, soundex_mispelled_query: #{soundex_mispelled_query}"
+
+		@correct_tables.each do |table|
+
+			system("mysql -u root --password=root segments_tester -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table}_soundex WHERE soundex = \"#{soundex_mispelled_query}\";'")
+			soundex_results = File.open("#{TMP_DIR}/query_result.txt", 'r')
+
+			while vote = soundex_results.gets do
+
+				vote = vote.chomp!
+				begin
+					soundex_result_hash[vote] += 1
+				rescue
+					soundex_result_hash[vote] = 1
+				end
+			end
+
+			File.delete("#{TMP_DIR}/query_result.txt")
+		end
+
+		##
+		##
+		##
+		##
+		## MUST FIND A WAY TO SORT A HASH BASED ON ITS VOTES
+		#@
+		#@
+		#@
+		#@
+		#@
+
+
+		# loop through each line to see if it matches our original query
+		rank = 1
+		soundex_found = 0
+		soundex_match_rank = 0
+		soundex_result_hash.each do |suggestion, votes|
+
+			#puts ".#{suggestion}. *#{orig_query}* with #{votes} votes out of #{soundex_result_hash.size}"
+			if suggestion.downcase == orig_query.downcase then
+				#puts "SOUNDEX4TW"
+				soundex_match_rank = rank
+				soundex_found = 1
+			end
+
+			rank += 1
+		end
+
+		#puts "Match Rank: #{soundex_match_rank} out of #{soundex_result_hash.size}"
+
+		probability = nil
+
+		# Disreguard any finds whos rank is > CUTOFF
+		if match_rank > CUTOFF then soundex_found = 0 end
+
+		# Make the match_rank - if it wasnt found or was too high
+		if match_rank > CUTOFF or soundex_found == 0 then match_rank = '-' end
+
+		soundex_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", soundex_found, "Match Rank", soundex_match_rank, "Rank", rank-1, "Probability", probability]
+		@soundex_results.push(soundex_result_hash)
 
 
 
@@ -483,7 +482,7 @@ def main test
 			vote = line.split(', ', 2)[1]
 			vote.chomp!
 
-			if vote == orig_query
+			if vote.downcase == orig_query.downcase
 				match_rank = rank
 				match_votes = votes
 				four_grams_found = 1
@@ -550,7 +549,7 @@ def main test
 			vote = line.split(', ', 2)[1].downcase
 			vote.chomp!
 
-			if vote == orig_query
+			if vote.downcase == orig_query.downcase
 				match_rank = rank
 				match_votes = votes
 				found = 1
@@ -615,7 +614,7 @@ def main test
 			vote = line.split(', ', 2)[1]
 			vote.chomp!
 
-			if vote == orig_query
+			if vote.downcase == orig_query.downcase
 				match_rank = rank
 				match_votes = votes
 				found = 1
@@ -730,19 +729,19 @@ four_grams_csv.close
 
 
 
-#	soundex_csv = File.open("#{OUTPUT_DIR}/soundex_results_#{suffix}.csv", "w")
-#
-#	soundex_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
-#
-#
-#	@soundex_results.each do |run|
-#
-#		soundex_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{run.fetch('Match Rank')},#{run.fetch('Rank')},#{run.fetch('Probability')}"
-#		combined.push(run)
-#
-#	end
-#
-#	soundex_csv.close
+soundex_csv = File.open("#{OUTPUT_DIR}/soundex_results_#{suffix}.csv", "w")
+
+soundex_csv.puts "Orig Query,New Query,Found,Match Rank,Rank,Probability"
+
+
+@soundex_results.each do |run|
+
+	soundex_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{run.fetch('Match Rank')},#{run.fetch('Rank')},#{run.fetch('Probability')}"
+	combined.push(run)
+
+end
+
+soundex_csv.close
 
 
 	dm_soundex_csv = File.open("#{OUTPUT_DIR}/dm_soundex_results_#{suffix}.csv", "w")
@@ -992,7 +991,8 @@ end
 @mispelled_queries = Array.new
 
 @correct_tables.each do |table|
-  results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs_correct;')
+  #results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs_correct;')
+  results = @ngrams_sql.query('SELECT DISTINCT(query) FROM census_surnames;')
   results.each do |result|
     @correct_queries.push(result)
   end
@@ -1012,7 +1012,7 @@ if @test_type == 'RAND'
   @correct_queries.shuffle!
 end
 
-MULTIPLIER = 10 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
+MULTIPLIER = 0.1 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
 CUTOFF = 60 # When a result is ranked greated than this, its marked as not found.
 TOTAL = (@correct_queries.length) - 1
 puts TOTAL
@@ -1029,22 +1029,22 @@ def setup
   case @test_type
     when "RAND" then
       @tests = Hash[
-        "1_char_drop", "d1", 
-        "2_char_drop", "d2", 
-        "3_char_drop", "d3", 
-        "4_char_drop", "d4", 
-        "1_char_add", "a1", 
-        "2_char_add", "a2", 
-        "3_char_add", "a3", 
-        "4_char_add", "a4", 
-        "1_char_replace", "r1",
-        "2_char_replace", "r2",
-        "3_char_replace", "r3",
-        "4_char_replace", "r4",
-        "Adj_char_swap", "s1",
-        "2_char_swap", "s2",
-        "3_char_swap", "s3",
-        "4_char_swap", "s4"
+        "1_char_drop", "d1"
+        #"2_char_drop", "d2", 
+        #"3_char_drop", "d3", 
+        #"4_char_drop", "d4", 
+        #"1_char_add", "a1", 
+        #"2_char_add", "a2", 
+        #"3_char_add", "a3", 
+        #"4_char_add", "a4", 
+        #"1_char_replace", "r1",
+        #"2_char_replace", "r2",
+        #"3_char_replace", "r3",
+        #"4_char_replace", "r4",
+        #"Adj_char_swap", "s1",
+        #"2_char_swap", "s2",
+        #"3_char_swap", "s3",
+        #"4_char_swap", "s4"
         ]
     when "LOGS" then
       # test from query logs

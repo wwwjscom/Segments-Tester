@@ -13,7 +13,7 @@ require 'directories_setup'
 
 ################ CONFIGS ####################
 
-type = 'census_surnames_3grams' # h, t, o, m, p, new_queries
+type = 'census_surnames_4grams' # h, t, o, m, p, new_queries
 
 ############### /CONFIGS ####################
 
@@ -38,10 +38,10 @@ while (query = file.gets)
 	# Invoke ngrams script, output to out.txt
 
   # Uncomment following line to use trigrams @ word level
-	system("#{CODE_DIR}/Text-NSP-1.09/bin/count.pl --token #{CODE_DIR}/Text-NSP-1.09/bin/REGEX --ngram 3 --window 3 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
+	#system("#{CODE_DIR}/Text-NSP-1.09/bin/count.pl --token #{CODE_DIR}/Text-NSP-1.09/bin/REGEX --ngram 3 --window 3 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
 
   # Uncomment following line to use 4grams @ word level
-	#system("#{CODE_DIR}/Text-NSP-1.09/bin/count.pl --token #{CODE_DIR}/Text-NSP-1.09/bin/REGEX --ngram 4 --window 4 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
+	system("#{CODE_DIR}/Text-NSP-1.09/bin/count.pl --token #{CODE_DIR}/Text-NSP-1.09/bin/REGEX --ngram 4 --window 4 #{TMP_DIR}/out.txt #{TMP_DIR}/in.txt")
 
 	# Iterate over out.txt assembling ngrams
 	out_file = File.open("#{TMP_DIR}/out.txt", 'r')
@@ -51,10 +51,10 @@ while (query = file.gets)
 		if i != 0:
 			line.chop
       # uncomment if using trigrams
-			ngrams.push "#{line[0].to_i.chr}#{line[3].to_i.chr}#{line[6].to_i.chr}"
+			#ngrams.push "#{line[0].to_i.chr}#{line[3].to_i.chr}#{line[6].to_i.chr}"
 
       # uncomment if using 4grams
-			#ngrams.push "#{line[0].to_i.chr}#{line[3].to_i.chr}#{line[6].to_i.chr}#{line[9].to_i.chr}"
+			ngrams.push "#{line[0].to_i.chr}#{line[3].to_i.chr}#{line[6].to_i.chr}#{line[9].to_i.chr}"
 		end
 		i += 1
 	end
@@ -64,9 +64,9 @@ while (query = file.gets)
 	sql_file.puts "\n\n--- Query: #{query}"
 	ngrams.each { |ngram|
     # uncomemnt if using trigrams
-		sql_file.puts "INSERT INTO ngrams.#{type} VALUES ('#{query}', '#{ngram}');"
+		#sql_file.puts "INSERT INTO ngrams.#{type} VALUES ('#{query}', '#{ngram}');"
     # uncomment if using 4grams
-		#sql_file.puts "INSERT INTO ngrams.#{type}_4grams VALUES ('#{query}', '#{ngram}');"
+		sql_file.puts "INSERT INTO ngrams.#{type}_4grams VALUES ('#{query}', '#{ngram}');"
 	}
 	sql_file.close
 
