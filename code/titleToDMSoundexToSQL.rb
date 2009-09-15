@@ -11,12 +11,13 @@
 ##########################################################
 
 require 'directories_setup'
+require 'config_parser'
 
 ################ CONFIGS ####################
 
 # type is the name of the table
-type = 'census_surnames_dm_soundex' # h, t, o, m, p, new_queries
-skip_queries = ['myjava', 'sea;klefjsdf','benjamin'] # Skip these queries because they make our program crash
+type = "#{@config.get_value('correct_tables')}_dm_soundex" # h, t, o, m, p, new_queries
+skip_queries = @config.get_value('skip_list') # Skip these queries because they make our program crash
 
 ############### /CONFIGS ####################
 

@@ -33,4 +33,4 @@ mysql_database = segments_tester
 # Skip these words - usually we want to skip them
 # because our dm soundex script errors on words
 # with a 'j' in particular a location
-skip_list= bijacovce, hajniky
+skip_list= ['bijacovce','hajniky']

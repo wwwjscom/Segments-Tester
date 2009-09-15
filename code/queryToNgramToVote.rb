@@ -19,13 +19,7 @@ require 'config_parser'
 @@types = []
 #@@types = Array['h', 't', 'o', 'm', 'p'] # The tables we wish to query
 #@@types = Array['t', 'o', 'm', 'p'] # The tables we wish to query (no h table)
-if @type == 3
-  @@types = "#{@config.get_value('correct_tables')}_3grams" # The tables we wish to query (no h table)
-elsif @type == 4
-  @@types = "#{@config.get_value('correct_tables')}_4grams" # The tables we wish to query (no h table)
-end
 
-@database = @config.get_value('mysql_database')
 
 ############### /CONFIGS ####################
 
@@ -36,6 +30,15 @@ class Ngrams
 
   def initialize (type)
     @type = type
+
+    if @type == 3
+      @@types = ["#{@@config.get_value('correct_tables')}_3grams"] # The tables we wish to query (no h table)
+    elsif @type == 4
+      @@types = "#{@@config.get_value('correct_tables')}_4grams" # The tables we wish to query (no h table)
+    end
+
+
+    @database = @@config.get_value('mysql_database')
   end
 
 
