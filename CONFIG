@@ -2,8 +2,8 @@
 # LOGS.  RAND will randomly generate queries using
 # specific algorithms, while logs will pull query
 # logs from a specified table.
-#tests = LOGS
-tests = RAND
+tests = LOGS
+#tests = RAND
 
 
 # Which table should be used to find the correct queries
@@ -12,8 +12,8 @@ tests = RAND
 # so t_segments, or query_logs_correct_dm_soundex.  This concat
 # is done within the program, and should not be defined here.
 # ex: tables = t, o, m, p, new_queries
-#correct_tables = query_logs_correct
-correct_tables = census_surnames
+correct_tables = query_logs_correct
+#correct_tables = census_surnames
 
 
 # Which table should be used to find the mispelled queries
