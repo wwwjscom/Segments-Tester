@@ -34,3 +34,11 @@ mysql_database = segments_tester
 # because our dm soundex script errors on words
 # with a 'j' in particular a location
 skip_list= ['bijacovce','hajniky']
+
+
+# Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
+multiplier = 0.1 
+
+
+# When a result is ranked greated than this, its marked as not found.
+cutoff = 60

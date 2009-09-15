@@ -148,7 +148,7 @@ def main test
 	@dm_soundex_results = Array.new
 	@soundex_results = Array.new
 
-	for i in (0..(TEN_PERCENT*MULTIPLIER).to_i)
+	for i in (0..(TEN_PERCENT*@multiplier).to_i)
 
 		orig_query = @correct_queries[i].to_s
 		mispelled_query = String.new(orig_query)
@@ -185,7 +185,7 @@ def main test
       mispelled_query = @mispelled_queries.shift.to_s
     end
 
-		puts "Orig: #{orig_query}, new: #{mispelled_query}" # DEBUG
+		#puts "Orig: #{orig_query}, new: #{mispelled_query}" # DEBUG
 
 		if mispelled_query.length <= 3
 			puts "Skipping...Query too short: #{mispelled_query}"
@@ -307,11 +307,11 @@ def main test
 
 		probability = nil
 
-		# Disreguard any finds whos rank is > CUTOFF
-		if dm_soundex_match_rank > CUTOFF then dm_soundex_found = 0 end
+		# Disreguard any finds whos rank is > @cutoff
+		if dm_soundex_match_rank > @cutoff then dm_soundex_found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if dm_soundex_match_rank > CUTOFF or dm_soundex_found == 0 then dm_soundex_match_rank = '-' end
+		if dm_soundex_match_rank > @cutoff or dm_soundex_found == 0 then dm_soundex_match_rank = '-' end
 
 		dm_soundex_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", dm_soundex_found, "Match Rank", dm_soundex_match_rank, "Rank", rank-1, "Probability", probability]
 		@dm_soundex_results.push(dm_soundex_result_hash)
@@ -418,11 +418,11 @@ def main test
 
 		probability = nil
 
-		# Disreguard any finds whos rank is > CUTOFF
-		if match_rank > CUTOFF then soundex_found = 0 end
+		# Disreguard any finds whos rank is > @cutoff
+		if match_rank > @cutoff then soundex_found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > CUTOFF or soundex_found == 0 then match_rank = '-' end
+		if match_rank > @cutoff or soundex_found == 0 then match_rank = '-' end
 
 		soundex_result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", soundex_found, "Match Rank", soundex_match_rank, "Rank", rank-1, "Probability", probability]
 		@soundex_results.push(soundex_result_hash)
@@ -495,11 +495,11 @@ def main test
 		probability = (match_votes.to_f/total_votes.to_f)*100
 
 
-		# Disreguard any finds whos rank is > CUTOFF
-		if match_rank > CUTOFF then four_grams_found = 0 end
+		# Disreguard any finds whos rank is > @cutoff
+		if match_rank > @cutoff then four_grams_found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > CUTOFF or four_grams_found == 0 then match_rank = '-' end
+		if match_rank > @cutoff or four_grams_found == 0 then match_rank = '-' end
 
 		result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", four_grams_found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		@four_grams_results.push(result_hash)
@@ -565,11 +565,11 @@ def main test
 
 		#if probability.to_s == "NaN" then puts "-"*200 end # DEBUG
 
-		# Disreguard any finds whos rank is > CUTOFF
-		if match_rank > CUTOFF then found = 0 end
+		# Disreguard any finds whos rank is > @cutoff
+		if match_rank > @cutoff then found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > CUTOFF or found == 0 then match_rank = '-' end
+		if match_rank > @cutoff or found == 0 then match_rank = '-' end
 
 		if probability.to_f <= 20 or probability.to_s == "NaN" then
 			#puts "Very low probability: #{probability}" # DEBUG
@@ -626,11 +626,11 @@ def main test
 
 		probability = (match_votes.to_f/total_votes.to_f)*100
 
-		# Disreguard any finds whos rank is > CUTOFF
-		if match_rank > CUTOFF then found = 0 end
+		# Disreguard any finds whos rank is > @cutoff
+		if match_rank > @cutoff then found = 0 end
 
 		# Make the match_rank - if it wasnt found or was too high
-		if match_rank > CUTOFF or found == 0 then match_rank = '-' end
+		if match_rank > @cutoff or found == 0 then match_rank = '-' end
 
 		result_hash = Hash["Orig Query", orig_query, "New Query", mispelled_query, "Found", found, "Match Rank", match_rank, "Rank", rank, "Probability", probability]
 		@ngram_results.push(result_hash)
@@ -646,7 +646,7 @@ def main test
 			@our_results.push(our_result_hash)
 		end
 
-		puts "#{(TEN_PERCENT*MULTIPLIER).to_i - i} runs left, #{@remaining_tests} tests left"
+		puts "#{(TEN_PERCENT*@multiplier).to_i - i} runs left, #{@remaining_tests} tests left"
 
 		#if i >= 2
 		#	break
@@ -655,7 +655,7 @@ def main test
 
 	end
 
-	puts "Ran #{j} times.\n\n"
+	puts "Ran #{j-1} times.\n\n"
 
 end
 
@@ -1012,11 +1012,9 @@ if @test_type == 'RAND'
   @correct_queries.shuffle!
 end
 
-MULTIPLIER = 0.1 # Multiply the 10% by this much.  Ie, I want to do 10% * MULTIPLIET runs.
-CUTOFF = 60 # When a result is ranked greated than this, its marked as not found.
+@multiplier = @config.get_value('multiplier').to_f
+@cutoff = @config.get_value('cutoff').to_i
 TOTAL = (@correct_queries.length) - 1
-puts TOTAL
-puts TOTAL * 0.1
 TEN_PERCENT = (TOTAL * 0.1).to_f
 
 
@@ -1029,22 +1027,22 @@ def setup
   case @test_type
     when "RAND" then
       @tests = Hash[
-        "1_char_drop", "d1"
-        #"2_char_drop", "d2", 
-        #"3_char_drop", "d3", 
-        #"4_char_drop", "d4", 
-        #"1_char_add", "a1", 
-        #"2_char_add", "a2", 
-        #"3_char_add", "a3", 
-        #"4_char_add", "a4", 
-        #"1_char_replace", "r1",
-        #"2_char_replace", "r2",
-        #"3_char_replace", "r3",
-        #"4_char_replace", "r4",
-        #"Adj_char_swap", "s1",
-        #"2_char_swap", "s2",
-        #"3_char_swap", "s3",
-        #"4_char_swap", "s4"
+        "1_char_drop", "d1",
+        "2_char_drop", "d2", 
+        "3_char_drop", "d3", 
+        "4_char_drop", "d4", 
+        "1_char_add", "a1", 
+        "2_char_add", "a2", 
+        "3_char_add", "a3", 
+        "4_char_add", "a4", 
+        "1_char_replace", "r1",
+        "2_char_replace", "r2",
+        "3_char_replace", "r3",
+        "4_char_replace", "r4",
+        "Adj_char_swap", "s1",
+        "2_char_swap", "s2",
+        "3_char_swap", "s3",
+        "4_char_swap", "s4"
         ]
     when "LOGS" then
       # test from query logs
