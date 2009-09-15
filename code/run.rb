@@ -1094,22 +1094,22 @@ def setup
   case @test_type
     when "RAND" then
       @tests = Hash[
-        "1_char_drop", "d1"
-        #"2_char_drop", "d2", 
-        #"3_char_drop", "d3", 
-        #"4_char_drop", "d4", 
-        #"1_char_add", "a1", 
-        #"2_char_add", "a2", 
-        #"3_char_add", "a3", 
-        #"4_char_add", "a4", 
-        #"1_char_replace", "r1",
-        #"2_char_replace", "r2",
-        #"3_char_replace", "r3",
-        #"4_char_replace", "r4",
-        #"Adj_char_swap", "s1",
-        #"2_char_swap", "s2",
-        #"3_char_swap", "s3",
-        #"4_char_swap", "s4"
+        "1_char_drop", "d1",
+        "2_char_drop", "d2", 
+        "3_char_drop", "d3", 
+        "4_char_drop", "d4", 
+        "1_char_add", "a1", 
+        "2_char_add", "a2", 
+        "3_char_add", "a3", 
+        "4_char_add", "a4", 
+        "1_char_replace", "r1",
+        "2_char_replace", "r2",
+        "3_char_replace", "r3",
+        "4_char_replace", "r4",
+        "Adj_char_swap", "s1",
+        "2_char_swap", "s2",
+        "3_char_swap", "s3",
+        "4_char_swap", "s4"
         ]
     when "LOGS" then
       # test from query logs
