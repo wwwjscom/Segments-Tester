@@ -67,7 +67,7 @@ soundex_hash.each do |query, soundex|
 
   sql_file.puts "\n\n--- Query: #{query}"
 
-  sql_file.puts "INSERT INTO dm_soundex.#{type} VALUES ('#{query}', '#{soundex}');"
+  sql_file.puts "INSERT INTO #{@config.get_value('mysql_database')}.#{type} VALUES ('#{query}', '#{soundex}');"
 
 end
 sql_file.close
