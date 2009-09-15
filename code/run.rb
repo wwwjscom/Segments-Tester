@@ -1,7 +1,6 @@
 #! /usr/bin/env ruby -w
 
 require 'rubygems'
-require 'parseconfig'
 # Queries both engines using a specified test
 
 require 'db'
