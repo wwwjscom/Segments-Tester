@@ -13,7 +13,7 @@ require 'directories_setup'
 
 ################ CONFIGS ####################
 
-type = 'census_surnames_4grams' # h, t, o, m, p, new_queries
+type = 'query_logs_correct_3grams' # h, t, o, m, p, new_queries
 
 ############### /CONFIGS ####################
 
