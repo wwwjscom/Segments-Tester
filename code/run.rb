@@ -370,7 +370,7 @@ def main test
 
 		@correct_tables.each do |table|
 
-			system("mysql -u root --password=root segments_tester -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{table}_soundex WHERE soundex = \"#{soundex_mispelled_query}\";'")
+			system("mysql -u root --password=root segments_tester -e 'SELECT query INTO OUTFILE \"#{TMP_DIR}/query_result.txt\" FIELDS TERMINATED BY \",\" LINES TERMINATED BY \"\n\" FROM #{@mysql_database}.#{table}_soundex WHERE soundex = \"#{soundex_mispelled_query}\";'")
 			soundex_results = File.open("#{TMP_DIR}/query_result.txt", 'r')
 
 			while vote = soundex_results.gets do
@@ -771,21 +771,50 @@ soundex_csv.close
 
 	combined_csv = File.open("#{OUTPUT_DIR}/combined_results_#{suffix}.csv", "w")
 
-	combined_csv.puts "Orig Query,New Query,Three-grams Found,Ours Found,Four-grams Found,DM Soundex Found,NGrams Match Rank,Ours Match Rank,Four-grams Match Rank,DM Soundex Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
+	string = "Orig Query,"
+  string += "New Query,"
+  string += "Soundex,"
+  string += "3grams Found,"
+  string += "Ours Found,"
+  string += "Four-grams Found,"
+  string += "DM Soundex Found,"
+  string += "Soundex Match Rank,"
+  string += "3Grams Match Rank,"
+  string += "Ours Match Rank,"
+  string += "Four-grams Match Rank,"
+  string += "DM Soundex Match Rank,"
+  string += "3grams Rank,"
+  string += "Ours Rank,"
+  string += "4grams Rank,"
+  string += "DM Soundex Rank,"
+  string += "3grams Probability,"
+  string += "Ours Probability"
+	combined_csv.puts string
 
 
 	#puts "-"*50
 	i=0
 	@ngram_results.each do |run|
-		#puts "Orig Query: #{run.fetch('Orig Query')}"
-		#puts "New Query: #{run.fetch('New Query')}"
-		#puts "Found: #{run.fetch('Found')}"
-		#puts "Match Rank: #{run.fetch('Match Rank')}"
-		#puts "Rank: #{run.fetch('Rank')}"
-		#puts "Probability: #{run.fetch('Probability')}"
-		#puts "-"*50
 
-		combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{@our_results[i].fetch('Found')},#{@four_grams_results[i].fetch('Found')},#{@dm_soundex_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{@our_results[i].fetch('Match Rank')},#{@four_grams_results[i].fetch('Match Rank')},#{@dm_soundex_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{@our_results[i].fetch('Rank')},#{@four_grams_results[i].fetch('Rank')},#{@dm_soundex_results[i].fetch('Rank')},#{run.fetch('Probability')},#{@our_results[i].fetch('Probability')}"
+		string = "#{run.fetch('Orig Query')},"
+    string += "#{run.fetch('New Query')},"
+    string += "#{@soundex_results[i].fetch('Found')},"
+    string += "#{run.fetch('Found')},"
+    string += "#{@our_results[i].fetch('Found')},"
+    string += "#{@four_grams_results[i].fetch('Found')},"
+    string += "#{@dm_soundex_results[i].fetch('Found')},"
+    string += "#{@soundex_results[i].fetch('Match Rank')}#{run.fetch('Match Rank')},"
+    string += "#{run.fetch('Match Rank')},"
+    string += "#{@our_results[i].fetch('Match Rank')},"
+    string += "#{@four_grams_results[i].fetch('Match Rank')},"
+    string += "#{@dm_soundex_results[i].fetch('Match Rank')},"
+    string += "#{run.fetch('Rank')},"
+    string += "#{@our_results[i].fetch('Rank')},"
+    string += "#{@four_grams_results[i].fetch('Rank')},"
+    string += "#{@dm_soundex_results[i].fetch('Rank')},"
+    string += "#{run.fetch('Probability')},"
+    string += "#{@our_results[i].fetch('Probability')}"
+		combined_csv.puts string
 
 		i += 1
 
@@ -803,8 +832,20 @@ soundex_csv.close
 
 	combined_csv = File.open("#{OUTPUT_DIR}/dropped_ngrams_notfound_results_#{suffix}.csv", "w")
 
-	combined_csv.puts "Orig Query,New Query,Ngrams Found,Ours Found,NGrams Match Rank,Ours Match Rank,Ngrams Rank,Ours Rank,Ngrams Probability,Ours Probability"
+  string = "Orig Query,"
+  string += "New Query,"
+  string += "Soundex,"
+  string += "3grams Found,"
+  string += "Ours Found,"
+  string += "Soundex Match Rank,"
+  string += "3Grams Match Rank,"
+  string += "Ours Match Rank,"
+  string += "3grams Rank,"
+  string += "Ours Rank,"
+  string += "3grams Probability,"
+  string += "Ours Probability"
 
+	combined_csv.puts string
 
 	j=0
 	i=0
@@ -814,7 +855,19 @@ soundex_csv.close
 			i += 1
 			next
 		else
-			combined_csv.puts "#{run.fetch('Orig Query')},#{run.fetch('New Query')},#{run.fetch('Found')},#{@our_results[i].fetch('Found')},#{run.fetch('Match Rank')},#{@our_results[i].fetch('Match Rank')},#{run.fetch('Rank')},#{@our_results[i].fetch('Rank')},#{run.fetch('Probability')},#{@our_results[i].fetch('Probability')}"
+			string = "#{run.fetch('Orig Query')},"
+      string += "#{run.fetch('New Query')},"
+      string += "#{@soundex_results[i].fetch('Found')},"
+      string += "#{run.fetch('Found')},"
+      string += "#{@our_results[i].fetch('Found')},"
+      string += "#{@soundex_results[i].fetch('Match Rank')},"
+      string += "#{run.fetch('Match Rank')},"
+      string += "#{@our_results[i].fetch('Match Rank')},"
+      string += "#{run.fetch('Rank')},"
+      string += "#{@our_results[i].fetch('Rank')},"
+      string += "#{run.fetch('Probability')},"
+      string += "#{@our_results[i].fetch('Probability')}"
+			combined_csv.puts string
 			i += 1
 			j += 1
 		end
@@ -844,42 +897,54 @@ def statistics
 		ngrams_runs = 0
 		four_grams_runs = 0
 		dm_soundex_runs = 0
+		soundex_runs = 0
 		s_runs = 0
 
 		ngrams_match = 0
 		four_grams_match = 0
 		dm_soundex_match = 0
+		soundex_match = 0
 		s_match = 0
 
 		ngrams_rank = 0
 		four_grams_rank = 0
 		dm_soundex_rank = 0
+		soundex_rank = 0
 		s_rank = 0
 
 		c_results = File.open("#{OUTPUT_DIR}/combined_results_#{test[0]}.csv", "r")
 		while line = c_results.gets
+      if total_runs == 0 # skip the header data
+        total_runs += 1
+        next
+      end
 			line = line.split(",")
 
-			ngrams_match += line[2].to_i
-			s_match += line[3].to_i
-			four_grams_match += line[4].to_i
-			dm_soundex_match += line[5].to_i
+			soundex_match += line[2].to_i
+			ngrams_match += line[3].to_i
+			s_match += line[4].to_i
+			four_grams_match += line[5].to_i
+			dm_soundex_match += line[6].to_i
 
-			if(line[6] != "-") then 
-				ngrams_runs += 1
-				ngrams_rank += line[6].to_i 
-			end
 			if(line[7] != "-") then 
-				s_runs += 1
-				s_rank += line[7].to_i 
+				soundex_runs += 1
+				soundex_rank += line[7].to_i 
 			end
 			if(line[8] != "-") then 
-				four_grams_runs += 1
-				four_grams_rank += line[8].to_i 
+				ngrams_runs += 1
+				ngrams_rank += line[8].to_i 
 			end
 			if(line[9] != "-") then 
+				s_runs += 1
+				s_rank += line[9].to_i 
+			end
+			if(line[10] != "-") then 
+				four_grams_runs += 1
+				four_grams_rank += line[10].to_i 
+			end
+			if(line[11] != "-") then 
 				dm_soundex_runs += 1
-				dm_soundex_rank += line[9].to_i 
+				dm_soundex_rank += line[11].to_i 
 			end
 			last_line = line
 
@@ -890,11 +955,13 @@ def statistics
 		s_rank = "%.2f" % (s_rank.to_f/(s_runs-1)).to_f
 		four_grams_rank = "%.2f" % (four_grams_rank.to_f/(four_grams_runs-1)).to_f
 		dm_soundex_rank = "%.2f" % (dm_soundex_rank.to_f/(dm_soundex_runs-1)).to_f
+		soundex_rank = "%.2f" % (soundex_rank.to_f/(soundex_runs-1)).to_f
 
 		ngrams_match_percent = "%.2f" % (ngrams_match.to_f/(total_runs-1)*100)
 		s_match_percent = "%.2f" % (s_match.to_f/(total_runs-1)*100)
 		four_grams_match_percent = "%.2f" % (four_grams_match.to_f/(total_runs-1)*100)
 		dm_soundex_match_percent = "%.2f" % (dm_soundex_match.to_f/(total_runs-1)*100)
+		soundex_match_percent = "%.2f" % (soundex_match.to_f/(total_runs-1)*100)
 
 		s_rank_alt = 0
 		i = 0
@@ -902,9 +969,9 @@ def statistics
 		while line = n_results.gets
 			line = line.split(",")
 
-			if(line[5] != "-") then 
+			if(line[6] != "-") then 
 				i += 1
-				s_rank_alt += line[5].to_f
+				s_rank_alt += line[6].to_f
 			end
 		end
 
@@ -913,7 +980,7 @@ def statistics
 		type = test[0].split("_")[2]
 		sub_type = test[0].split("_")[0] + " " + test[0].split("_")[1]
 
-		output = "* #{sub_type}\n** ngrams found: #{ngrams_match_percent}% (#{ngrams_match}/#{total_runs-1}); rank: #{ngrams_rank}\n** segments found: #{s_match_percent}% (#{s_match}/#{total_runs-1}); rank #{s_rank} & #{s_rank_alt}\n** four grams found: #{four_grams_match_percent}% (#{four_grams_match}/#{total_runs-1}); rank #{four_grams_rank}\n** DM soundex found: #{dm_soundex_match_percent}% (#{dm_soundex_match}/#{total_runs-1}); rank #{dm_soundex_rank}\n\n"
+		output = "* #{sub_type}\n** ngrams found: #{ngrams_match_percent}% (#{ngrams_match}/#{total_runs-1}); rank: #{ngrams_rank}\n** segments found: #{s_match_percent}% (#{s_match}/#{total_runs-1}); rank #{s_rank} & #{s_rank_alt}\n** four grams found: #{four_grams_match_percent}% (#{four_grams_match}/#{total_runs-1}); rank #{four_grams_rank}\n** DM soundex found: #{dm_soundex_match_percent}% (#{dm_soundex_match}/#{total_runs-1}); rank #{dm_soundex_rank}\n** Soundex found: #{soundex_match_percent}% (#{soundex_match}/#{total_runs-1}); rank #{soundex_rank}\n\n"
 
 		@out["#{test[1]}"] = output
 	end
@@ -1027,22 +1094,22 @@ def setup
   case @test_type
     when "RAND" then
       @tests = Hash[
-        "1_char_drop", "d1",
-        "2_char_drop", "d2", 
-        "3_char_drop", "d3", 
-        "4_char_drop", "d4", 
-        "1_char_add", "a1", 
-        "2_char_add", "a2", 
-        "3_char_add", "a3", 
-        "4_char_add", "a4", 
-        "1_char_replace", "r1",
-        "2_char_replace", "r2",
-        "3_char_replace", "r3",
-        "4_char_replace", "r4",
-        "Adj_char_swap", "s1",
-        "2_char_swap", "s2",
-        "3_char_swap", "s3",
-        "4_char_swap", "s4"
+        "1_char_drop", "d1"
+        #"2_char_drop", "d2", 
+        #"3_char_drop", "d3", 
+        #"4_char_drop", "d4", 
+        #"1_char_add", "a1", 
+        #"2_char_add", "a2", 
+        #"3_char_add", "a3", 
+        #"4_char_add", "a4", 
+        #"1_char_replace", "r1",
+        #"2_char_replace", "r2",
+        #"3_char_replace", "r3",
+        #"4_char_replace", "r4",
+        #"Adj_char_swap", "s1",
+        #"2_char_swap", "s2",
+        #"3_char_swap", "s3",
+        #"4_char_swap", "s4"
         ]
     when "LOGS" then
       # test from query logs
