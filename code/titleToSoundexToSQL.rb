@@ -14,7 +14,7 @@ require 'directories_setup'
 
 ################ CONFIGS ####################
 
-type = 'census_surnames_soundex' # h, t, o, m, p
+type = 'query_logs_correct_soundex' # h, t, o, m, p
 
 ############### /CONFIGS ####################
 
@@ -77,7 +77,7 @@ soundex_hash.each do |query, soundex|
 
   sql_file.puts "\n\n--- Query: #{query}"
 
-  sql_file.puts "INSERT INTO soundex.#{type} VALUES ('#{query}', '#{soundex}');"
+  sql_file.puts "INSERT INTO segments_tester.#{type} VALUES ('#{query}', '#{soundex}');"
 
 end
 sql_file.close

@@ -1,6 +1,5 @@
 #! /usr/bin/env ruby -w
 
-require 'rubygems'
 # Queries both engines using a specified test
 
 require 'db'
@@ -184,7 +183,7 @@ def main test
       mispelled_query = @mispelled_queries.shift.to_s
     end
 
-		#puts "Orig: #{orig_query}, new: #{mispelled_query}" # DEBUG
+		puts "Orig: #{orig_query}, new: #{mispelled_query}" # DEBUG
 
 		if mispelled_query.length <= 3
 			puts "Skipping...Query too short: #{mispelled_query}"
@@ -1057,16 +1056,22 @@ end
 @mispelled_queries = Array.new
 
 @correct_tables.each do |table|
-  #results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs_correct;')
-  results = @ngrams_sql.query('SELECT DISTINCT(query) FROM census_surnames;')
-  results.each do |result|
-    @correct_queries.push(result)
-  end
 
   if @test_type == 'LOGS'
     results = @ngrams_sql.query('SELECT query FROM query_logs_mispelled;')
     results.each do |result|
       @mispelled_queries.push(result)
+    end
+
+    results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs_correct;')
+    results.each do |result|
+      @correct_queries.push(result)
+    end
+  else
+    #results = @ngrams_sql.query('SELECT DISTINCT(query) FROM query_logs_correct;')
+    results = @ngrams_sql.query('SELECT DISTINCT(query) FROM census_surnames;')
+    results.each do |result|
+      @correct_queries.push(result)
     end
   end
 
@@ -1113,9 +1118,9 @@ def setup
     when "LOGS" then
       # test from query logs
       @tests = Hash[
-        #"query_logs_mom", "query_logs_mom",
-        #"query_logs_alayna", "query_logs_alayna",
-        #"query_logs_jay", "query_logs_jay",
+        "query_logs_mom", "query_logs_mom",
+        "query_logs_alayna", "query_logs_alayna",
+        "query_logs_jay", "query_logs_jay",
         "query_logs_dave", "query_logs_dave",
         "query_logs_chelsey", "query_logs_chelsey"
       ]

@@ -10,7 +10,23 @@
 ##########################################################
 
 require 'directories_setup'
-require 'config_parser'
+#require 'config_parser'
+#
+#
+# BUG!! There is some weird error with the config parser file that
+# when included causes this file to fail.  Thus, we'll have to continue to
+# edit this manually
+#
+# BUG WORK AROUND!!!! Edit the correct_tables variable below.  Make it
+# match the same variable that is in the config file.  Do the same for
+# the mysql_database variable.
+#
+
+correct_tables = 'query_logs_correct'
+mysql_database = 'segments_tester'
+
+
+# End bug work around
 
 ################ CONFIGS ####################
 
@@ -28,17 +44,14 @@ def options(param)
   return match
 end
 
-
 type = nil
+
 @n = options('n').to_i
 if @n == 3
-  type = "#{@config.get_value('correct_tables')}_3grams" # h, t, o, m, p, new_queries
+  type = "#{correct_tables}_3grams" # h, t, o, m, p, new_queries
 elsif @n == 4
-  type = "#{@config.get_value('correct_tables')}_4grams" # h, t, o, m, p, new_queries
+  type = "#{correct_tables}_4grams" # h, t, o, m, p, new_queries
 end
-
-puts @n
-puts type
 
 ############### /CONFIGS ####################
 
@@ -46,10 +59,7 @@ puts type
 begin
 	File.delete("#{TMP_DIR}/ngram_sql.sql")
 rescue
-
 end
-
-count = 0 # DEBUG
 
 file = File.open("#{type}.txt", "r")
 while (query = file.gets)
@@ -71,11 +81,8 @@ while (query = file.gets)
   end
 
 	# Iterate over out.txt assembling ngrams
-  begin
-    out_file = File.open("#{TMP_DIR}/out.txt", 'r')
-  rescue
-    next
-  end
+  out_file = File.open("#{TMP_DIR}/out.txt", 'r')
+
 	i = 0
 	ngrams = []
 	while (line = out_file.gets)
@@ -95,9 +102,9 @@ while (query = file.gets)
 	sql_file.puts "\n\n--- Query: #{query}"
 	ngrams.each { |ngram|
     if @n == 3
-      sql_file.puts "INSERT INTO #{@config.get_value('mysql_database')}.#{type}_3grams VALUES ('#{query}', '#{ngram}');"
+      sql_file.puts "INSERT INTO #{mysql_database}.#{type} VALUES ('#{query}', '#{ngram}');"
     elsif @n == 4
-      sql_file.puts "INSERT INTO #{@config.get_value('mysql_database')}.#{type}_4grams VALUES ('#{query}', '#{ngram}');"
+      sql_file.puts "INSERT INTO #{mysql_database}.#{type} VALUES ('#{query}', '#{ngram}');"
     end
 	}
 	sql_file.close
@@ -105,6 +112,5 @@ while (query = file.gets)
 	# Delete the query file
 	File.delete("#{TMP_DIR}/out.txt")
 
-  count += 1
 end
 file.close

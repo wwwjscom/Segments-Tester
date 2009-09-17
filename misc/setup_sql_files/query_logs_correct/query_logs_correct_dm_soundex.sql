@@ -1,4 +1,8 @@
-
+DROP TABLE IF EXISTS `query_logs_correct_dm_soundex`;
+CREATE TABLE `query_logs_correct_dm_soundex` (
+  `query` varchar(200) NOT NULL,
+  `dm_soundex` varchar(200) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --- Query: lipovec
 INSERT INTO segments_tester.query_logs_correct_dm_soundex VALUES ('lipovec', '877540 877400');
