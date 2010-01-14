@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>code/config_parser.rb</title>
+    <title>tests/soundex_spec.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Code C0 Coverage Information - RCov</h1>
-    <h2>code/config_parser.rb</h2>
+    <h2>tests/soundex_spec.rb</h2>
 
     
 
@@ -27,9 +27,9 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="code-config_parser_rb.html">code/config_parser.rb</a></td>
+            <td class="left_align"><a href="tests-soundex_spec_rb.html">tests/soundex_spec.rb</a></td>
             <td class='right_align'><tt>12</tt></td>
-            <td class='right_align'><tt>7</tt></td>
+            <td class='right_align'><tt>10</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -56,68 +56,68 @@
         
           
           
+          <tr class="marked">
+            <td><pre><a name="line1">1</a> require File.join(File.dirname(__FILE__), '../' 'code', 'soundex.rb')</pre></td>
+          </tr>
+        
+          
+          
           <tr class="inferred">
-            <td><pre><a name="line1">1</a> #! /usr/bin/env ruby -w</pre></td>
+            <td><pre><a name="line2">2</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line2">2</a> require 'rubygems'</pre></td>
+            <td><pre><a name="line3">3</a> describe String do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line3">3</a> require 'parseconfig'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line4">4</a> # Access config: config.get_value('test') </pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line5">5</a> </pre></td>
+            <td><pre><a name="line4">4</a>   it 'should encode correctly' do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line6">6</a> class Configure</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line7">7</a> </pre></td>
+            <td><pre><a name="line5">5</a>     &quot;Quadratically&quot;.soundex.should == 'Q363'</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line8">8</a>   def get_parser</pre></td>
+            <td><pre><a name="line6">6</a>     &quot;Quadratically&quot;.soundex(false).should == 'Q36324'</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line7">7</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line8">8</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line9">9</a>     return ParseConfig.new(File.join(ROOT_DIR, 'CONFIG'))</pre></td>
+            <td><pre><a name="line9">9</a>   it 'should tell me wtf this does' do</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line10">10</a>     &quot;Quadratically&quot;.sounds_like(&quot;Quadratically&quot;).should == true</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line10">10</a>   end</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="inferred">
-            <td><pre><a name="line11">11</a> </pre></td>
+            <td><pre><a name="line11">11</a>   end</pre></td>
           </tr>
         
           
