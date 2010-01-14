@@ -2,5 +2,11 @@
 require 'rubygems'
 require 'parseconfig'
 # Access config: config.get_value('test') 
-@config = ParseConfig.new("#{ROOT_DIR}/CONFIG")
-@@config = ParseConfig.new("#{ROOT_DIR}/CONFIG")
+
+class Configure
+
+  def get_parser
+    return ParseConfig.new(File.join(ROOT_DIR, 'CONFIG'))
+  end
+
+end

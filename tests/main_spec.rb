@@ -5,4 +5,10 @@ describe Main do
     main = Main.new
     main.class.should == Main
   end
+
+  it 'should run setup correctly' do
+    main = Main.new
+    main.setup
+    true.should == true
+  end
 end

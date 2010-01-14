@@ -10,6 +10,7 @@ require 'mysql'
 
 class DB
 
+  attr_accessor :user, :pass, :database
 
   def initialize(user, pass, database)
     @user = user
@@ -20,7 +21,7 @@ class DB
 
   # Abstract query function
   def query(q)
-    _query([q])
+    _query(q)
   end
 
 
@@ -32,13 +33,7 @@ class DB
     ret = []
     begin
       db = Mysql.real_connect('localhost', @user, @pass, @database)
-      if q.size == 1
-        ret = db.query(q[0])
-      else
-        q.each do |query|
-          ret.push(db.query(query))
-        end
-      end
+      ret = db.query(q)
     rescue Mysql::Error => e
       puts "Error code: #{e.errno}"
       puts "Error message: #{e.error}"
