@@ -137,8 +137,7 @@ class Main
   def setup
 
     ########### CONFIG ################
-    c = Configure.new
-    @config = c.get_parser
+    @config = Configure.get_parser
     @mysql_username = @config.get_value('mysql_username')
     @mysql_password = @config.get_value('mysql_password')
     @mysql_database = @config.get_value('mysql_database')

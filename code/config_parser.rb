@@ -5,8 +5,8 @@ require 'parseconfig'
 
 class Configure
 
-  def get_parser
-    return ParseConfig.new(File.join(ROOT_DIR, 'CONFIG'))
+  def self.get_parser
+    ParseConfig.new(File.join(ROOT_DIR, 'CONFIG'))
   end
 
 end

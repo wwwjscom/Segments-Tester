@@ -28,17 +28,17 @@ class Ngrams
 
   attr_accessor :type #either 3 or 4 gram
 
-  def initialize (type)
+  def initialize (type, config)
     @type = type
 
     if @type == 3
-      @@types = ["#{@@config.get_value('correct_tables')}_3grams"] # The tables we wish to query (no h table)
+      @@types = ["#{config.get_value('correct_tables')}_3grams"] # The tables we wish to query (no h table)
     elsif @type == 4
-      @@types = "#{@@config.get_value('correct_tables')}_4grams" # The tables we wish to query (no h table)
+      @@types = "#{config.get_value('correct_tables')}_4grams" # The tables we wish to query (no h table)
     end
 
 
-    @database = @@config.get_value('mysql_database')
+    @database = config.get_value('mysql_database')
   end
 
 

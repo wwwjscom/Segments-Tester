@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang='en' xml:lang='en' xmlns='http://www.w3.org/1999/xhtml'>
   <head>
-    <title>tests/db_spec.rb</title>
+    <title>tests/query_to_ngram_to_vote_spec.rb</title>
     <link href="screen.css" media="all" rel="stylesheet" type="text/css" />
     <link href="print.css" media="print" rel="stylesheet" type="text/css" />
     
@@ -10,7 +10,7 @@
   </head>
   <body>
     <h1>Code C0 Coverage Information - RCov</h1>
-    <h2>tests/db_spec.rb</h2>
+    <h2>tests/query_to_ngram_to_vote_spec.rb</h2>
 
     
 
@@ -27,9 +27,9 @@
         </thead>
         <tbody>
           <tr>
-            <td class="left_align"><a href="tests-db_spec_rb.html">tests/db_spec.rb</a></td>
-            <td class='right_align'><tt>30</tt></td>
-            <td class='right_align'><tt>25</tt></td>
+            <td class="left_align"><a href="tests-query_to_ngram_to_vote_spec_rb.html">tests/query_to_ngram_to_vote_spec.rb</a></td>
+            <td class='right_align'><tt>29</tt></td>
+            <td class='right_align'><tt>22</tt></td>
             <td class="left_align"><div class="percent_graph_legend"><tt class=''>100.00%</tt></div>
           <div class="percent_graph">
             <div class="covered" style="width:100px"></div>
@@ -57,49 +57,49 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line1">1</a> require File.join(File.dirname(__FILE__), '../' 'code', 'db.rb')</pre></td>
+            <td><pre><a name="line1">1</a> require File.join(File.dirname(__FILE__), '../', 'code', 'directories_setup.rb')</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line2">2</a> require File.join(File.dirname(__FILE__), '../', 'code', 'queryToNgramToVote.rb')</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="marked">
+            <td><pre><a name="line3">3</a> require File.join(File.dirname(__FILE__), '../', 'code', 'config_parser.rb')</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line2">2</a> </pre></td>
+            <td><pre><a name="line4">4</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line3">3</a> describe DB do</pre></td>
+            <td><pre><a name="line5">5</a> describe Ngrams do</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line6">6</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line4">4</a>   it 'should initialize correctly' do</pre></td>
+            <td><pre><a name="line7">7</a>   before do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line5">5</a>     db = DB.new('user', 'pass', 'db')</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line6">6</a>     db.user.should     == 'user'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line7">7</a>     db.pass.should     == 'pass'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line8">8</a>     db.database.should == 'db'</pre></td>
+            <td><pre><a name="line8">8</a>     @config = Configure.get_parser</pre></td>
           </tr>
         
           
@@ -117,67 +117,67 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line11">11</a>   it 'should query correctly with 1 result' do</pre></td>
+            <td><pre><a name="line11">11</a>   it 'should initialize correctly with a 3gram' do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line12">12</a>     db = DB.new('root', 'root', 'segments_tester')</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line13">13</a>     result = db.query 'select * from segments_tester.query_logs_correct ORDER BY query LIMIT 1;'</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line14">14</a>     result.fetch_row[0].should == &quot;banka&quot;</pre></td>
+            <td><pre><a name="line12">12</a>     ngram = Ngrams.new(3, @config)</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line15">15</a>   end</pre></td>
+            <td><pre><a name="line13">13</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line16">16</a> </pre></td>
+            <td><pre><a name="line14">14</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line17">17</a>   it 'should query correctly with &gt;1 result' do</pre></td>
+            <td><pre><a name="line15">15</a>   it 'should initialize correctly with a 4gram' do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line18">18</a>     db = DB.new('root', 'root', 'segments_tester')</pre></td>
+            <td><pre><a name="line16">16</a>     ngram = Ngrams.new(4, @config)</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line17">17</a>   end</pre></td>
+          </tr>
+        
+          
+          
+          <tr class="inferred">
+            <td><pre><a name="line18">18</a> </pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line19">19</a>     results = db.query 'select * from segments_tester.query_logs_correct ORDER BY query LIMIT 2;'</pre></td>
+            <td><pre><a name="line19">19</a>   it 'should query correctly with a 3gram' do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line20">20</a>     results.fetch_row[0].should == &quot;banka&quot;</pre></td>
+            <td><pre><a name="line20">20</a>     ngram = Ngrams.new(3, @config)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line21">21</a>     results.fetch_row[0].should == &quot;batovce&quot;</pre></td>
+            <td><pre><a name="line21">21</a>     ngram.query</pre></td>
           </tr>
         
           
@@ -195,43 +195,37 @@
           
           
           <tr class="marked">
-            <td><pre><a name="line24">24</a>   it 'should query correctly with an empty string' do</pre></td>
+            <td><pre><a name="line24">24</a>   it 'should query correctly with a 4gram' do</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line25">25</a>     db = DB.new('root', 'root', 'segments_tester')</pre></td>
+            <td><pre><a name="line25">25</a>     ngram = Ngrams.new(4, @config)</pre></td>
           </tr>
         
           
           
           <tr class="marked">
-            <td><pre><a name="line26">26</a>     results = db.query ''</pre></td>
-          </tr>
-        
-          
-          
-          <tr class="marked">
-            <td><pre><a name="line27">27</a>     puts &quot;Those error msgs are normal -- only part of our testing.&quot;</pre></td>
+            <td><pre><a name="line26">26</a>     ngram.query</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line28">28</a>   end</pre></td>
+            <td><pre><a name="line27">27</a>   end</pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line29">29</a> </pre></td>
+            <td><pre><a name="line28">28</a> </pre></td>
           </tr>
         
           
           
           <tr class="inferred">
-            <td><pre><a name="line30">30</a> end</pre></td>
+            <td><pre><a name="line29">29</a> end</pre></td>
           </tr>
         
       </tbody>
