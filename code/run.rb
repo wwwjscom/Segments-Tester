@@ -2,11 +2,12 @@
 
 # Queries both engines using a specified test
 
-require 'db'
-load "queryToNgramToVote.rb"
-load "soundex.rb"
-require 'directories_setup'
-require 'config_parser'
+require File.join(File.dirname(__FILE__), 'directories_setup.rb')
+require File.join(ROOT_DIR, 'code', 'db')
+require File.join(ROOT_DIR, 'code', 'queryToNgramToVote.rb')
+require File.join(ROOT_DIR, 'code', 'soundex.rb')
+require File.join(ROOT_DIR, 'code', 'config_parser.rb')
+#require 'directories_setup'
 
 
 ########### CONFIG ################

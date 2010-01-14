@@ -11,8 +11,8 @@
 #
 ############################################################
 
-require 'directories_setup'
-require 'config_parser'
+#require File.join(File.dirname(__FILE__), 'directories_setup.rb')
+#require File.join(CODE_DIR, 'config_parser.rb')
 
 ################ CONFIGS ####################
 
