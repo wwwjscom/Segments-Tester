@@ -1,9 +1,12 @@
 #! /usr/bin/env ruby -w
 
+require 'rubygems'
+require 'parseconfig'
+
 # Queries both engines using a specified test
 
 require File.join(File.dirname(__FILE__), 'directories_setup.rb')
-require File.join(ROOT_DIR, 'code', 'db')
+require File.join(ROOT_DIR, 'code', 'db.rb')
 require File.join(ROOT_DIR, 'code', 'queryToNgramToVote.rb')
 require File.join(ROOT_DIR, 'code', 'soundex.rb')
 require File.join(ROOT_DIR, 'code', 'config_parser.rb')
